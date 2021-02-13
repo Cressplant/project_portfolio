@@ -31,90 +31,99 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // appBar: PreferredSize(
+        //   preferredSize: Size(0.0,0.0),
+        //   child: Container(
+        //     color: Colors.red
+        //   ),
+        // ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Theme.of(context).cardColor,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'About'),
+            BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Contact'),
+          ],
+        ),
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
 
             SliverList(
                 delegate: SliverChildListDelegate([
                   Container(
+                    //TODO ADD PAINT SPOTS BEHIND THIS SECTION THAT MOVE UPON SCROLL?
                     color: Theme.of(context).cardColor,
-                    child: Center(
-                        child: Padding(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: CircleAvatar(
                             radius: 65,
                           ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Flutter Developer'),
+                              SizedBox(height: 4.0),
+                              Text('hyub ubhubhb ubhbbg bgvb jbhbgy jbhvgvg.')
+                            ],
+                          ),
                         )
+                      ],
                     ),
                   ),
 
-                  // Container(
-                  //   padding: const EdgeInsets.all(15.0),
-                  //   color: Theme.of(context).cardColor,
-                  //   child: Row(
-                  //     children: [
-                  //       CircleAvatar(),
-                  //       SizedBox(width: 10.0,),
-                  //       Expanded(
-                  //           child: Column(
-                  //             crossAxisAlignment: CrossAxisAlignment.start,
-                  //             children: [
-                  //               Text('Flutter Developer'),
-                  //               SizedBox(height: 4.0),
-                  //               Text('hyub ubhubhb ubhbbg bgvb jbhbgy jbhvgvg jvgg gvffch hvvfcfh hvgghv hvgvfc.')
-                  //             ],
-                  //           )
-                  //       )
-                  //     ],
-                  //   ),
-                  // )
                 ])
             ),
 
             SliverAppBar(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(20),
-                  ),
-                ),
+                // shape: RoundedRectangleBorder(
+                //   borderRadius: BorderRadius.vertical(
+                //     bottom: Radius.circular(20),
+                //   ),
+                // ),
                 backgroundColor: Theme.of(context).cardColor,
-                elevation: 0,
+                elevation: 1,
                 floating: true,
                 pinned: true,
                 automaticallyImplyLeading: false,
                 expandedHeight: 0,
                 bottom: PreferredSize(
                     // preferredSize: Size(double.infinity, 44.0),
-                    preferredSize: Size(double.infinity, 100.0),
-                    child: SizedBox(
-                      // height: 44.0,
-                      height: 100.0,
+                    preferredSize: Size(double.infinity, 44.0),
+                    child: Container(
+                      //TODO ADD BLUR BEHIND THIS SECTION TO SEPARATE IT?
+                      height: 44.0,
+                      color: Theme.of(context).primaryColor,
                       child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Flutter Developer'),
-                              SizedBox(height: 4.0),
-                              Text('hyub ubhubhb ubhbbg bgvb jbhbgy jbhvgvg jvgg gvffch hvvfcfh hvgghv hvgvfc.')
-                            ],
-                          ),
-                        )
+                          padding: EdgeInsets.all(10),
+                          child: Text('Flutter Projects', style: TextStyle(color: Colors.white),),
+                        ),
                       )
                     )))
           ],
-          body: Column(
-            children: _projects.map((_project) =>
-                ListTile(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (context) => ProjectScreen(_project)
-                      )),
-                  leading: Image.network(_project.image),
-                  title: Text(_project.title),
-                  subtitle: Text(_project.description),
-                )).toList(),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(
+                vertical: 25.0,
+              horizontal: 5.0
+            ),
+            child: Column(
+              children: _projects.map((_project) =>
+                  ListTile(
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(
+                            builder: (context) => ProjectScreen(_project)
+                        )),
+                    leading: Image.network(_project.image),
+                    title: Text(_project.title),
+                    subtitle: Text(_project.description),
+                  )).toList(),
+            ),
           ),
         ),
       ),
