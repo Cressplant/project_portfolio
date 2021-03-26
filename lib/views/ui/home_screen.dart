@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/ui/project_screen.dart';
 import 'package:project_portfolio/views/utils/default_dialog.dart';
@@ -137,40 +138,58 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _showHandshakeFloatingModal({required BuildContext context}) => showFloatingModalBottomSheet(
       context: context,
-      builder: (BuildContext context) => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Text('Handshake!'),
-                      SizedBox(
-                        height: 76.0,
-                        child: Stack(
-                          children: <Widget>[
-                            Padding(
+      builder: (BuildContext context) {
+        ThemeData _theme = Theme.of(context);
+
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text(
+                      'Hi there!',
+                    ),
+                    Text(
+                      '*Oscar offers you a handshake*',
+                      style: Theme.of(context).textTheme.bodyText1,
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 136.0,
+                      child: Stack(
+                        children: <Widget>[
+                          Align(
+                            alignment: Alignment.center,
+                            child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: CircleAvatar(
-                                radius: 30.0,
+                                radius: 60.0,
                                 backgroundColor: Colors.white,
-                                backgroundImage: AssetImage(''), //! PROFILE PICTURE
+                                backgroundImage: AssetImage('images/profile_picture.jpeg'),
                               ),
                             ),
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Image.asset(''), //! HANDSHAKE EMOJI
-                            )
-                          ],
-                        ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Image.asset(
+                              'images/handshake_emoji.png',
+                              height: 30.0,
+                            ),
+                          )
+                        ],
                       ),
-                    ],
-                  )),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: Container(
+                    ),
+                  ],
+                )),
+            Row(
+              children: <Widget>[
+                Expanded(
+                    child: InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Container(
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border(
@@ -178,22 +197,31 @@ class _HomeScreenState extends State<HomeScreen> {
                       right: BorderSide(color: Colors.grey),
                     )),
                     child: Center(
-                      child: Text('Accept'),
+                      child: Text('Accept', style: _theme.textTheme.bodyText1?.copyWith(color: Colors.blue)),
                     ),
-                  )),
-                  Expanded(
-                      child: Container(
+                  ),
+                )),
+                Expanded(
+                    child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                    _showHandshakeFloatingModal(context: context);
+                  },
+                  child: Container(
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border(
                       top: BorderSide(color: Colors.grey),
                     )),
                     child: Center(
-                      child: Text('Ignore'), //! POP UP AGAIN
+                      child: Text('Ignore', style: _theme.textTheme.bodyText1?.copyWith(color: Colors.orange)),
                     ),
-                  )),
-                  Expanded(
-                      child: Container(
+                  ),
+                )),
+                Expanded(
+                    child: InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Container(
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border(
@@ -201,13 +229,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       left: BorderSide(color: Colors.grey),
                     )),
                     child: Center(
-                      child: Text('Refuse'),
+                      child: Text(
+                        'Refuse',
+                        style: _theme.textTheme.bodyText1?.copyWith(color: Colors.red),
+                      ),
                     ),
-                  )),
-                ],
-              ),
-            ],
-          ));
+                  ),
+                )),
+              ],
+            ),
+          ],
+        );
+      });
 
   // Future<void> _showHandshakeFloatingModal(BuildContext context) => showCustomModalBottomSheet(
   //     context: context,
