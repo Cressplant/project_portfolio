@@ -1,28 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/ui/project_screen.dart';
+import 'package:project_portfolio/views/utils/default_dialog.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:project_portfolio/views/utils/floating_modal.dart';
 
 class HomeScreen extends StatefulWidget {
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  List<Project> _projects;
+  List<Project>? _projects;
 
   @override
   void initState() {
-
-    //TODO get from db
     _projects = [
-      Project(image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4', title: 'Project Name', description: 'Details about the project.'),
-      Project(image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4', title: 'Project Name', description: 'Details about the project.'),
-      Project(image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4', title: 'Project Name', description: 'Details about the project.'),
-      Project(image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4', title: 'Project Name', description: 'Details about the project.'),
-      Project(image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4', title: 'Project Name', description: 'Details about the project.'),
+      Project(
+          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
+          title: 'Project Name',
+          description: 'Details about the project.'),
+      Project(
+          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
+          title: 'Project Name',
+          description: 'Details about the project.'),
+      Project(
+          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
+          title: 'Project Name',
+          description: 'Details about the project.'),
+      Project(
+          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
+          title: 'Project Name',
+          description: 'Details about the project.'),
+      Project(
+          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
+          title: 'Project Name',
+          description: 'Details about the project.'),
     ];
+
+    WidgetsBinding.instance?.addPostFrameCallback((_) => _showHandshakeFloatingModal(context: context));
 
     super.initState();
   }
@@ -40,46 +56,38 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Theme.of(context).cardColor,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'About'),
-            BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Contact'),
+            const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'About'),
+            const BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Contact'),
           ],
         ),
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
-
             SliverList(
                 delegate: SliverChildListDelegate([
-                  Container(
-                    //TODO ADD PAINT SPOTS BEHIND THIS SECTION THAT MOVE UPON SCROLL?
-                    color: Theme.of(context).cardColor,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 65,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Flutter Developer'),
-                              SizedBox(height: 4.0),
-                              Text('hyub ubhubhb ubhbbg bgvb jbhbgy jbhvgvg.')
-                            ],
-                          ),
-                        )
-                      ],
+              Container(
+                //TODO ADD PAINT SPOTS BEHIND THIS SECTION THAT MOVE UPON SCROLL?
+                color: Theme.of(context).cardColor,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        radius: 65,
+                      ),
                     ),
-                  ),
-
-                ])
-            ),
-
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const <Widget>[Text('Flutter Developer'), SizedBox(height: 4.0), Text('hyub ubhubhb ubhbbg bgvb jbhbgy jbhvgvg.')],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ])),
             SliverAppBar(
                 // shape: RoundedRectangleBorder(
                 //   borderRadius: BorderRadius.vertical(
@@ -96,37 +104,116 @@ class _HomeScreenState extends State<HomeScreen> {
                     // preferredSize: Size(double.infinity, 44.0),
                     preferredSize: Size(double.infinity, 44.0),
                     child: Container(
-                      //TODO ADD BLUR BEHIND THIS SECTION TO SEPARATE IT?
-                      height: 44.0,
-                      color: Theme.of(context).primaryColor,
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Text('Flutter Projects', style: TextStyle(color: Colors.white),),
-                        ),
-                      )
-                    )))
+                        //TODO ADD BLUR BEHIND THIS SECTION TO SEPARATE IT?
+                        height: 44.0,
+                        color: Theme.of(context).primaryColor,
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Text(
+                              'Flutter Projects',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ))))
           ],
           body: Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: 25.0,
-              horizontal: 5.0
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 25.0, horizontal: 5.0),
             child: Column(
-              children: _projects.map((_project) =>
-                  ListTile(
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(
-                            builder: (context) => ProjectScreen(_project)
-                        )),
-                    leading: Image.network(_project.image),
-                    title: Text(_project.title),
-                    subtitle: Text(_project.description),
-                  )).toList(),
-            ),
+                children: _projects
+                        ?.map((_project) => ListTile(
+                              onTap: () => Navigator.push<Null>(context, MaterialPageRoute(builder: (context) => ProjectScreen(_project))),
+                              leading: Image.network(_project.image),
+                              title: Text(_project.title),
+                              subtitle: Text(_project.description),
+                            ))
+                        .toList() ??
+                    []),
           ),
         ),
       ),
     );
   }
+
+  Future<void> _showHandshakeFloatingModal({required BuildContext context}) => showFloatingModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text('Handshake!'),
+                      SizedBox(
+                        height: 76.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: CircleAvatar(
+                                radius: 30.0,
+                                backgroundColor: Colors.white,
+                                backgroundImage: AssetImage(''), //! PROFILE PICTURE
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Image.asset(''), //! HANDSHAKE EMOJI
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        border: Border(
+                      top: BorderSide(color: Colors.grey),
+                      right: BorderSide(color: Colors.grey),
+                    )),
+                    child: Center(
+                      child: Text('Accept'),
+                    ),
+                  )),
+                  Expanded(
+                      child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        border: Border(
+                      top: BorderSide(color: Colors.grey),
+                    )),
+                    child: Center(
+                      child: Text('Ignore'), //! POP UP AGAIN
+                    ),
+                  )),
+                  Expanded(
+                      child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        border: Border(
+                      top: BorderSide(color: Colors.grey),
+                      left: BorderSide(color: Colors.grey),
+                    )),
+                    child: Center(
+                      child: Text('Refuse'),
+                    ),
+                  )),
+                ],
+              ),
+            ],
+          ));
+
+  // Future<void> _showHandshakeFloatingModal(BuildContext context) => showCustomModalBottomSheet(
+  //     context: context,
+  //     builder: (context) => DefaultDialog(
+  //             child: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [],
+  //         )));
 }
