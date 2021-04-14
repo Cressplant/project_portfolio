@@ -3,13 +3,14 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class DefaultDialog extends StatelessWidget {
+
   DefaultDialog({
     @required this.child,
     this.backgroundColor,
     this.showClose = true,
     this.padding = const EdgeInsets.all(15),
     this.constraints = const BoxConstraints(maxHeight: 420, maxWidth: 355),
-  }) : assert(constraints != null);
+  });
 
   final Widget? child;
   final bool showClose;
@@ -27,6 +28,7 @@ class DefaultDialog extends StatelessWidget {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: AnimatedContainer(
+          alignment: Alignment.topCenter,
           duration: Duration(milliseconds: 300),
           constraints: constraints,
           child: Stack(

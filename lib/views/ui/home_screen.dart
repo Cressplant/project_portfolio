@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
+import 'package:project_portfolio/views/business_logic/utils/database.dart';
+import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
 import 'package:project_portfolio/views/ui/project_screen.dart';
-import 'package:project_portfolio/views/utils/default_dialog.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:project_portfolio/views/utils/floating_modal.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,34 +11,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  DataBase _dataBase = DataBase();
   List<Project>? _projects;
 
   @override
   void initState() {
-    _projects = [
-      Project(
-          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
-          title: 'Project Name',
-          description: 'Details about the project.'),
-      Project(
-          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
-          title: 'Project Name',
-          description: 'Details about the project.'),
-      Project(
-          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
-          title: 'Project Name',
-          description: 'Details about the project.'),
-      Project(
-          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
-          title: 'Project Name',
-          description: 'Details about the project.'),
-      Project(
-          image: 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/app_notifications_icon.png?alt=media&token=f990bca4-f2a9-46e5-8fe6-038d74993db4',
-          title: 'Project Name',
-          description: 'Details about the project.'),
-    ];
+    // _projects = _dataBase.getData(collection: 'projects').values.map((e) => Project.fromMap(e)).toList();
+    _projects = [];
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) => _showHandshakeFloatingModal(context: context));
+    WidgetsBinding.instance?.addPostFrameCallback((_) => showHandShakeOverlay(context));
 
     super.initState();
   }
@@ -135,112 +115,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  Future<void> _showHandshakeFloatingModal({required BuildContext context}) => showFloatingModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        ThemeData _theme = Theme.of(context);
-
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text(
-                      'Hi there!',
-                    ),
-                    Text(
-                      '*Oscar offers you a handshake*',
-                      style: Theme.of(context).textTheme.bodyText1,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 136.0,
-                      child: Stack(
-                        children: <Widget>[
-                          Align(
-                            alignment: Alignment.center,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: CircleAvatar(
-                                radius: 60.0,
-                                backgroundColor: Colors.white,
-                                backgroundImage: AssetImage('images/profile_picture.jpeg'),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Image.asset(
-                              'images/handshake_emoji.png',
-                              height: 30.0,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
-            Row(
-              children: <Widget>[
-                Expanded(
-                    child: InkWell(
-                  onTap: () => Navigator.pop(context),
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        border: Border(
-                      top: BorderSide(color: Colors.grey),
-                      right: BorderSide(color: Colors.grey),
-                    )),
-                    child: Center(
-                      child: Text('Accept', style: _theme.textTheme.bodyText1?.copyWith(color: Colors.blue)),
-                    ),
-                  ),
-                )),
-                Expanded(
-                    child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                    _showHandshakeFloatingModal(context: context);
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        border: Border(
-                      top: BorderSide(color: Colors.grey),
-                    )),
-                    child: Center(
-                      child: Text('Ignore', style: _theme.textTheme.bodyText1?.copyWith(color: Colors.orange)),
-                    ),
-                  ),
-                )),
-                Expanded(
-                    child: InkWell(
-                  onTap: () => Navigator.pop(context),
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        border: Border(
-                      top: BorderSide(color: Colors.grey),
-                      left: BorderSide(color: Colors.grey),
-                    )),
-                    child: Center(
-                      child: Text(
-                        'Refuse',
-                        style: _theme.textTheme.bodyText1?.copyWith(color: Colors.red),
-                      ),
-                    ),
-                  ),
-                )),
-              ],
-            ),
-          ],
-        );
-      });
 
   // Future<void> _showHandshakeFloatingModal(BuildContext context) => showCustomModalBottomSheet(
   //     context: context,
