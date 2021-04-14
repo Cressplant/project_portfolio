@@ -41,10 +41,13 @@ Future<void> showHandShakeOverlay(BuildContext context) {
                         ],
                       ),
                     ),
-                    Text(
-                      '*Oscar has initiated a handshake*',
-                      // style: Theme.of(context).textTheme.bodyText1,
-                      textAlign: TextAlign.center,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      child: Text(
+                        '*Oscar has initiated a handshake*',
+                        // style: Theme.of(context).textTheme.bodyText1,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 )),
