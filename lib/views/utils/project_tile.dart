@@ -17,7 +17,7 @@ class ProjectTile extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
         decoration: BoxDecoration(
           color: _theme.cardColor,
-          borderRadius: BorderRadius.circular(15),
+          // borderRadius: BorderRadius.circular(15),
           boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 6.0, offset: Offset(1, 1))],
         ),
         child: Row(

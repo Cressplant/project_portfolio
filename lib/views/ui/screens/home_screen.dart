@@ -4,6 +4,7 @@ import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/business_logic/utils/database.dart';
 import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
 import 'package:project_portfolio/views/ui/screens/project_screen.dart';
+import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/project_tile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     ThemeData _theme = Theme.of(context);
+    double _width = MediaQuery.of(context).size.width;
     bool _mobile = true; // checkMobile(context); //!
 
     return SafeArea(
@@ -62,11 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         // clipBehavior: Clip.hardEdge,
                         height: 200,
                         decoration: BoxDecoration(
-                            color: _theme.primaryColor,
-                            image: DecorationImage(
-                                alignment: Alignment.topCenter,
-                                fit: BoxFit.cover,
-                                image: AssetImage(_mobile ? 'images/background_mobile.jpg' : 'images/background_desktop.jpg'))),
+                          color: _theme.backgroundColor,
+                          // image: DecorationImage(alignment: Alignment.topCenter, fit: BoxFit.cover,
+                          // image: AssetImage(_mobile ? 'images/background_mobile.jpg' : 'images/background_desktop.jpg')
+                          // )
+                        ),
                         child: Stack(
                           children: [
                             Align(
@@ -88,10 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             Align(
                               alignment: Alignment.bottomCenter,
                               child: Container(
-                                height: 80,
-                                width: double.infinity,
-                                decoration: BoxDecoration(color: _theme.cardColor, borderRadius: BorderRadius.vertical(top: Radius.circular(15.0))),
-                              ),
+                                  height: 80,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: _theme.cardColor,
+                                    // borderRadius: BorderRadius.vertical(top: Radius.circular(15.0))
+                                  ),
+                                  child: Align(alignment: Alignment.topLeft, child: Container(height: 30.0, width: _width * 0.85, color: _theme.accentColor))),
                             ),
                             Align(
                               alignment: Alignment.bottomCenter,
@@ -113,13 +118,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Text(
-                            'Flutter Developer',
-                            style: _theme.textTheme.headline3,
-                          ),
+                          CustomTitle(title: 'Oscar Newman'),
                           Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text('I\'m creative, driven & professional, and am currently open to new developer roles.'),
+                            padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 5.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Flutter Developer',
+                                  style: _theme.textTheme.subtitle2,
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Text('I am creative, driven & professional, and am currently open to new developer roles.')
+                              ],
+                            ),
                           )
                         ],
                       ),
@@ -144,14 +158,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: PreferredSize(
                     // preferredSize: Size(double.infinity, 44.0),
                     preferredSize: Size(double.infinity, 44.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        'Projects',
-                        style: _theme.textTheme.headline3,
-                        // style: TextStyle(color: Colors.white),
-                      ),
-                    )))
+                    child: Padding(padding: const EdgeInsets.all(10.0), child: CustomTitle(title: 'Projects')
+                        // child: Text(
+                        //   'Projects',
+                        //   style: _theme.textTheme.headline3,
+                        //   // style: TextStyle(color: Colors.white),
+                        // ),
+                        )))
           ],
           body: Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
