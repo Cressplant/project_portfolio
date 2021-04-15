@@ -15,12 +15,12 @@ class MyApp extends StatelessWidget {
       title: 'Project Portfolio',
       theme: ThemeData(
         textTheme: TextTheme(
-          headline1: GoogleFonts.robotoSlab(fontSize: 26),
-          headline2: GoogleFonts.robotoSlab(fontSize: 24),
-          headline3: GoogleFonts.robotoSlab(fontSize: 18),
-          headline4: GoogleFonts.robotoSlab(fontSize: 20),
-          headline5: GoogleFonts.robotoSlab(fontSize: 20),
-          headline6: GoogleFonts.robotoSlab(fontSize: 20),
+          headline1: GoogleFonts.averiaSansLibre(fontSize: 26),
+          headline2: GoogleFonts.averiaSansLibre(fontSize: 24),
+          headline3: GoogleFonts.averiaSansLibre(fontSize: 18, color: Colors.black),
+          headline4: GoogleFonts.averiaSansLibre(fontSize: 20),
+          headline5: GoogleFonts.averiaSansLibre(fontSize: 20),
+          headline6: GoogleFonts.averiaSansLibre(fontSize: 20),
         ),
         primarySwatch: Colors.lightBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
