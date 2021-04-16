@@ -15,7 +15,13 @@ class CustomTitle extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomLeft,
       children: [
-        Container(color: color ?? _theme.accentColor, height: _textSize / 2, width: title.length * (_textSize / 2)),
+        Container(
+          height: _textSize / 2,
+          width: title.length * (_textSize / 2),
+          decoration: BoxDecoration(
+              color: color ?? _theme.accentColor,
+              image: DecorationImage(fit: BoxFit.contain, repeat: ImageRepeat.repeat, image: AssetImage('images/wavy_line_pattern.png'))),
+        ),
         Text(title, style: _titleStyle),
       ],
     );

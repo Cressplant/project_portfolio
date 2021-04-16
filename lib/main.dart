@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           headline5: GoogleFonts.ubuntu(fontSize: 20),
           headline6: GoogleFonts.averiaSansLibre(fontSize: 20),
         ),
-        primarySwatch: Colors.lightGreen,
+        primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),

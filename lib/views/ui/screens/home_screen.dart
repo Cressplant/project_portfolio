@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Align(
                               alignment: Alignment.topCenter,
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
+                                // mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   IconButton(
                                     icon: Icon(Icons.email),
