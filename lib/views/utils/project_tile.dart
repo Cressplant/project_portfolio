@@ -28,11 +28,12 @@ class ProjectTile extends StatelessWidget {
                   color: project.accentColor,
                   // borderRadius: BorderRadius.circular(15),
 
-                  image: DecorationImage(alignment: Alignment.bottomCenter, image: AssetImage(project.coverImage)) //! CONVERT TO NETWORK IMAGE
+                  image: DecorationImage(
+                      alignment: Alignment.bottomCenter, fit: BoxFit.contain, image: AssetImage(project.coverImage)) //! CONVERT TO NETWORK IMAGE
                   ),
               child: Stack(
                 children: [
-                  Container(color: _theme.cardColor.withOpacity(0.1)),
+                  Container(color: _theme.accentColor.withOpacity(0.3)),
                   // ImageFiltered(
                   //     imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                   //     child: ShaderMask(
@@ -58,11 +59,7 @@ class ProjectTile extends StatelessWidget {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Image.network(
-                                    project.logo,
-                                    height: 20.0,
-                                    width: 20.0,
-                                  ),
+                                  Hero(tag: project.logo, child: Image.network(project.logo, height: 20.0, width: 20.0)),
                                   SizedBox(width: 10.0),
                                   Text(project.title, style: _theme.textTheme.bodyText1),
                                 ],

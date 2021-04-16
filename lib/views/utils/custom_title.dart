@@ -16,17 +16,15 @@ class CustomTitle extends StatelessWidget {
 
     return CustomCard(
         child: Row(
-          children: [
-            if(leading != null)
-            Padding(padding: EdgeInsets.only(right: 10.0),
-            child: leading
-            ),
-            Text(
-      title,
-      style: _theme.textTheme.headline4,
-    ),
-          ],
-        ));
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (leading != null) Padding(padding: EdgeInsets.only(right: 10.0), child: leading),
+        Text(
+          title,
+          style: _theme.textTheme.headline4,
+        ),
+      ],
+    ));
 
     // return Stack(
     //   alignment: Alignment.bottomLeft,

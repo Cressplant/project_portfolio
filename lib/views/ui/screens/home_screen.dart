@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/business_logic/utils/database.dart';
 import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
@@ -37,12 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(
       child: Scaffold(
-        // appBar: PreferredSize(
-        //   preferredSize: Size(0.0,0.0),
-        //   child: Container(
-        //     color: Colors.red
-        //   ),
-        // ),
         backgroundColor: _theme.cardColor,
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: _theme.cardColor,
@@ -52,18 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
             const BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Contact'),
           ],
         ),
-        // appBar: AppBar(
-        //   actions: [
-        //     IconButton(
-        //       icon: Icon(Icons.email),
-        //       onPressed: () {},
-        //     ),
-        //     IconButton(
-        //       icon: Icon(Icons.phone),
-        //       onPressed: () {},
-        //     ),
-        //   ],
-        // ),
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
             SliverList(
@@ -78,6 +59,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       )),
                   child: Stack(
                     children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Row(
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.email),
+                              onPressed: () {},
+                            ),
+                            IconButton(
+                              icon: Icon(Icons.phone),
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                      ),
                       Align(
                         alignment: Alignment(0.5, 0.0),
                         child: Container(
@@ -120,60 +116,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       )
                     ],
-                  )
-                  // child: Row(
-                  //   // crossAxisAlignment: CrossAxisAlignment.center,
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: [
-                  //     Text('Oscar Newman', style: _theme.textTheme.headline3),
-                  //     // CustomTitle(title: 'Oscar Newman'),
-                  //     SizedBox(width: 5.0),
-                  //     Container(
-                  //       margin: EdgeInsets.only(bottom: 15),
-                  //       height: 30,
-                  //       width: 30,
-                  //       decoration: BoxDecoration(
-                  //           shape: BoxShape.circle,
-                  //           boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
-                  //           color: _theme.accentColor,
-                  //           image: DecorationImage(image: AssetImage('images/profile_picture.jpeg'))),
-                  //     ),
-                  //   ],
-                  // )
-                  ),
-
-              // Container(
-              //     //TODO ADD PAINT SPOTS BEHIND THIS SECTION THAT MOVE UPON SCROLL?
-              //     color: _theme.cardColor,
-              //     child: Row(
-              //       // crossAxisAlignment: CrossAxisAlignment.center,
-              //       mainAxisAlignment: MainAxisAlignment.end,
-              //       children: [
-              //         Text('Oscar Newman', style: _theme.textTheme.headline3),
-              //         // CustomTitle(title: 'Oscar Newman'),
-              //         SizedBox(width: 5.0),
-              //         Container(
-              //           margin: EdgeInsets.only(bottom: 15),
-              //           height: 30,
-              //           width: 30,
-              //           decoration: BoxDecoration(
-              //               shape: BoxShape.circle,
-              //               boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
-              //               color: _theme.accentColor,
-              //               image: DecorationImage(image: AssetImage('images/profile_picture.jpeg'))),
-              //         ),
-              //       ],
-              //     )),
+                  )),
             ])),
             SliverAppBar(
-                // shape: RoundedRectangleBorder(
-                //   borderRadius: BorderRadius.vertical(
-                //     bottom: Radius.circular(20),
-                //   ),
-                // ),
                 backgroundColor: _theme.cardColor,
-                // elevation: 0,
-
                 floating: true,
                 pinned: true,
                 automaticallyImplyLeading: false,
@@ -181,10 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: PreferredSize(
                     // preferredSize: Size(double.infinity, 44.0),
                     preferredSize: Size(double.infinity, 70.0),
-                    child: Padding(padding: const EdgeInsets.all(10.0), 
-                    child: CustomTitle(
-                      leading: Icon(Icons.brief), 
-                      title: 'My Work')
+                    child: Padding(padding: const EdgeInsets.all(10.0), child: CustomTitle(leading: Icon(Icons.folder_outlined), title: 'My Work')
                         // child: Text(
                         //   'Projects',
                         //   style: _theme.textTheme.headline3,
@@ -193,31 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         )))
           ],
-          body: Column(
-              children: _projects
-                      ?.map((_project) => ProjectTile(_project)
-                          // ListTile(
-                          //     // tileColor: _theme.accentColor,
-                          //     isThreeLine: true,
-                          //     onTap: () => Navigator.push<Null>(context, MaterialPageRoute(builder: (context) => ProjectScreen(_project))),
-                          //     leading: Image.network(_project.image),
-                          //     title: Text(_project.title),
-                          //     // subtitle: Text(_project.description),
-                          //     subtitle: Wrap(
-                          //         spacing: 3.0,
-                          //         runSpacing: 1.0,
-                          //         children: _project.tags
-                          //             .map((_tag) => Chip(
-                          //                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          //                   label: Text(_tag.title),
-                          //                   labelStyle: _theme.textTheme.caption?.copyWith(color: Colors.white),
-                          //                   backgroundColor: _tag.color,
-                          //                 ))
-                          //             .toList() // TODO: assign text color using background invert?
-                          //         ))
-                          )
-                      .toList() ??
-                  []),
+          body: SingleChildScrollView(child: Column(children: _projects?.map((_project) => ProjectTile(_project)).toList() ?? [])),
         ),
       ),
     );

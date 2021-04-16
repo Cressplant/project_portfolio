@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:project_portfolio/views/ui/screens/home_screen.dart';
 
 void main() {
@@ -14,21 +13,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Project Portfolio',
       theme: ThemeData(
-        textTheme: TextTheme(
-          headline1: TextStyle(fontSize: 26),
-          headline2: TextStyle(fontSize: 24),
-          headline3: TextStyle(fontSize: 18, color: Colors.black),
-          headline4: TextStyle(fontSize: 16, color: Colors.black),
-          headline5: TextStyle(fontSize: 20),
-          headline6: TextStyle(fontSize: 20),
-          subtitle1: TextStyle(fontSize: 14),
-          subtitle2: TextStyle(fontSize: 14),
-
-          // headline6: GoogleFonts.averiaSansLibre(fontSize: 20),
-        ),
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          textTheme: TextTheme(
+            headline1: TextStyle(fontSize: 26),
+            headline2: TextStyle(fontSize: 24),
+            headline3: TextStyle(fontSize: 18, color: Colors.black),
+            headline4: TextStyle(fontSize: 16, color: Colors.black),
+            headline5: TextStyle(fontSize: 20, color: Colors.black),
+            headline6: TextStyle(fontSize: 20, color: Colors.black),
+            subtitle1: TextStyle(fontSize: 14),
+            subtitle2: TextStyle(fontSize: 14),
+          ),
+          iconTheme: IconThemeData(color: Colors.blue.shade900),
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          appBarTheme: AppBarTheme(elevation: 0, iconTheme: IconThemeData())),
       home: HomeScreen(),
     );
   }
