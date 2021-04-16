@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-class DefaultDialog extends StatelessWidget {
+class CustomDialog extends StatelessWidget {
 
-  DefaultDialog({
+  CustomDialog({
     @required this.child,
     this.backgroundColor,
     this.showClose = true,

@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/ui/screens/project_screen.dart';
+import 'package:project_portfolio/views/utils/custom_card.dart';
 
 class ProjectTile extends StatelessWidget {
   Project project;
@@ -14,50 +17,109 @@ class ProjectTile extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.push<Null>(context, MaterialPageRoute(builder: (context) => ProjectScreen(project))),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
         decoration: BoxDecoration(
-          color: _theme.cardColor,
-          // borderRadius: BorderRadius.circular(15),
           boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 6.0, offset: Offset(1, 1))],
         ),
-        child: Row(
+        child: Column(
           children: [
-            Image.network(
-              project.image,
-              height: 60.0,
-              width: 60.0,
-            ),
+            Container(
+              height: 240.0,
+              decoration: BoxDecoration(
+                  color: project.accentColor,
+                  // borderRadius: BorderRadius.circular(15),
 
-            SizedBox(
-              width: 15.0,
-            ),
-
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                  image: DecorationImage(alignment: Alignment.bottomCenter, image: AssetImage(project.coverImage)) //! CONVERT TO NETWORK IMAGE
+                  ),
+              child: Stack(
                 children: [
-                  Text(project.title, style: _theme.textTheme.bodyText1),
-                  SizedBox(height: 4.0),
-                  Text(project.description, style: _theme.textTheme.caption),
-                  SizedBox(height: 4.0),
-                  Wrap(
-                      spacing: 3.0,
-                      runSpacing: 1.0,
-                      children: project.tags
-                          .map((_tag) => Chip(
-                                visualDensity: VisualDensity.compact,
-                                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                label: Text(_tag.title),
-                                labelStyle: _theme.textTheme.caption?.copyWith(color: Colors.white),
-                                backgroundColor: _tag.color,
-                              ))
-                          .toList() // TODO: assign text color using background invert?
-                      )
+                  Container(color: _theme.cardColor.withOpacity(0.1)),
+                  // ImageFiltered(
+                  //     imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  //     child: ShaderMask(
+                  //       shaderCallback: (rect) {
+                  //         return LinearGradient(
+                  //             begin: Alignment.topCenter,
+                  //             end: Alignment.bottomCenter,
+                  //             colors: [Colors.black, Colors.black.withOpacity(0)],
+                  //             stops: [0.4, 0.75]).createShader(rect);
+                  //       },
+                  //       blendMode: BlendMode.dstOut,
+                  //       child: Image.asset(project.coverImage, fit: BoxFit.cover, alignment: Alignment.bottomCenter),
+                  //     )),
+                  Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CustomCard(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Image.network(
+                                    project.logo,
+                                    height: 20.0,
+                                    width: 20.0,
+                                  ),
+                                  SizedBox(width: 10.0),
+                                  Text(project.title, style: _theme.textTheme.bodyText1),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Wrap(
+                                spacing: 3.0,
+                                runSpacing: 1.0,
+                                children: project.tags
+                                    .map((_tag) => Chip(
+                                          visualDensity: VisualDensity.compact,
+                                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                          label: Text(_tag.title),
+                                          labelStyle: _theme.textTheme.caption?.copyWith(color: Colors.white),
+                                          backgroundColor: _tag.color,
+                                        ))
+                                    .toList() // TODO: assign text color using background invert?
+                                )
+                          ],
+                        ),
+                      )),
                 ],
               ),
-            )
-
-            // Spacer(),
+            ),
+            // Container(
+            //   // height: 30.0,
+            //   color: project.primaryColor,
+            //   padding: EdgeInsets.all(4.0),
+            //   child: Row(
+            //     children: [
+            //       Image.network(
+            //         project.logo,
+            //         height: 20.0,
+            //         width: 20.0,
+            //       ),
+            //       SizedBox(width: 10.0),
+            //       Text(project.title, style: _theme.textTheme.bodyText1),
+            //       Spacer(),
+            //       Wrap(
+            //           spacing: 3.0,
+            //           runSpacing: 1.0,
+            //           children: project.tags
+            //               .map((_tag) => Chip(
+            //                     visualDensity: VisualDensity.compact,
+            //                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            //                     label: Text(_tag.title),
+            //                     labelStyle: _theme.textTheme.caption?.copyWith(color: Colors.white),
+            //                     backgroundColor: _tag.color,
+            //                   ))
+            //               .toList() // TODO: assign text color using background invert?
+            //           )
+            //     ],
+            //   ),
+            // )
           ],
         ),
       ),

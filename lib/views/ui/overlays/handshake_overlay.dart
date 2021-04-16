@@ -60,8 +60,8 @@ Future<void> showHandShakeOverlay(BuildContext context) {
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border(
-                      top: BorderSide(color: Colors.grey),
-                      right: BorderSide(color: Colors.grey),
+                      top: BorderSide(color: Colors.grey.shade300),
+                      right: BorderSide(color: Colors.grey.shade300),
                     )),
                     child: Center(
                       child: Text('Accept', style: _theme.textTheme.bodyText1?.copyWith(color: Colors.blue)),
@@ -78,7 +78,7 @@ Future<void> showHandShakeOverlay(BuildContext context) {
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border(
-                      top: BorderSide(color: Colors.grey),
+                      top: BorderSide(color: Colors.grey.shade300),
                     )),
                     child: Center(
                       child: Text('Ignore', style: _theme.textTheme.bodyText1?.copyWith(color: Colors.orange)),
@@ -92,8 +92,8 @@ Future<void> showHandShakeOverlay(BuildContext context) {
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border(
-                      top: BorderSide(color: Colors.grey),
-                      left: BorderSide(color: Colors.grey),
+                      top: BorderSide(color: Colors.grey.shade300),
+                      left: BorderSide(color: Colors.grey.shade300),
                     )),
                     child: Center(
                       child: Text(

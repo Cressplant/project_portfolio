@@ -10,6 +10,7 @@ final Map<String, Tag> tagsGlossary = {
   '007': Tag(id: '007', title: 'ML', color: Colors.grey),
   '008': Tag(id: '008', title: 'Web', color: Colors.white),
   '009': Tag(id: '009', title: 'Freezed', color: Colors.white),
+  '010': Tag(id: '010', title: 'Null Safety', color: Colors.white),
 };
 
 class Tag {
