@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
+import 'package:project_portfolio/views/business_logic/utils/colors.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 
 class ProjectScreen extends StatelessWidget {
@@ -45,7 +46,7 @@ class ProjectScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomTitle(title: 'Tree Worker'),
+                  CustomTitle(title: _project.title),
                   SizedBox(height: 10.0),
                   Text(_project.description),
                   SizedBox(height: 10.0),
@@ -56,11 +57,11 @@ class ProjectScreen extends StatelessWidget {
                           .map((_tag) => Chip(
                                 visualDensity: VisualDensity.compact,
                                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                label: Text(_tag.title),
+                                label: Text(_tag.title, style: TextStyle(color: getContrastingTextColor(_tag.color) ),),
                                 labelStyle: _theme.textTheme.caption?.copyWith(color: Colors.white),
                                 backgroundColor: _tag.color,
                               ))
-                          .toList() // TODO: assign text color using background invert?
+                          .toList() 
                       )
                 ],
               ),

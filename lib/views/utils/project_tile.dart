@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
+import 'package:project_portfolio/views/business_logic/utils/colors.dart';
 import 'package:project_portfolio/views/ui/screens/project_screen.dart';
 import 'package:project_portfolio/views/utils/custom_card.dart';
 
@@ -65,22 +66,22 @@ class ProjectTile extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Wrap(
-                                spacing: 3.0,
-                                runSpacing: 1.0,
-                                children: project.tags
-                                    .map((_tag) => Chip(
-                                          visualDensity: VisualDensity.compact,
-                                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                          label: Text(_tag.title),
-                                          labelStyle: _theme.textTheme.caption?.copyWith(color: Colors.white),
-                                          backgroundColor: _tag.color,
-                                        ))
-                                    .toList() // TODO: assign text color using background invert?
-                                )
+                            // SizedBox(
+                            //   height: 10.0,
+                            // ),
+                            // Wrap(
+                            //     spacing: 3.0,
+                            //     runSpacing: 1.0,
+                            //     children: project.tags
+                            //         .map((_tag) => Chip(
+                            //               visualDensity: VisualDensity.compact,
+                            //               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            //               label: Text(_tag.title, style: TextStyle( color: getContrastingTextColor(_tag.color) ),),
+                            //               labelStyle: _theme.textTheme.caption?.copyWith(color: Colors.white),
+                            //               backgroundColor: _tag.color,
+                            //             ))
+                            //         .toList() // TODO: assign text color using background invert?
+                            //     )
                           ],
                         ),
                       )),

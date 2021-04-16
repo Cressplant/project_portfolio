@@ -17,11 +17,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   DataBase _dataBase = DataBase();
   List<Project>? _projects;
+  // Alignment _nameCardAlignment = Alignment(-0.1, 1);
 
   @override
   void initState() {
     _projects = _dataBase.getData(collection: 'projects').values.map((e) => Project.fromMap(e)).toList();
     // _projects = [];
+
+  //  _animateNameCard();
 
     WidgetsBinding.instance?.addPostFrameCallback((_) => showHandShakeOverlay(context));
 
@@ -30,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     ThemeData _theme = Theme.of(context);
     double _width = MediaQuery.of(context).size.width;
     bool _mobile = true; // checkMobile(context); //!
@@ -87,8 +91,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               image: DecorationImage(image: AssetImage('images/profile_picture.jpeg'))),
                         ),
                       ),
-                      Align(
+                      AnimatedAlign(
                         alignment: Alignment(-0.1, 0.15),
+                        duration: Duration(milliseconds: 300),
                         child: CustomCard(
                             child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,4 +154,16 @@ class _HomeScreenState extends State<HomeScreen> {
   //           mainAxisSize: MainAxisSize.min,
   //           children: [],
   //         )));
+  
+  // Future<void> _animateNameCard() async {
+
+  //   await Future.delayed(Duration(milliseconds: 800));
+
+  //   setState(() {
+  //   _nameCardAlignment =  Alignment(-0.1, 0.15);      
+  //       });
+
+
+  // }
+
 }
