@@ -60,7 +60,7 @@ class ProjectTile extends StatelessWidget {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Hero(tag: project.logo, child: Image.network(project.logo, height: 20.0, width: 20.0)),
+                                  Image.network(project.logo, height: 20.0, width: 20.0),
                                   SizedBox(width: 10.0),
                                   Text(project.title, style: _theme.textTheme.bodyText1),
                                 ],

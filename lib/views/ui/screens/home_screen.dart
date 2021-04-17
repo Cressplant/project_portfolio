@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _projects = _dataBase.getData(collection: 'projects').values.map((e) => Project.fromMap(e)).toList();
     // _projects = [];
 
-  //  _animateNameCard();
+    //  _animateNameCard();
 
     WidgetsBinding.instance?.addPostFrameCallback((_) => showHandShakeOverlay(context));
 
@@ -33,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     ThemeData _theme = Theme.of(context);
     double _width = MediaQuery.of(context).size.width;
     bool _mobile = true; // checkMobile(context); //!
@@ -115,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ConstrainedBox(
                           constraints: BoxConstraints(maxWidth: _width * 0.6),
                           child: Text(
-                            'I am creative, driven, and try to implement simplicity & user experience into everything I create.',
+                            'I am creative, driven, and I try to implement simplicity & user experience into everything I create.',
                             style: _theme.textTheme.caption,
                           ),
                         ),
@@ -154,15 +153,14 @@ class _HomeScreenState extends State<HomeScreen> {
   //           mainAxisSize: MainAxisSize.min,
   //           children: [],
   //         )));
-  
+
   // Future<void> _animateNameCard() async {
 
   //   await Future.delayed(Duration(milliseconds: 800));
 
   //   setState(() {
-  //   _nameCardAlignment =  Alignment(-0.1, 0.15);      
+  //   _nameCardAlignment =  Alignment(-0.1, 0.15);
   //       });
-
 
   // }
 

@@ -21,13 +21,10 @@ class ProjectScreen extends StatelessWidget {
             AppBar(
               centerTitle: true,
               backgroundColor: _theme.cardColor,
-              title: Hero(
-                tag: _project.logo,
-                child: Image.network(
-                  _project.logo,
-                  height: 30.0,
-                  width: 30.0,
-                ),
+              title: Image.network(
+                _project.logo,
+                height: 30.0,
+                width: 30.0,
               ),
             ),
             if (_project.screenshots.isNotEmpty)
