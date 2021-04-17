@@ -90,9 +90,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               image: DecorationImage(image: AssetImage('images/profile_picture.jpeg'))),
                         ),
                       ),
-                      AnimatedAlign(
+                      Align(
                         alignment: Alignment(-0.1, 0.15),
-                        duration: Duration(milliseconds: 300),
                         child: CustomCard(
                             child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
