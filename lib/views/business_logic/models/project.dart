@@ -1,3 +1,4 @@
+import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/business_logic/utils/tags.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,6 @@ class Project {
         screenshots: _map['screenshots'] ?? [],
         primaryColor: Color(_map['primaryColor']),
         accentColor: Color(_map['accentColor']),
-        tags: List<Tag>.from(_map['tags']?.map((e) => tagsGlossary[e]).toList() ?? []));
+        tags: List<Tag>.from(_map['tags']?.map((e) => Globals.tagGlossary[e]).toList() ?? []));
   }
 }

@@ -3,8 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/business_logic/utils/colors.dart';
+import 'package:project_portfolio/views/business_logic/utils/globals.dart';
+import 'package:project_portfolio/views/business_logic/utils/tags.dart';
 import 'package:project_portfolio/views/ui/screens/project_screen.dart';
 import 'package:project_portfolio/views/utils/custom_card.dart';
+import 'package:project_portfolio/views/utils/tag_chip.dart';
+import 'package:project_portfolio/views/utils/tag_wrap.dart';
 
 class ProjectTile extends StatelessWidget {
   Project project;
@@ -48,8 +52,21 @@ class ProjectTile extends StatelessWidget {
                   //       blendMode: BlendMode.dstOut,
                   //       child: Image.asset(project.coverImage, fit: BoxFit.cover, alignment: Alignment.bottomCenter),
                   //     )),
-                  Align(
-                      alignment: Alignment.bottomRight,
+                  //
+                  //
+
+                  
+                  Positioned(top: 10.0, right: 10.0, child: TagWrap([
+                       if (project.tags.contains(Globals.tagGlossary['000'])) Globals.tagGlossary['000']
+                       else if(project.tags.contains(Globals.tagGlossary['001'])) Globals.tagGlossary['001'],
+                       if (project.tags.contains(Globals.tagGlossary['002'])) Globals.tagGlossary['002']
+                  ]),
+                ),
+
+                  Positioned(
+                      bottom: 10.0,
+                      right: 6.0,
+                      // alignment: Alignment.bottomRight,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
                         child: Column(

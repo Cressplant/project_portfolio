@@ -14,7 +14,7 @@ class DataBase {
         'coverImage': 'images/6 - Home Shortcuts FB AD.jpg', //! CONVERT TO NETWORK IMAGE
         'screenshots': ['images/treeworker_mobile_darkmode.png'],
         'description': 'Invoicing & team management software for Arboricultral Companies.',
-        'tags': ['011', '003', '001', '004', '006', '008'],
+        'tags': ['000', '011', '003', '001', '004', '006', '008'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c
       },
@@ -25,7 +25,7 @@ class DataBase {
         'coverImage': 'images/tree_worker_landing_page.JPG', //! CONVERT TO NETWORK IMAGE
         'screenshots': ['images/tree_worker_landing_page.JPG'],
         'description': 'Flutter web project serving as the landing page for the Tree Worker app.',
-        'tags': ['011', '003', '001', '008'],
+        'tags': ['000', '011', '003', '001', '008'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xffffffff
       },
@@ -33,9 +33,9 @@ class DataBase {
         'title': 'Sun Bear Blinds',
         'logo': 'https://www.sunbearblinds.com/wp-content/uploads/2019/08/Sun-Bear-Round-Logo-Edge-200px.png',
         'coverImage': 'images/sun_bear_blinds_home.JPG', //! CONVERT TO NETWORK IMAGE
-        'screenshots': ['images\sun_bear_blinds_home.JPG'],
+        'screenshots': ['images/sun_bear_blinds_home.JPG', 'images/sun_bear_blinds_home_dark.JPG'],
         'description': 'An eCommerce web app, retailing Children\'s Blackout Blinds.',
-        'tags': ['011', '002', '001', '008'],
+        'tags': ['000', '011', '002', '001', '008'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xffffffff
       },
