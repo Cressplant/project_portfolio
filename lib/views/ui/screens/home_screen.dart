@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
-import 'package:project_portfolio/views/business_logic/utils/database.dart';
-import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
+import 'package:project_portfolio/views/business_logic/services/database.dart';
 import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
-import 'package:project_portfolio/views/ui/screens/project_screen.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/custom_card.dart';
 import 'package:project_portfolio/views/utils/project_tile.dart';
@@ -40,14 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: _theme.cardColor,
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: _theme.cardColor,
-          items: [
-            const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'About'),
-            const BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Contact'),
-          ],
-        ),
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
             SliverList(

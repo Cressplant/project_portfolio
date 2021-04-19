@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_portfolio/views/ui/screens/home_screen.dart';
+import 'package:project_portfolio/views/ui/screens/navigation_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           appBarTheme: AppBarTheme(elevation: 0, iconTheme: IconThemeData())),
-      home: HomeScreen(),
+      home: NavigationScreen(),
     );
   }
 }
