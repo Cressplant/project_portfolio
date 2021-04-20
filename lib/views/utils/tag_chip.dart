@@ -10,6 +10,7 @@ class TagChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Chip(
+      elevation: 2,
       visualDensity: VisualDensity.compact,
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       label: Text(

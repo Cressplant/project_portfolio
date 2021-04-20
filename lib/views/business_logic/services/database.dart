@@ -9,60 +9,64 @@ class DataBase {
     'projects': {
       '0': {
         'title': 'Tree Worker',
-        'logo':
-            'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/Store%20Upload%20Icon%20512.png?alt=media&token=521c81e7-3e7d-4bba-9fe4-67375ebf4ccb',
-        'coverImage': 'images/6 - Home Shortcuts FB AD.jpg', //! CONVERT TO NETWORK IMAGE
+        'logo': 'images/tree_worker_logo.png',
+        'coverImage': 'images/6 - Home Shortcuts FB AD.jpg',
         'coverBackgroundColor': 0xff5b876c,
         'screenshots': ['images/treeworker_home_darkmode.png', 'images/treeworker_home_darkmode_tablet.png', 'images/treeworker_home_darkmode_laptop.png'],
         'description': 'Invoicing & team management software for Arboricultral Companies.',
-        'tags': ['000', '002', '003', '004', '006', '008', '011'],
+        'tags': ['000', '002', '003', '004', '008', '011'],
         'primaryColor': 0xffff8c6a,
-        'accentColor': 0xff5b876c
+        'accentColor': 0xff5b876c,
+        'repositoryLink': null
       },
       '1': {
         'title': 'Tree Worker Landing Page',
-        'logo':
-            'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/Store%20Upload%20Icon%20512.png?alt=media&token=521c81e7-3e7d-4bba-9fe4-67375ebf4ccb',
-        'coverImage': 'images/tree_worker_landing_page.JPG', //! CONVERT TO NETWORK IMAGE
+        'logo': 'images/tree_worker_logo.png',
+        'coverImage': 'images/tree_worker_landing_page.JPG',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/tree_worker_landing_page.JPG'],
         'description': 'Flutter web project serving as the landing page for the Tree Worker app.',
         'tags': ['000', '002', '003', '008', '011'],
         'primaryColor': 0xffff8c6a,
-        'accentColor': 0xff5b876c
+        'accentColor': 0xff5b876c,
+        'repositoryLink': null
       },
       '2': {
         'title': 'Sun Bear Blinds',
-        'logo': 'https://www.sunbearblinds.com/wp-content/uploads/2019/08/Sun-Bear-Round-Logo-Edge-200px.png',
-        'coverImage': 'images/sun_bear_blinds_cover.jpg', //! CONVERT TO NETWORK IMAGE
+        'logo': 'images/sun_bear_blinds_logo.png',
+        'coverImage': 'images/sun_bear_blinds_cover.jpg',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/sun_bear_blinds_home.JPG', 'images/sun_bear_blinds_home_dark.JPG'],
         'description': 'An eCommerce web app, retailing Children\'s Blackout Blinds.',
-        'tags': ['000', '002', '011', '008'],
+        'tags': ['000', '002', '006', '011', '008'],
         'primaryColor': 0xffC7D7E5,
-        'accentColor': 0xffFFF3A6
+        'accentColor': 0xffFFF3A6,
+        'repositoryLink': 'https://github.com/Cressplant/sun_bear_blinds'
       },
       '3': {
         'title': 'Snaggle',
-        'logo': 'https://www.sunbearblinds.com/wp-content/uploads/2019/08/Sun-Bear-Round-Logo-Edge-200px.png',
-        'coverImage': 'images/snaggle_cover.png', //! CONVERT TO NETWORK IMAGE
+        'logo': 'images/snaggle_logo.png',
+        'coverImage': 'images/snaggle_cover.png',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/snaggle_cover.png'],
-        'description': '',
+        'description': 'A social guidebook app, helping users to locate and interact with nearby events.',
         'tags': ['001', '002', '011', '008'],
-        'primaryColor': 0xffff8c6a,
-        'accentColor': 0xffffffff
+        'primaryColor': 0xff114B5F,
+        'accentColor': 0xffffffff,
+        'repositoryLink': null
       },
-      // '3': {
-      //   'title': 'This Project Portfolio',
-      //   'logo': 'https://www.sunbearblinds.com/wp-content/uploads/2019/08/Sun-Bear-Round-Logo-Edge-200px.png',
-      //   'coverImage': 'images/sun_bear_blinds_home.JPG', //! CONVERT TO NETWORK IMAGE
-      //   'screenshots': ['images\sun_bear_blinds_home.JPG'],
-      //   'description': 'An eCommerce web app, retailing Children\'s Blackout Blinds.',
-      //   'tags': ['011', '002', '001', '008'],
-      //   'primaryColor': 0xffff8c6a,
-      //   'accentColor': 0xffffffff
-      // },
+      '4': {
+        'title': 'This Project',
+        'logo': 'images/profile_picture.png',
+        'coverImage': 'images/google_bg.JPG',
+        'coverBackgroundColor': 0xFFFFFFFF,
+        'screenshots': [],
+        'description': 'The portfolio of an incredibly talented developer who you\'re desperate to hire.',
+        'tags': ['000', '002', '006', '008', '011'],
+        'primaryColor': 0xff2196F3,
+        'accentColor': 0xffffffff,
+        'repositoryLink': 'https://github.com/Cressplant/project_portfolio'
+      },
     }
   };
 }

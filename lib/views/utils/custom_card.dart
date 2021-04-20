@@ -3,8 +3,9 @@ import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
 
 class CustomCard extends StatelessWidget {
   final Widget child;
+  final Color? color;
 
-  CustomCard({required this.child});
+  CustomCard({required this.child, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,6 @@ class CustomCard extends StatelessWidget {
     //   ],
     // );
 
-    return Container(decoration: customDecoration(context), padding: EdgeInsets.all(12.0), child: child);
+    return Container(decoration: customDecoration(context).copyWith(color: color ?? Theme.of(context).cardColor), padding: EdgeInsets.all(12.0), child: child);
   }
 }

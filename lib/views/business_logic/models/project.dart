@@ -27,13 +27,16 @@ class Project {
       required this.repositoryLink});
 
   factory Project.fromMap(Map<String, dynamic> _map) {
+
+    // print('running Project.fromMap(Map<String, dynamic> $_map)');
+
     return Project(
         title: _map['title'] ?? '',
         logo: _map['logo'] ?? '', // TODO: add placeholder
         description: _map['description'] ?? '',
         coverImage: _map['coverImage'], // TODO: add placeholder
         coverBackgroundColor: Color(_map['coverBackgroundColor']),
-        screenshots: _map['screenshots'] ?? [],
+        screenshots: List<String>.from(_map['screenshots'] ?? [],),
         primaryColor: Color(_map['primaryColor']),
         accentColor: Color(_map['accentColor']),
         tags: List<Tag>.from(_map['tags']?.map((e) => Globals.tagGlossary[e]).toList() ?? []),

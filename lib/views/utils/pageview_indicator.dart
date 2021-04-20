@@ -17,6 +17,8 @@ class PageViewIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData _theme = Theme.of(context);
+
     return MouseRegion(
       cursor: onPressed != null ? SystemMouseCursors.click : SystemMouseCursors.basic,
       child: GestureDetector(
@@ -27,7 +29,7 @@ class PageViewIndicator extends StatelessWidget {
           width: radius*2,
           height: radius*2,
           decoration: new BoxDecoration(
-            color: active ? Theme.of(context).accentColor : Theme.of(context).backgroundColor,
+            color: active ? _theme.primaryColor : _theme.accentColor,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:project_portfolio/views/ui/screens/about_screen.dart';
+import 'package:project_portfolio/views/ui/screens/contact_screen.dart';
 import 'package:project_portfolio/views/ui/screens/home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
+  static const String id = '/';
+
   @override
   _NavigationScreenState createState() => _NavigationScreenState();
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
+
   PageController _pageController = PageController();
 
   @override
@@ -16,7 +20,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         child: Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).cardColor,
-        onTap: (_index) => _pageController.animateToPage(_index, duration: Duration(milliseconds: 300), curve: Curves.bounceIn),
+        onTap: (_index) => _pageController.animateToPage(_index, duration: Duration(milliseconds: 300), curve: Curves.easeIn),
         items: [
           const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'About'),
@@ -28,7 +32,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         children: [
           HomeScreen(),
           AboutScreen(),
-          SizedBox() //!
+          ContactScreen()
         ],
       ),
     ));

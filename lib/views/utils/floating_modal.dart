@@ -16,7 +16,7 @@ class FloatingModal extends StatelessWidget {
           child: Material(
             color: backgroundColor,
             clipBehavior: Clip.antiAlias,
-            borderRadius: BorderRadius.only( topRight: Radius.circular(15.0), topLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0) ),
+            borderRadius: BorderRadius.only(topRight: Radius.circular(15.0), bottomLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0)),
             child: child,
           ),
         ),

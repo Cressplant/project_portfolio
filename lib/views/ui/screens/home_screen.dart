@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
+import 'package:project_portfolio/views/business_logic/models/user_preferences.dart';
 import 'package:project_portfolio/views/business_logic/services/database.dart';
+import 'package:project_portfolio/views/business_logic/utils/enums.dart';
 import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
+import 'package:project_portfolio/views/utils/contact_actions.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/custom_card.dart';
 import 'package:project_portfolio/views/utils/project_tile.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,7 +29,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     //  _animateNameCard();
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) => showHandShakeOverlay(context));
+    WidgetsBinding.instance?.addPostFrameCallback((_) async {
+      if (Provider.of<UserPreferences>(context, listen: false).handShakeStatus == HandShakeStatus.pending)
+      Provider.of<UserPreferences>(context, listen: false).updateHandshakeStatus(handShakeStatus: await showHandShakeOverlay(context));
+    });
 
     super.initState();
   }
@@ -48,65 +55,72 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: _theme.cardColor,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage('images/google bg.JPG'),
+                        alignment: Alignment.bottomCenter, //* prevents hard edge w/ appbar
+                        image: AssetImage('images/google_bg.JPG'),
                       )),
                   child: Stack(
                     children: [
                       Align(
                         alignment: Alignment.topLeft,
                         child: Row(
-                          children: [
-                            IconButton(
-                              icon: Icon(Icons.email),
-                              onPressed: () {},
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.phone),
-                              onPressed: () {},
-                            ),
-                            IconButton(
-                              // icon: Icon(Icons.linkedIn), //! TODO ADD
-                              icon: Image.asset('images/linkedin_logo.png', height: 26.0),
-                              onPressed: () async {
-                                String _url = 'https://www.linkedin.com/in/oscar-newman-21b84312a/';
-                                if (await canLaunch(_url)) {
-                                  await launch(_url);
-                                }
-                              },
-                            ),
-                          ],
+                          children: [...contactActions],
                         ),
                       ),
-                      Align(
-                        alignment: Alignment(0.5, 0.0),
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: 15),
-                          height: 90,
-                          width: 90,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
-                              color: _theme.accentColor,
-                              image: DecorationImage(image: AssetImage('images/profile_picture.jpeg'))),
-                        ),
-                      ),
+
+                      // Align(
+                      //   alignment: Alignment(0.5, 0.0),
+                      //   child: Container(
+                      //     margin: EdgeInsets.only(bottom: 15),
+                      //     height: 90,
+                      //     width: 90,
+                      //     decoration: BoxDecoration(
+                      //         shape: BoxShape.circle,
+                      //         boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
+                      //         color: _theme.accentColor,
+                      //         image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
+                      //   ),
+                      // ),
                       Align(
                         alignment: Alignment(-0.1, 0.15),
-                        child: CustomCard(
-                            child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text('Oscar Newman', style: _theme.textTheme.headline4),
-                            SizedBox(
-                              height: 6.0,
-                            ),
-                            Text(
-                              'Flutter Developer',
-                              style: _theme.textTheme.caption,
-                            )
-                          ],
-                        )),
+                        child: SizedBox(
+                          width: 215.0,
+                          height: 105.0,
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 15),
+                                  height: 90,
+                                  width: 90,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
+                                      color: _theme.accentColor,
+                                      image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomLeft,
+                                child: CustomCard(
+                                    child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text('Oscar Newman', style: _theme.textTheme.headline4),
+                                    SizedBox(
+                                      height: 6.0,
+                                    ),
+                                    Text(
+                                      'Flutter Developer',
+                                      style: _theme.textTheme.caption,
+                                    )
+                                  ],
+                                )),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                       Align(
                         alignment: Alignment(0.15, 0.7),

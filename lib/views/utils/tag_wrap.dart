@@ -9,6 +9,6 @@ class TagWrap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(spacing: 3.0, runSpacing: 1.0, children: tags.map((_tag) => TagChip(_tag)).toList());
+    return Wrap(spacing: 4.0, runSpacing: 4.0, children: tags.map((_tag) => TagChip(_tag)).toList());
   }
 }
