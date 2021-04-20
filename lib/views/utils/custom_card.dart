@@ -8,6 +8,18 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(decoration: defaultDecoration(context), padding: EdgeInsets.all(12.0), child: child);
+    //? Trial one side flat edge?
+    // return Stack(
+    //   children: [
+    //     Container(decoration: defaultDecoration(context), padding: EdgeInsets.all(12.0), child: child),
+    //     Align(
+    //       alignment: Alignment.centerLeft,
+    //       child: Container(
+    //         width: ,
+    //       ))
+    //   ],
+    // );
+
+    return Container(decoration: customDecoration(context), padding: EdgeInsets.all(12.0), child: child);
   }
 }

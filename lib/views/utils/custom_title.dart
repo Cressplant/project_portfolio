@@ -14,6 +14,7 @@ class CustomTitle extends StatelessWidget {
     // TextStyle? _titleStyle = _theme.textTheme.headline3;
     // double _textSize = _titleStyle?.fontSize ?? 10;
 
+
     return CustomCard(
         child: Row(
       mainAxisSize: MainAxisSize.min,

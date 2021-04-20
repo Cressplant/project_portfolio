@@ -6,6 +6,7 @@ class Project {
   final String title;
   final String logo;
   final String coverImage;
+  final Color coverBackgroundColor;
   final List<String> screenshots;
   final String description;
   final List<Tag> tags;
@@ -17,6 +18,7 @@ class Project {
       {required this.title,
       required this.logo,
       required this.coverImage,
+      required this.coverBackgroundColor,
       required this.screenshots,
       required this.description,
       required this.tags,
@@ -30,6 +32,7 @@ class Project {
         logo: _map['logo'] ?? '', // TODO: add placeholder
         description: _map['description'] ?? '',
         coverImage: _map['coverImage'], // TODO: add placeholder
+        coverBackgroundColor: Color(_map['coverBackgroundColor']),
         screenshots: _map['screenshots'] ?? [],
         primaryColor: Color(_map['primaryColor']),
         accentColor: Color(_map['accentColor']),

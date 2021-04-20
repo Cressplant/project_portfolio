@@ -6,8 +6,8 @@ class PageViewIndicator extends StatelessWidget {
   PageViewIndicator({
     required this.active, 
     this.onPressed, 
-    this.padding = const EdgeInsets.all(4.0),
-    this.radius = 8
+    this.padding = const EdgeInsets.all(3.0),
+    this.radius = 6
     });
 
   final bool active;

@@ -17,25 +17,20 @@ class GitHubCard extends StatelessWidget {
     bool _public = project.repositoryLink != null;
 
     return Container(
-      constraints: BoxConstraints(maxWidth: 500.0),
+      // constraints: BoxConstraints(maxWidth: 400.0),
       // decoration: BoxDecoration(
       //   borderRadius: BorderRadius.circular(10.0),
       //   color: _public ? _theme.cardColor : _theme.backgroundColor,
       //   boxShadow: defaultBoxShadow(context)
       // ),
-      decoration: defaultDecoration(context).copyWith(
-        color: _public ? _theme.cardColor : _theme.backgroundColor,
-      ),
+      decoration: customDecoration(context).copyWith(
+          // color: _public ? _theme.cardColor : _theme.backgroundColor,
+          color: _theme.cardColor),
       child: InkWell(
         onTap: _public
             ? () async {
                 if (await canLaunch(project.repositoryLink ?? '')) {
-                  await launch(
-                    project.repositoryLink ?? '',
-                    forceSafariVC: true,
-                    forceWebView: true,
-                    headers: <String, String>{'my_header_key': 'my_header_value'},
-                  );
+                  await launch(project.repositoryLink ?? '');
                 }
               }
             : null,
@@ -48,7 +43,7 @@ class GitHubCard extends StatelessWidget {
               children: [
                 Image.asset(
                   'images/github_logo.png',
-                  height: 80.0,
+                  height: 60.0,
                 ),
                 SizedBox(
                   width: 15.0,

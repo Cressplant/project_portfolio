@@ -28,6 +28,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
   @override
   Widget build(BuildContext context) {
     ThemeData _theme = Theme.of(context);
+    double _screenshotHeight = 450.0;
 
     return Scaffold(
       backgroundColor: _theme.cardColor,
@@ -49,19 +50,19 @@ class _ProjectScreenState extends State<ProjectScreen> {
       ),
       body: SingleChildScrollView(
         // padding: EdgeInsets.all(15.0),
-        child: Align(
-          alignment: Alignment(-0.3, 0.0),
+        child: Center(
+          // alignment: Alignment(-0.3, 0.0),
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 700.0),
             child: Column(
               children: [
                 if (widget._project.screenshots.isNotEmpty)
                   SizedBox(
-                    height: 400.0,
+                    height: _screenshotHeight,
                     child: Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          padding: const EdgeInsets.only(top: 5.0, bottom: 25.0),
                           child: PageView(
                               controller: _screenshotPageController,
                               onPageChanged: (_index) {
@@ -81,7 +82,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           child: IgnorePointer(
                             child: Container(
                               width: 40.0,
-                              height: 400.0,
+                              height: _screenshotHeight,
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                       colors: [_theme.cardColor, _theme.cardColor.withOpacity(0.0)], begin: Alignment.centerLeft, end: Alignment.centerRight)),
@@ -93,18 +94,25 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           child: IgnorePointer(
                             child: Container(
                               width: 40.0,
-                              height: 400.0,
+                              height: _screenshotHeight,
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                       colors: [_theme.cardColor, _theme.cardColor.withOpacity(0.0)], begin: Alignment.centerRight, end: Alignment.centerLeft)),
                             ),
                           ),
                         ),
-                        Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [for (int i = 0; i < widget._project.screenshots.length; i++) PageViewIndicator(active: i == _screenshotIndex)]))
+                        if (widget._project.screenshots.length > 1)
+                          Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [for (int i = 0; i < widget._project.screenshots.length; i++) 
+                                  PageViewIndicator(
+                                    active: i == _screenshotIndex,
+                                    onPressed: (){
+                                      _screenshotPageController.animateToPage(i, duration: Duration(milliseconds: 250), curve: Curves.easeIn);
+                                    },
+                                  )]))
                       ],
                     ),
                   ),
@@ -119,9 +127,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       mediumVerticalSpacer,
                       TagWrap(widget._project.tags),
                       largeVerticalSpacer,
-                      CustomTitle(title: 'Source Code'),
+                      CustomTitle(title: 'Repository'),
                       mediumVerticalSpacer,
-                      GitHubCard(project: widget._project)
+                      Center(child: GitHubCard(project: widget._project))
                     ],
                   ),
                 )

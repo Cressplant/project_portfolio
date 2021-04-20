@@ -6,6 +6,7 @@ import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/custom_card.dart';
 import 'package:project_portfolio/views/utils/project_tile.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -33,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     ThemeData _theme = Theme.of(context);
     double _width = MediaQuery.of(context).size.width;
-    bool _mobile = true; // checkMobile(context); //!
 
     return SafeArea(
       child: Scaffold(
@@ -63,6 +63,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             IconButton(
                               icon: Icon(Icons.phone),
                               onPressed: () {},
+                            ),
+                            IconButton(
+                              // icon: Icon(Icons.linkedIn), //! TODO ADD
+                              icon: Image.asset('images/linkedin_logo.png', height: 26.0),
+                              onPressed: () async {
+                                String _url = 'https://www.linkedin.com/in/oscar-newman-21b84312a/';
+                                if (await canLaunch(_url)) {
+                                  await launch(_url);
+                                }
+                              },
                             ),
                           ],
                         ),

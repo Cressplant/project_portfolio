@@ -32,7 +32,7 @@ class ProjectTile extends StatelessWidget {
             Container(
               height: _mobile ? 240.0 : 260.0,
               decoration: BoxDecoration(
-                  color: project.accentColor,
+                  color: project.coverBackgroundColor,
                   // borderRadius: BorderRadius.circular(15),
 
                   image: DecorationImage(alignment: Alignment.bottomCenter, fit: BoxFit.contain, image: AssetImage(project.coverImage)) //! CONVERT TO NETWORK IMAGE

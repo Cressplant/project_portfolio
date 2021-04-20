@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-BoxDecoration defaultDecoration(BuildContext context) => BoxDecoration(
+BoxDecoration customDecoration(BuildContext context, { BorderRadius borderRadius = const BorderRadius.only(topRight: Radius.circular(15.0), topLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0)) }) => BoxDecoration(
       color: Theme.of(context).cardColor,
-      borderRadius: BorderRadius.circular(15.0),
+      // borderRadius: flatBottom ? BorderRadius.vertical( top: Radius.circular(15.0) ) : BorderRadius.circular(15.0),
+      // borderRadius: flatBottom ? BorderRadius.horizontal( right: Radius.circular(15.0) ) : BorderRadius.circular(15.0),
+      borderRadius: borderRadius,
       boxShadow: [
         BoxShadow(
             // color: Colors.black12,
