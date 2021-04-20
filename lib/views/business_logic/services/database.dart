@@ -9,9 +9,10 @@ class DataBase {
     'projects': {
       '0': {
         'title': 'Tree Worker',
-        'logo': 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/Store%20Upload%20Icon%20512.png?alt=media&token=521c81e7-3e7d-4bba-9fe4-67375ebf4ccb',
+        'logo':
+            'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/Store%20Upload%20Icon%20512.png?alt=media&token=521c81e7-3e7d-4bba-9fe4-67375ebf4ccb',
         'coverImage': 'images/6 - Home Shortcuts FB AD.jpg', //! CONVERT TO NETWORK IMAGE
-        'screenshots': ['images/treeworker_mobile_darkmode.png'],
+        'screenshots': ['images/treeworker_home_darkmode.png', 'images/treeworker_home_darkmode_tablet.png', 'images/treeworker_home_darkmode_laptop.png'],
         'description': 'Invoicing & team management software for Arboricultral Companies.',
         'tags': ['000', '002', '003', '004', '006', '008', '011'],
         'primaryColor': 0xffff8c6a,
@@ -19,7 +20,8 @@ class DataBase {
       },
       '1': {
         'title': 'Tree Worker Landing Page',
-        'logo': 'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/Store%20Upload%20Icon%20512.png?alt=media&token=521c81e7-3e7d-4bba-9fe4-67375ebf4ccb',
+        'logo':
+            'https://firebasestorage.googleapis.com/v0/b/bluebranch-ad113.appspot.com/o/Store%20Upload%20Icon%20512.png?alt=media&token=521c81e7-3e7d-4bba-9fe4-67375ebf4ccb',
         'coverImage': 'images/tree_worker_landing_page.JPG', //! CONVERT TO NETWORK IMAGE
         'screenshots': ['images/tree_worker_landing_page.JPG'],
         'description': 'Flutter web project serving as the landing page for the Tree Worker app.',

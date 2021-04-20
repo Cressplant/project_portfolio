@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
+import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
 import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,8 +18,12 @@ class GitHubCard extends StatelessWidget {
 
     return Container(
       constraints: BoxConstraints(maxWidth: 500.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(10.0),
+      //   color: _public ? _theme.cardColor : _theme.backgroundColor,
+      //   boxShadow: defaultBoxShadow(context)
+      // ),
+      decoration: defaultDecoration(context).copyWith(
         color: _public ? _theme.cardColor : _theme.backgroundColor,
       ),
       child: InkWell(
@@ -54,10 +59,16 @@ class GitHubCard extends StatelessWidget {
                     children: [
                       Text(project.title),
                       smallVerticalSpacer,
-                      if (_public)
-                        Row(
-                          children: [Icon(_public ? Icons.lock_open : Icons.lock), SizedBox(width: 10.0), Text(_public ? 'Public' : 'Private')],
-                        )
+                      Row(
+                        children: [
+                          Icon(_public ? Icons.lock_open : Icons.lock, size: 16),
+                          SizedBox(width: 10.0),
+                          Text(
+                            _public ? 'Public' : 'Private',
+                            style: _theme.textTheme.caption,
+                          )
+                        ],
+                      )
                     ],
                   ),
                 )
