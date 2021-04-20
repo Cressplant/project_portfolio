@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/ui/screens/home_screen.dart';
 import 'package:project_portfolio/views/ui/screens/navigation_screen.dart';
 
 void main() {

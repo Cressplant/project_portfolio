@@ -11,8 +11,18 @@ class Project {
   final List<Tag> tags;
   final Color primaryColor;
   final Color accentColor;
+  final String? repositoryLink;
 
-  Project({required this.title, required this.logo, required this.coverImage, required this.screenshots, required this.description, required this.tags, required this.primaryColor, required this.accentColor});
+  Project(
+      {required this.title,
+      required this.logo,
+      required this.coverImage,
+      required this.screenshots,
+      required this.description,
+      required this.tags,
+      required this.primaryColor,
+      required this.accentColor,
+      required this.repositoryLink});
 
   factory Project.fromMap(Map<String, dynamic> _map) {
     return Project(
@@ -23,6 +33,7 @@ class Project {
         screenshots: _map['screenshots'] ?? [],
         primaryColor: Color(_map['primaryColor']),
         accentColor: Color(_map['accentColor']),
-        tags: List<Tag>.from(_map['tags']?.map((e) => Globals.tagGlossary[e]).toList() ?? []));
+        tags: List<Tag>.from(_map['tags']?.map((e) => Globals.tagGlossary[e]).toList() ?? []),
+        repositoryLink: _map['repositoryLink']);
   }
 }
