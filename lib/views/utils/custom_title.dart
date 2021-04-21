@@ -13,6 +13,7 @@ class CustomTitle extends StatelessWidget {
 
 
     return CustomCard(
+      padding: EdgeInsets.all(12.0),
         child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [

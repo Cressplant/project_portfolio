@@ -4,6 +4,7 @@ import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/business_logic/models/user_preferences.dart';
 import 'package:project_portfolio/views/business_logic/services/database.dart';
 import 'package:project_portfolio/views/business_logic/utils/enums.dart';
+import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
 import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
 import 'package:project_portfolio/views/utils/contact_actions.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     WidgetsBinding.instance?.addPostFrameCallback((_) async {
       if (Provider.of<UserPreferences>(context, listen: false).handShakeStatus == HandShakeStatus.pending)
-      Provider.of<UserPreferences>(context, listen: false).updateHandshakeStatus(handShakeStatus: await showHandShakeOverlay(context));
+        Provider.of<UserPreferences>(context, listen: false).updateHandshakeStatus(handShakeStatus: await showHandShakeOverlay(context));
     });
 
     super.initState();
@@ -41,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     ThemeData _theme = Theme.of(context);
     double _width = MediaQuery.of(context).size.width;
+    bool _mobile = checkMobile(context);
 
     return SafeArea(
       child: Scaffold(
@@ -50,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SliverList(
                 delegate: SliverChildListDelegate([
               Container(
-                  height: 300.0,
+                  height: _mobile ? 300.0 : 400.0,
                   decoration: BoxDecoration(
                       color: _theme.cardColor,
                       image: DecorationImage(
@@ -66,6 +68,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [...contactActions],
                         ),
                       ),
+
+                      Positioned(
+                          top: 10.0,
+                          right: 10.0,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [Text('Created with Flutter'), SizedBox(width: 10.0), FlutterLogo()],
+                          )),
 
                       // Align(
                       //   alignment: Alignment(0.5, 0.0),
@@ -103,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Align(
                                 alignment: Alignment.bottomLeft,
                                 child: CustomCard(
+                                  padding: EdgeInsets.all(12.0),
                                     child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,

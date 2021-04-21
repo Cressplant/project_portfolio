@@ -67,6 +67,29 @@ class DataBase {
         'accentColor': 0xffffffff,
         'repositoryLink': 'https://github.com/Cressplant/project_portfolio'
       },
-    }
+    },
+        'jobs': {
+          '0' : {
+            'company' : 'WEA',
+            'logo' : 'images/wea_logo.png',
+            'role' : 'Marketing Coordinator',
+            'contract' : 'Part Time',
+            'description' : '', //!
+            'start' : DateTime.now().millisecondsSinceEpoch, //!
+            'end' : DateTime.now().millisecondsSinceEpoch, //!
+            'currentlyWorkingHere' : true
+          },
+           '1' : {
+            'company' : 'WEA',
+            'logo' : 'images/wea_logo.png',
+            'role' : 'Marketing Coordinator',
+            'contract' : 'Part Time',
+            'description' : '', //!
+            'start' : DateTime.now().millisecondsSinceEpoch, //!
+            'end' : DateTime.now().millisecondsSinceEpoch, //!
+            'currentlyWorkingHere' : true
+          }
+        }
+
   };
 }

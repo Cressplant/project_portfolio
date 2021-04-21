@@ -6,14 +6,17 @@ class CustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String title;
   final Widget? leading;
+  final EdgeInsets padding;
 
-  CustomButton({required this.title, this.onPressed, this.leading});
+  CustomButton({ required this.title, this.onPressed, this.leading, this.padding = const EdgeInsets.all(12.0) });
 
   @override
   Widget build(BuildContext context) {
     ThemeData _theme = Theme.of(context);
 
     return CustomCard(
+
+      padding: padding,
       color: _theme.primaryColor,
         child: InkWell(
           onTap: onPressed,

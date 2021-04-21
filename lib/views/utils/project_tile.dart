@@ -4,6 +4,7 @@ import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
 import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/ui/screens/project_screen.dart';
 import 'package:project_portfolio/views/utils/custom_card.dart';
+import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/tag_wrap.dart';
 
 class ProjectTile extends StatelessWidget {
@@ -70,22 +71,7 @@ class ProjectTile extends StatelessWidget {
                               // alignment: Alignment.bottomRight,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    CustomCard(
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Image.asset(project.logo, height: 20.0, width: 20.0),
-                                          SizedBox(width: 10.0),
-                                          Text(project.title, style: _theme.textTheme.bodyText1),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                child: CustomTitle(leading: Image.asset(project.logo, height: 20.0, width: 20.0), title: project.title),
                               )),
                         ],
                       ),

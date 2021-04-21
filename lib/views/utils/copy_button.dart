@@ -18,6 +18,9 @@ class CopyButton extends StatelessWidget {
 
               showToast('Copied to Clipboard');
             },
-            child: Icon(Icons.copy)));
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Icon(Icons.copy),
+            )));
   }
 }
