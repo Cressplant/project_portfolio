@@ -12,13 +12,18 @@ class JobTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           if (job.logo != null)
-            Image.asset(job.logo ?? '', height: 36.0, width: 36.0)
+            Image.asset(job.logo ?? '', height: 80.0, width: 80.0)
           else
-            Icon(
-              Icons.work,
-              size: 36.0,
+            Container(
+              width: 80.0,
+              height: 80.0,
+              child: Icon(
+                Icons.work,
+                size: 36.0,
+              ),
             ),
           SizedBox(
             width: 15.0,

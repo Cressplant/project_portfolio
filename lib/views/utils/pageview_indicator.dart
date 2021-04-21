@@ -29,7 +29,7 @@ class PageViewIndicator extends StatelessWidget {
           width: radius*2,
           height: radius*2,
           decoration: new BoxDecoration(
-            color: active ? _theme.primaryColor : _theme.accentColor,
+            color: active ? _theme.primaryColor : _theme.accentColor.withOpacity(0.5),
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
