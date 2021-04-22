@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SliverList(
                 delegate: SliverChildListDelegate([
               Container(
-                  height: _mobile ? 300.0 : 400.0,
+                  height: _mobile ? 260.0 : 360.0,
                   decoration: BoxDecoration(
                       color: _theme.cardColor,
                       image: DecorationImage(
@@ -133,18 +133,31 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Align(
-                        alignment: Alignment(0.15, 0.7),
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: _width * 0.6),
-                          child: Text(
-                            'I am creative, driven, and I like to make things straightforward & prioritise user experience.', /!?!
-                            style: _theme.textTheme.caption,
-                          ),
-                        ),
-                      )
+                      // Align(
+                      //   alignment: Alignment(0.15, 0.7),
+                      //   child: ConstrainedBox(
+                      //     constraints: BoxConstraints(maxWidth: _width * 0.6),
+                      //     child: Text(
+                      //       'I am creative, driven, and like to make my work simple & functional.',
+                      //       style: _theme.textTheme.caption,
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   )),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: _width * (_mobile ? 0.8 : 0.6)),
+                    child: Text(
+                      'I am creative, driven, and like to make my work simple & functional.',
+                      // 'I am creative, driven, and like to make work that is simple & functional.',
+                      style: _theme.textTheme.caption,
+                    ),
+                  ),
+                ),
+              ),
             ])),
             SliverAppBar(
                 backgroundColor: _theme.cardColor,
