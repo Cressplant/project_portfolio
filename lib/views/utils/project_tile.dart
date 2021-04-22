@@ -42,10 +42,7 @@ class ProjectTile extends StatelessWidget {
                     child: Container(
                       // height: _tileHeight * 0.66,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [_theme.accentColor.withOpacity(0.65), _theme.accentColor.withOpacity(0.15)],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter)),
+                          gradient: LinearGradient(colors: [_theme.accentColor.withOpacity(0.65), _theme.accentColor.withOpacity(0.15)], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
                     ),
                   ),
                   Center(
@@ -57,11 +54,9 @@ class ProjectTile extends StatelessWidget {
                             top: 10.0,
                             right: 10.0,
                             child: TagWrap([
+                              if (project.tags.contains(Globals.tagGlossary['005'])) Globals.tagGlossary['005'],
                               if (project.tags.contains(Globals.tagGlossary['006'])) Globals.tagGlossary['006'],
-                              if (project.tags.contains(Globals.tagGlossary['000']))
-                                Globals.tagGlossary['000']
-                              else if (project.tags.contains(Globals.tagGlossary['001']))
-                                Globals.tagGlossary['001'],
+                              if (project.tags.contains(Globals.tagGlossary['000'])) Globals.tagGlossary['000'] else if (project.tags.contains(Globals.tagGlossary['001'])) Globals.tagGlossary['001'],
                               if (project.tags.contains(Globals.tagGlossary['002'])) Globals.tagGlossary['002']
                             ]),
                           ),

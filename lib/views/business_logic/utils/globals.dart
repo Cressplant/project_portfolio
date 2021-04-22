@@ -4,7 +4,7 @@ import 'package:project_portfolio/views/business_logic/utils/tags.dart';
 class Globals {
   static const String title = 'Project Portfolio';
 
-  static const double maxPageWidth = 900.0;
+  static const double maxPageWidth = 800.0;
 
   static const String phoneNumber = '+447592961917';
   static const String email = 'o.f.f.newman@gmail.com';
@@ -18,14 +18,16 @@ class Globals {
     '004': Tag(id: '004', title: 'Recreational', color: Colors.orange),
     '005': Tag(id: '005', title: 'Live', color: Colors.red),
     '006': Tag(id: '006', title: 'Public', color: Colors.lightBlue),
-    '007': Tag(id: '007', title: 'Web', color: Colors.grey),
-    '008': Tag(id: '008', title: 'Null Safety', color: Colors.white),
-    '009': Tag(id: '009', title: 'SQL', color: Colors.blue.shade400),
-    '010': Tag(id: '010', title: 'NOSQL', color: Colors.blue.shade400),
-    '011': Tag(id: '011', title: 'Firebase', color: Colors.yellow),
-    '012': Tag(id: '012', title: 'Bloc', color: Colors.blue.shade400),
-    '013': Tag(id: '013', title: 'Provider', color: Colors.lightBlue),
-    '014': Tag(id: '014', title: 'ML', color: Colors.grey),
-    '015': Tag(id: '015', title: 'Freezed', color: Colors.white),
+    '007': Tag(id: '007', title: 'iOS', color: Colors.grey.shade100),
+    '008': Tag(id: '008', title: 'Android', color: Colors.green),
+    '009': Tag(id: '009', title: 'Web', color: Colors.grey),
+    '010': Tag(id: '010', title: 'Null Safety', color: Colors.white),
+    '011': Tag(id: '011', title: 'SQL', color: Colors.blue.shade400),
+    '012': Tag(id: '012', title: 'NOSQL', color: Colors.blue.shade400),
+    '013': Tag(id: '013', title: 'Firebase', color: Colors.yellow),
+    '014': Tag(id: '014', title: 'Bloc', color: Colors.blue.shade400),
+    '015': Tag(id: '015', title: 'Provider', color: Colors.lightBlue),
+    '016': Tag(id: '016', title: 'ML', color: Colors.grey),
+    '017': Tag(id: '017', title: 'Freezed', color: Colors.white),
   };
 }

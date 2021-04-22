@@ -10,7 +10,10 @@ class JobTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    ThemeData _theme = Theme.of(context);
+
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -31,30 +34,34 @@ class JobTile extends StatelessWidget {
           Expanded(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(job.company),
-              smallVerticalSpacer,
-              Row(
-                children: [
-                  Text(job.role),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(job.contract),
-                ],
+              Text(job.company, style: _theme.textTheme.caption),
+              // smallVerticalSpacer,
+              RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(text: job.role),
+                    TextSpan(text: ' - '),
+                    TextSpan(text: job.contract),
+                  ],
+                ),
               ),
+
               smallVerticalSpacer,
-              Row(
-                children: [
-                  Text(ddMMyy.format(job.start)),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  if (job.currentlyWorkingHere) Text('Present') else Text(ddMMyy.format(job.end ?? DateTime.now())),
-                ],
+              RichText(
+                text: TextSpan(
+                  style: _theme.textTheme.caption,
+                  children: <TextSpan>[
+                    TextSpan(text: ddMMyy.format(job.start)),
+                    TextSpan(text: ' - '),
+                    TextSpan(text: job.currentlyWorkingHere ? 'Present' : ddMMyy.format(job.end ?? DateTime.now())),
+                  ],
+                ),
               ),
-              smallVerticalSpacer,
-              Text(job.description)
+
+              // smallVerticalSpacer,
+              // Text(job.description, style: _theme.textTheme.caption)
             ],
           ))
         ],

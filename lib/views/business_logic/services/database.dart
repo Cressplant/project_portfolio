@@ -14,7 +14,7 @@ class DataBase {
         'coverBackgroundColor': 0xff5b876c,
         'screenshots': ['images/treeworker_home_darkmode.png', 'images/treeworker_home_darkmode_tablet.png', 'images/treeworker_home_darkmode_laptop.png'],
         'description': 'Invoicing & team management software for Arboricultral Companies.',
-        'tags': ['000', '002', '003', '004', '008', '011'],
+        'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
         'repositoryLink': null
@@ -26,7 +26,7 @@ class DataBase {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/tree_worker_landing_page.JPG'],
         'description': 'Flutter web project serving as the landing page for the Tree Worker app.',
-        'tags': ['000', '002', '003', '008', '011'],
+        'tags': ['000', '002', '003', '005', '009', '015'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
         'repositoryLink': null
@@ -38,7 +38,7 @@ class DataBase {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/sun_bear_blinds_home.JPG', 'images/sun_bear_blinds_home_dark.JPG'],
         'description': 'An eCommerce web app, retailing Children\'s Blackout Blinds.',
-        'tags': ['000', '002', '006', '011', '008'],
+        'tags': ['000', '002', '003', '004', '006', '009', '010', '015'],
         'primaryColor': 0xffC7D7E5,
         'accentColor': 0xffFFF3A6,
         'repositoryLink': 'https://github.com/Cressplant/sun_bear_blinds'
@@ -50,7 +50,7 @@ class DataBase {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/snaggle_cover.png'],
         'description': 'A social guidebook app, helping users to locate and interact with nearby events.',
-        'tags': ['001', '002', '011', '008'],
+        'tags': ['001', '002', '003', '007', '008', '013', '014', '015'],
         'primaryColor': 0xff114B5F,
         'accentColor': 0xffffffff,
         'repositoryLink': null
@@ -58,38 +58,37 @@ class DataBase {
       '4': {
         'title': 'This Project',
         'logo': 'images/profile_picture.png',
-        'coverImage': 'images/google_bg.JPG',
+        'coverImage': 'images/project_portfolio_cover.png',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': [],
         'description': 'The portfolio of an incredibly talented developer who you\'re desperate to hire.',
-        'tags': ['000', '002', '006', '008', '011'],
+        'tags': ['000', '002', '005', '006', '009', '010', '015'],
         'primaryColor': 0xff2196F3,
         'accentColor': 0xffffffff,
         'repositoryLink': 'https://github.com/Cressplant/project_portfolio'
       },
     },
-        'jobs': {
-          '0' : {
-            'company' : 'WEA',
-            'logo' : 'images/wea_logo.png',
-            'role' : 'Marketing Coordinator',
-            'contract' : 'Part Time',
-            'description' : '', //!
-            'start' : DateTime.now().millisecondsSinceEpoch, //!
-            'end' : DateTime.now().millisecondsSinceEpoch, //!
-            'currentlyWorkingHere' : true
-          },
-           '1' : {
-            'company' : 'WEA',
-            'logo' : 'images/wea_logo.png',
-            'role' : 'Marketing Coordinator',
-            'contract' : 'Part Time',
-            'description' : '', //!
-            'start' : DateTime.now().millisecondsSinceEpoch, //!
-            'end' : DateTime.now().millisecondsSinceEpoch, //!
-            'currentlyWorkingHere' : true
-          }
-        }
-
+    'jobs': {
+      '0': {
+        'company': 'WEA',
+        'logo': 'images/wea_logo.png',
+        'role': 'Marketing Coordinator',
+        'contract': 'Part Time',
+        'description': '', //!
+        'start': DateTime.now().millisecondsSinceEpoch, //!
+        'end': DateTime.now().millisecondsSinceEpoch, //!
+        'currentlyWorkingHere': true
+      },
+      '1': {
+        'company': 'WEA',
+        'logo': 'images/wea_logo.png',
+        'role': 'Marketing Coordinator',
+        'contract': 'Part Time',
+        'description': '', //!
+        'start': DateTime.now().millisecondsSinceEpoch, //!
+        'end': DateTime.now().millisecondsSinceEpoch, //!
+        'currentlyWorkingHere': true
+      }
+    }
   };
 }

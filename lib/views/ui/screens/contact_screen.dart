@@ -10,8 +10,7 @@ class ContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size(double.infinity, 70.0),
-          child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'Contact Me')))),
+          preferredSize: Size(double.infinity, 70.0), child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'Contact')))),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         child: Center(
@@ -25,7 +24,7 @@ class ContactScreen extends StatelessWidget {
                   children: [
                     CustomButton(
                       leading: Icon(Icons.phone),
-                      title: 'Phone',
+                      title: Globals.phoneNumber,
                     ),
                     SizedBox(width: 10.0),
                     CopyButton(copyText: Globals.phoneNumber)
@@ -36,7 +35,7 @@ class ContactScreen extends StatelessWidget {
                   children: [
                     CustomButton(
                       leading: Icon(Icons.email),
-                      title: 'Email',
+                      title: Globals.email,
                     ),
                     SizedBox(width: 10.0),
                     CopyButton(copyText: Globals.email)
