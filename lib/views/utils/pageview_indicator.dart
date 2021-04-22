@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-
 class PageViewIndicator extends StatelessWidget {
-  PageViewIndicator({
-    required this.active, 
-    this.onPressed, 
-    this.padding = const EdgeInsets.all(3.0),
-    this.radius = 6
-    });
+  PageViewIndicator({required this.active, this.onPressed, this.padding = const EdgeInsets.all(3.0), this.radius = 6});
 
   final bool active;
   final VoidCallback? onPressed;
@@ -26,10 +20,10 @@ class PageViewIndicator extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           margin: padding,
-          width: radius*2,
-          height: radius*2,
+          width: radius * 2,
+          height: radius * 2,
           decoration: new BoxDecoration(
-            color: active ? _theme.primaryColor : _theme.accentColor.withOpacity(0.5),
+            color: active ? _theme.primaryColor : _theme.accentColor.withOpacity(0.3),
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(

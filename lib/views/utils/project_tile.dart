@@ -3,7 +3,6 @@ import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
 import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/ui/screens/project_screen.dart';
-import 'package:project_portfolio/views/utils/custom_card.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/tag_wrap.dart';
 
@@ -42,10 +41,7 @@ class ProjectTile extends StatelessWidget {
                     child: Container(
                       // height: _tileHeight * 0.66,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [_theme.accentColor.withOpacity(0.65), _theme.accentColor.withOpacity(0.15)],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter)),
+                          gradient: LinearGradient(colors: [_theme.accentColor.withOpacity(0.65), _theme.accentColor.withOpacity(0.15)], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
                     ),
                   ),
                   Center(
@@ -60,10 +56,7 @@ class ProjectTile extends StatelessWidget {
                               if (project.tags.contains(Globals.tagGlossary['019'])) Globals.tagGlossary['019'],
                               if (project.tags.contains(Globals.tagGlossary['006'])) Globals.tagGlossary['006'],
                               if (project.tags.contains(Globals.tagGlossary['005'])) Globals.tagGlossary['005'],
-                              if (project.tags.contains(Globals.tagGlossary['000']))
-                                Globals.tagGlossary['000']
-                              else if (project.tags.contains(Globals.tagGlossary['001']))
-                                Globals.tagGlossary['001'],
+                              if (project.tags.contains(Globals.tagGlossary['000'])) Globals.tagGlossary['000'] else if (project.tags.contains(Globals.tagGlossary['001'])) Globals.tagGlossary['001'],
                               if (project.tags.contains(Globals.tagGlossary['002'])) Globals.tagGlossary['002']
                             ]),
                           ),

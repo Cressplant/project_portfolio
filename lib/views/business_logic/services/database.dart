@@ -13,8 +13,9 @@ class Database {
         'coverImage': 'images/6 - Home Shortcuts FB AD.jpg',
         'coverBackgroundColor': 0xff5b876c,
         'screenshots': ['images/treeworker_home_darkmode.png', 'images/treeworker_home_darkmode_tablet.png', 'images/treeworker_home_darkmode_laptop.png'],
+        'summary': 'Tree Worker is invoicing & team management software that has been designed exclusively for arborists and arboricultral companies.',
         'description':
-            '''Tree Worker is invoicing & team management software that has been designed exclusively for arborists and arboricultral companies. It stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultral companies need, including Tree Protection Orders, Risk Assessments & Method Statements.\n\nAs my first real software project, and quite a big one as it turned out, the project structure, data structure, UI, and overall scope changed drastically during its development. It was a huge learning experience, and I've become a much, much better and more rounded programmer than I was at the project\'s inception.''', //!
+            '''It stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultral companies need, including Tree Protection Orders, Risk Assessments & Method Statements.\n\nAs my first real software project, and quite a big one as it turned out, the project structure, data structure, UI, and overall scope changed drastically during its development. It was a huge learning experience, and I've become a much, much better and more rounded programmer than I was at the project\'s inception.''', //!
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -29,8 +30,9 @@ class Database {
         'coverImage': 'images/tree_worker_landing_page.JPG',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/tree_worker_landing_page.JPG'],
+        'summary': 'A Flutter web project serving as the landing page for the Tree Worker app.',
         'description':
-            '''A Flutter web project serving as the landing page for the Tree Worker app. I'm under no illusion that Flutter web is the best suited framework for a landing page, its general performance can be poor on Mobile, even when using the HTML renderer, and its not optimal for SEO.\n\nI chose to use Flutter Web mainly because I wanted more experience with Flutter on the web, I've also seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
+            '''I'm under no illusion that Flutter web is the best suited framework for a landing page, its general performance can be poor on Mobile, even when using the HTML renderer, and its not optimal for SEO.\n\nThe main reason I chose to use Flutter Web was because I wanted more experience with Flutter on the web as a platform. I have seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
         'tags': ['000', '002', '003', '005', '009', '015', '019'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -45,7 +47,9 @@ class Database {
         'coverImage': 'images/sun_bear_blinds_cover.jpg',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/sun_bear_blinds_home.JPG', 'images/sun_bear_blinds_home_dark.JPG'],
-        'description': 'An eCommerce web app, retailing Children\'s Blackout Blinds.',
+        'summary': 'An eCommerce web app, designed for the retail of Children\'s Blackout Blinds.',
+        'description':
+            '''I created this project as I wanted to gain more experience working with null safety. Although I concerned it might be a pain to work with null safety active, it does encourage cleaner code and I've grown to prefer it - though package incompatibility is still a limitation.''',
         'tags': ['000', '002', '003', '004', '006', '009', '010', '015', '018'],
         'primaryColor': 0xffC7D7E5,
         'accentColor': 0xffFFF3A6,
@@ -60,7 +64,8 @@ class Database {
         'coverImage': 'images/snaggle_cover.png',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/snaggle_cover.png'],
-        'description': 'A social guidebook app, helping users to locate and interact with nearby events.',
+        'summary': 'A social guidebook app, helping users to locate and interact with nearby events.',
+        'description': '',
         'tags': ['001', '002', '003', '007', '008', '013', '014', '015', '018', '019'],
         'primaryColor': 0xff114B5F,
         'accentColor': 0xffffffff,
@@ -75,7 +80,8 @@ class Database {
         'coverImage': 'images/project_portfolio_cover.png',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': [],
-        'description': 'The portfolio of an incredibly talented developer who you are desperate to hire.',
+        'summary': 'The portfolio of an incredibly talented developer...',
+        'description': '',
         'tags': ['000', '002', '005', '006', '009', '010', '015'],
         'primaryColor': 0xff2196F3,
         'accentColor': 0xffffffff,

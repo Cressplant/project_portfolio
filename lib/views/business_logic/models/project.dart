@@ -8,6 +8,7 @@ class Project {
   final String coverImage;
   final Color coverBackgroundColor;
   final List<String> screenshots;
+  final String summary;
   final String description;
   final List<Tag> tags;
   final Color primaryColor;
@@ -23,6 +24,7 @@ class Project {
       required this.coverImage,
       required this.coverBackgroundColor,
       required this.screenshots,
+      required this.summary,
       required this.description,
       required this.tags,
       required this.primaryColor,
@@ -30,27 +32,27 @@ class Project {
       required this.repositoryLink,
       required this.appStoreLink,
       required this.playStoreLink,
-      required this.webLink
-      });
+      required this.webLink});
 
   factory Project.fromMap(Map<String, dynamic> _map) {
-
     // print('running Project.fromMap(Map<String, dynamic> $_map)');
 
     return Project(
         title: _map['title'] ?? '',
-        logo: _map['logo'] ?? '', // TODO: add placeholder
+        logo: _map['logo'] ?? '',
+        summary: _map['summary'] ?? '',
         description: _map['description'] ?? '',
         coverImage: _map['coverImage'], // TODO: add placeholder
         coverBackgroundColor: Color(_map['coverBackgroundColor']),
-        screenshots: List<String>.from(_map['screenshots'] ?? [],),
+        screenshots: List<String>.from(
+          _map['screenshots'] ?? [],
+        ),
         primaryColor: Color(_map['primaryColor']),
         accentColor: Color(_map['accentColor']),
         tags: List<Tag>.from(_map['tags']?.map((e) => Globals.tagGlossary[e]).toList() ?? []),
         repositoryLink: _map['repositoryLink'],
         appStoreLink: _map['appStoreLink'],
         playStoreLink: _map['playStoreLink'],
-        webLink: _map['webLink']
-        );
+        webLink: _map['webLink']);
   }
 }

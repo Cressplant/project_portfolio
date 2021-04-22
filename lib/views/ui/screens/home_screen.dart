@@ -11,7 +11,6 @@ import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/custom_card.dart';
 import 'package:project_portfolio/views/utils/project_tile.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -48,137 +47,136 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: _theme.cardColor,
         body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
-            SliverList(
-                delegate: SliverChildListDelegate([
-              Container(
-                  height: _mobile ? 260.0 : 360.0,
-                  decoration: BoxDecoration(
-                      color: _theme.cardColor,
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        alignment: Alignment.bottomCenter, //* prevents hard edge w/ appbar
-                        image: AssetImage('images/google_bg.JPG'),
-                      )),
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Row(
-                          children: [...contactActions],
-                        ),
-                      ),
+            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+                  SliverList(
+                      delegate: SliverChildListDelegate([
+                    Container(
+                        height: _mobile ? 260.0 : 360.0,
+                        decoration: BoxDecoration(
+                            color: _theme.cardColor,
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              alignment: Alignment.bottomCenter, //* prevents hard edge w/ appbar
+                              image: AssetImage('images/google_bg.JPG'),
+                            )),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Row(
+                                children: [...contactActions],
+                              ),
+                            ),
 
-                      Positioned(
-                          top: 10.0,
-                          right: 10.0,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [Text('Created with Flutter'), SizedBox(width: 10.0), FlutterLogo()],
-                          )),
+                            Positioned(
+                                top: 10.0,
+                                right: 10.0,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [Text('Created with Flutter'), SizedBox(width: 10.0), FlutterLogo()],
+                                )),
 
-                      // Align(
-                      //   alignment: Alignment(0.5, 0.0),
-                      //   child: Container(
-                      //     margin: EdgeInsets.only(bottom: 15),
-                      //     height: 90,
-                      //     width: 90,
-                      //     decoration: BoxDecoration(
-                      //         shape: BoxShape.circle,
-                      //         boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
-                      //         color: _theme.accentColor,
-                      //         image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
-                      //   ),
-                      // ),
-                      Align(
-                        alignment: Alignment(-0.1, 0.15),
-                        child: SizedBox(
-                          width: 215.0,
-                          height: 105.0,
-                          child: Stack(
-                            children: [
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: Container(
-                                  margin: EdgeInsets.only(bottom: 15),
-                                  height: 90,
-                                  width: 90,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
-                                      color: _theme.accentColor,
-                                      image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
+                            // Align(
+                            //   alignment: Alignment(0.5, 0.0),
+                            //   child: Container(
+                            //     margin: EdgeInsets.only(bottom: 15),
+                            //     height: 90,
+                            //     width: 90,
+                            //     decoration: BoxDecoration(
+                            //         shape: BoxShape.circle,
+                            //         boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
+                            //         color: _theme.accentColor,
+                            //         image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
+                            //   ),
+                            // ),
+                            Align(
+                              alignment: Alignment(-0.1, 0.15),
+                              child: SizedBox(
+                                width: 215.0,
+                                height: 105.0,
+                                child: Stack(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topRight,
+                                      child: Container(
+                                        margin: EdgeInsets.only(bottom: 15),
+                                        height: 90,
+                                        width: 90,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
+                                            color: _theme.accentColor,
+                                            image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomLeft,
+                                      child: CustomCard(
+                                          padding: EdgeInsets.all(12.0),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text('Oscar Newman', style: _theme.textTheme.headline4),
+                                              SizedBox(
+                                                height: 6.0,
+                                              ),
+                                              Text(
+                                                'Flutter Developer',
+                                                style: _theme.textTheme.caption,
+                                              )
+                                            ],
+                                          )),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Align(
-                                alignment: Alignment.bottomLeft,
-                                child: CustomCard(
-                                    padding: EdgeInsets.all(12.0),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text('Oscar Newman', style: _theme.textTheme.headline4),
-                                        SizedBox(
-                                          height: 6.0,
-                                        ),
-                                        Text(
-                                          'Flutter Developer',
-                                          style: _theme.textTheme.caption,
-                                        )
-                                      ],
-                                    )),
-                              ),
-                            ],
+                            ),
+                            // Align(
+                            //   alignment: Alignment(0.15, 0.7),
+                            //   child: ConstrainedBox(
+                            //     constraints: BoxConstraints(maxWidth: _width * 0.6),
+                            //     child: Text(
+                            //       'I am creative, driven, and like to make my work simple & functional.',
+                            //       style: _theme.textTheme.caption,
+                            //     ),
+                            //   ),
+                            // )
+                          ],
+                        )),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(maxWidth: _width * (_mobile ? 0.8 : 0.6)),
+                          child: Text(
+                            'I am creative, driven, and like to make my work simple & functional.',
+                            // 'I am creative, driven, and like to make work that is simple & functional.',
+                            style: _theme.textTheme.caption,
                           ),
                         ),
                       ),
-                      // Align(
-                      //   alignment: Alignment(0.15, 0.7),
-                      //   child: ConstrainedBox(
-                      //     constraints: BoxConstraints(maxWidth: _width * 0.6),
-                      //     child: Text(
-                      //       'I am creative, driven, and like to make my work simple & functional.',
-                      //       style: _theme.textTheme.caption,
-                      //     ),
-                      //   ),
-                      // )
-                    ],
-                  )),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: _width * (_mobile ? 0.8 : 0.6)),
-                    child: Text(
-                      'I am creative, driven, and like to make my work simple & functional.',
-                      // 'I am creative, driven, and like to make work that is simple & functional.',
-                      style: _theme.textTheme.caption,
                     ),
-                  ),
-                ),
-              ),
-            ])),
-            SliverAppBar(
-                backgroundColor: _theme.cardColor,
-                floating: true,
-                pinned: true,
-                automaticallyImplyLeading: false,
-                expandedHeight: 0,
-                bottom: PreferredSize(
-                    // preferredSize: Size(double.infinity, 44.0),
-                    preferredSize: Size(double.infinity, 70.0),
-                    child: Padding(padding: const EdgeInsets.all(10.0), child: CustomTitle(leading: Icon(Icons.folder_outlined), title: 'My Work')
-                        // child: Text(
-                        //   'Projects',
-                        //   style: _theme.textTheme.headline3,
-                        //   // style: TextStyle(color: Colors.white),
-                        // ),
+                  ])),
+                  SliverAppBar(
+                      backgroundColor: _theme.cardColor,
+                      floating: true,
+                      pinned: true,
+                      automaticallyImplyLeading: false,
+                      expandedHeight: 0,
+                      bottom: PreferredSize(
+                          // preferredSize: Size(double.infinity, 44.0),
+                          preferredSize: Size(double.infinity, 70.0),
+                          child: Padding(padding: const EdgeInsets.all(10.0), child: CustomTitle(leading: Icon(Icons.folder_outlined), title: 'My Work')
+                              // child: Text(
+                              //   'Projects',
+                              //   style: _theme.textTheme.headline3,
+                              //   // style: TextStyle(color: Colors.white),
+                              // ),
 
-                        )))
-          ],
-          body: SingleChildScrollView(child: Column(children: _projects?.map((_project) => ProjectTile(_project)).toList() ?? [])),
-        ),
+                              )))
+                ],
+            body: ListView.builder(itemCount: _projects?.length ?? 0, itemBuilder: (context, i) => ProjectTile((_projects ?? [])[i]))),
       ),
     );
   }

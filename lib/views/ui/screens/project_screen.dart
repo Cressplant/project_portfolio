@@ -61,6 +61,10 @@ class ProjectScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              CustomTitle(title: 'Summary'),
+                              mediumVerticalSpacer,
+                              Text(_project.summary),
+                              mediumVerticalSpacer,
                               CustomTitle(title: 'About'),
                               mediumVerticalSpacer,
                               Text(_project.description),
@@ -104,14 +108,8 @@ class ProjectScreen extends StatelessWidget {
                                 ),
                                 largeVerticalSpacer,
                               ],
-                              CustomTitle(
-                                leading: Icon(_project.repositoryLink != null ? Icons.lock_open : Icons.lock),
-                                title: 'Repository'),
-                                if(_project.repositoryLink != null)
-                                ...[
-                                     mediumVerticalSpacer,
-                              Center(child: GitHubCard(project: _project))
-                                ]
+                              CustomTitle(leading: Icon(_project.repositoryLink != null ? Icons.lock_open : Icons.lock), title: 'Repository'),
+                              if (_project.repositoryLink != null) ...[mediumVerticalSpacer, Center(child: GitHubCard(project: _project))]
                             ],
                           ),
                         )

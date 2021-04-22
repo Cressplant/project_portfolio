@@ -65,6 +65,7 @@ Future<HandShakeStatus> showHandShakeOverlay(BuildContext context) async {
                             mediumVerticalSpacer,
                             Text(
                               'You\'ve uncovered one of my valuable qualities - persistence.',
+                              textAlign: TextAlign.center,
                               // style: _theme.textTheme.caption,
                             ),
                           ]
