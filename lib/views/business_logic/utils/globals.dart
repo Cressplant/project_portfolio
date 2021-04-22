@@ -6,7 +6,7 @@ class Globals {
 
   static const double maxPageWidth = 800.0;
 
-  static const String phoneNumber = '+447592961917';
+  static const String phone = '+447592961917';
   static const String email = 'o.f.f.newman@gmail.com';
   static const String linkedIn = 'https://www.linkedin.com/in/oscar-newman-21b84312a/';
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_portfolio/views/business_logic/utils/contact.dart';
 import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/utils/copy_button.dart';
@@ -10,43 +11,47 @@ class ContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size(double.infinity, 70.0), child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'Contact')))),
+          preferredSize: Size(double.infinity, 70.0),
+          child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'Contact')))),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         child: Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: Globals.maxPageWidth),
+            constraints: BoxConstraints(maxWidth: 400.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                mediumVerticalSpacer,
+                largeVerticalSpacer,
                 Row(
                   children: [
                     CustomButton(
                       leading: Icon(Icons.phone),
-                      title: Globals.phoneNumber,
+                      title: Globals.phone,
+                      onPressed: () => launchPhone(),
                     ),
                     SizedBox(width: 10.0),
-                    CopyButton(copyText: Globals.phoneNumber)
+                    CopyButton(copyText: Globals.phone)
                   ],
                 ),
-                mediumVerticalSpacer,
+                largeVerticalSpacer,
                 Row(
                   children: [
                     CustomButton(
                       leading: Icon(Icons.email),
                       title: Globals.email,
+                      onPressed: () => launchEmail(),
                     ),
                     SizedBox(width: 10.0),
                     CopyButton(copyText: Globals.email)
                   ],
                 ),
-                mediumVerticalSpacer,
+                largeVerticalSpacer,
                 Row(
                   children: [
                     CustomButton(
                       leading: Image.asset('images/linkedin_logo.png', height: 26.0),
                       title: 'LinkedIn',
+                      onPressed: () => launchLinkedIn(),
                     ),
                     SizedBox(width: 10.0),
                     CopyButton(copyText: Globals.linkedIn)

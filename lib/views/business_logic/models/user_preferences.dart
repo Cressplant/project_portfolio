@@ -4,13 +4,14 @@ import 'package:project_portfolio/views/business_logic/utils/enums.dart';
 class UserPreferences extends ChangeNotifier {
   bool _darkMode = false;
   HandShakeStatus _handShakeStatus = HandShakeStatus.pending;
+  int _handshakeAttempts = 1;
 
   bool get darkMode => _darkMode;
   HandShakeStatus get handShakeStatus => _handShakeStatus;
+  int get handshakeAttempts => _handshakeAttempts;
 
-  void updateUserPreferences({required bool darkMode, required HandShakeStatus handShakeStatus}) {
+  void updateDarkMode({required bool darkMode}) {
     _darkMode = darkMode;
-    _handShakeStatus = handShakeStatus;
 
     notifyListeners();
   }
@@ -20,4 +21,11 @@ class UserPreferences extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  void updateHandshakeAttempts({required int handshakeAttempts}){
+    _handshakeAttempts = handshakeAttempts;
+
+    notifyListeners();
+  }
+
 }

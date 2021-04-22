@@ -26,6 +26,7 @@ class Themes {
     if (darkMode) {
       return ThemeData(
         brightness: Brightness.dark,
+        // primaryColor: Colors.blue.shade900,
         colorScheme: ColorScheme.dark(
           primary: Colors.blue,
           secondary: Colors.blueAccent,
@@ -86,6 +87,7 @@ class Themes {
     } else {
       return ThemeData(
         brightness: Brightness.light,
+        // primaryColor: Colors.blue.shade900,
         colorScheme: ColorScheme.light(
           primary: Colors.blue,
           secondary: Colors.blueAccent,

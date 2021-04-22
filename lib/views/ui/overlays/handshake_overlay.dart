@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:project_portfolio/views/business_logic/models/user_preferences.dart';
 import 'package:project_portfolio/views/business_logic/utils/enums.dart';
+import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/utils/floating_modal.dart';
+import 'package:provider/provider.dart';
 
 Future<HandShakeStatus> showHandShakeOverlay(BuildContext context) async {
+  int _handshakeAttempts = Provider.of<UserPreferences>(context, listen: false).handshakeAttempts;
+
   HandShakeStatus _handShakeStatus = await showFloatingModalBottomSheet(
           context: context,
           builder: (BuildContext context) {
@@ -48,10 +53,23 @@ Future<HandShakeStatus> showHandShakeOverlay(BuildContext context) async {
                             padding: const EdgeInsets.symmetric(vertical: 4.0),
                             child: Text(
                               '*Oscar has initiated a handshake*',
-                              style: Theme.of(context).textTheme.caption,
+                              // style: Theme.of(context).textTheme.caption,
                               textAlign: TextAlign.center,
                             ),
                           ),
+                          Text(
+                            '$_handshakeAttempts Handshake Attempt${_handshakeAttempts > 1 ? 's' : ''}',
+                            style: _theme.textTheme.caption,
+                          ),
+                          if (_handshakeAttempts > 2)
+                          ...[
+                            mediumVerticalSpacer,
+                                 Text(
+                              'You\'ve uncovered one of my valuable qualities - persistence.',
+                              style: _theme.textTheme.caption,
+                            ),
+                          ]
+                       
                         ],
                       )),
                   Row(
@@ -111,7 +129,10 @@ Future<HandShakeStatus> showHandShakeOverlay(BuildContext context) async {
           }) ??
       HandShakeStatus.refused;
 
-  if (_handShakeStatus == HandShakeStatus.ignored) _handShakeStatus = await showHandShakeOverlay(context);
+  if (_handShakeStatus == HandShakeStatus.ignored) {
+    Provider.of<UserPreferences>(context, listen: false).updateHandshakeAttempts(handshakeAttempts: _handshakeAttempts + 1);
+    _handShakeStatus = await showHandShakeOverlay(context);
+  }
 
   return _handShakeStatus;
 }

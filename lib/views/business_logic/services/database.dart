@@ -1,4 +1,4 @@
-class DataBase {
+class Database {
   Map<String, dynamic> getData({required String collection}) {
     Map<String, dynamic> _requestedData = _allData[collection];
 
@@ -13,7 +13,7 @@ class DataBase {
         'coverImage': 'images/6 - Home Shortcuts FB AD.jpg',
         'coverBackgroundColor': 0xff5b876c,
         'screenshots': ['images/treeworker_home_darkmode.png', 'images/treeworker_home_darkmode_tablet.png', 'images/treeworker_home_darkmode_laptop.png'],
-        'description': 'Invoicing & team management software for Arboricultral Companies.',
+        'description': 'Invoicing & team management software for Arboricultral Companies. Tree Worker was my first real project',
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -70,10 +70,10 @@ class DataBase {
     },
     'jobs': {
       '0': {
-        'company': 'WEA',
-        'logo': 'images/wea_logo.png',
-        'role': 'Marketing Coordinator',
-        'contract': 'Part Time',
+        'company': 'Tree Worker Software LTD',
+        'logo': 'images/tree_worker_logo.png',
+        'role': 'Director',
+        'contract': '',
         'description': '', //!
         'start': DateTime.now().millisecondsSinceEpoch, //!
         'end': DateTime.now().millisecondsSinceEpoch, //!
@@ -88,6 +88,16 @@ class DataBase {
         'start': DateTime.now().millisecondsSinceEpoch, //!
         'end': DateTime.now().millisecondsSinceEpoch, //!
         'currentlyWorkingHere': true
+      },
+        '2': {
+        'company': 'Share with a Bear LTD',
+        'logo': 'images/share_with_a_bear_logo.png',
+        'role': 'Director',
+        'contract': '',
+        'description': '', //!
+        'start': DateTime.now().millisecondsSinceEpoch, //!
+        'end': DateTime.now().millisecondsSinceEpoch, //!
+        'currentlyWorkingHere': false
       }
     }
   };

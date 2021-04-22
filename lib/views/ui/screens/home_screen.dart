@@ -19,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DataBase _dataBase = DataBase();
+  Database _dataBase = Database();
   List<Project>? _projects;
   // Alignment _nameCardAlignment = Alignment(-0.1, 1);
 

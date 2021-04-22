@@ -5,6 +5,7 @@ import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/job_tile.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AboutScreen extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
-  DataBase _dataBase = DataBase();
+  Database _dataBase = Database();
   List<Job> _jobList = [];
 
   @override
@@ -24,11 +25,14 @@ class _AboutScreenState extends State<AboutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData _theme = Theme.of(context);
+
     return Scaffold(
       body: ListView(
         children: [
           PreferredSize(
-              preferredSize: Size(double.infinity, 70.0), child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'About')))),
+              preferredSize: Size(double.infinity, 70.0),
+              child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'About')))),
           Center(
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: Globals.maxPageWidth),
@@ -52,18 +56,43 @@ class _AboutScreenState extends State<AboutScreen> {
                   ..._jobList.map((_job) => JobTile(_job)),
                   largeVerticalSpacer,
                   CustomTitle(
-                    leading: Icon(Icons.not_interested_rounded),
+                    leading: FaIcon(FontAwesomeIcons.university),
                     title: 'Education',
                   ),
                   mediumVerticalSpacer,
-                  Text('BA (Hons) Business Studies with Enterprise, 2:1'),
+                  ListTile(
+                    // leading: Image.asset(
+                    //   'images/bu_logo.png',
+                    //   height: 80.0,
+                    //   width: 80.0,
+                    // ),
+                    title: Text('Bournemouth University', style: _theme.textTheme.caption),
+                    subtitle: Text('BA (Hons) Business Studies with Enterprise, 2:1', style: _theme.textTheme.bodyText1),
+                  ),
                   largeVerticalSpacer,
                   CustomTitle(
-                    leading: Icon(Icons.battery_alert), //!
+                    leading: FaIcon(FontAwesomeIcons.trophy),
                     title: 'Accomplishments',
                   ),
                   mediumVerticalSpacer,
-                  Text(''),
+                  ListTile(
+                    // leading: Image.asset(
+                    //   'images/santander_logo.png',
+                    //   height: 80.0,
+                    //   width: 80.0,
+                    // ),
+                    title: Text('Santander Entrepreneurship Initiative 2019', style: _theme.textTheme.caption),
+                    subtitle: Text('Winner & Funding Recipient', style: _theme.textTheme.bodyText1),
+                  ),
+                  ListTile(
+                    // leading: Image.asset(
+                    //   'images/pitch_at_the_pitch_logo.jpg',
+                    //   height: 80.0,
+                    //   width: 80.0,
+                    // ),
+                    title: Text('Bournemouth University Pitch at the Pitch 2017', style: _theme.textTheme.caption),
+                    subtitle: Text('Winner & Funding Recipient', style: _theme.textTheme.bodyText1),
+                  ),
                   largeVerticalSpacer
                 ],
               ),

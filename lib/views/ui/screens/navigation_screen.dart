@@ -11,14 +11,15 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-
   PageController _pageController = PageController();
+  int _currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentPage,
         backgroundColor: Theme.of(context).cardColor,
         onTap: (_index) => _pageController.animateToPage(_index, duration: Duration(milliseconds: 300), curve: Curves.easeIn),
         items: [
@@ -29,11 +30,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
       ),
       body: PageView(
         controller: _pageController,
-        children: [
-          HomeScreen(),
-          AboutScreen(),
-          ContactScreen()
-        ],
+        onPageChanged: (_int) {
+          setState(() {
+            _currentPage = _int;
+          });
+        },
+        children: [HomeScreen(), AboutScreen(), ContactScreen()],
       ),
     ));
   }

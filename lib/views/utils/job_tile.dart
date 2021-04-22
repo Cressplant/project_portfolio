@@ -23,9 +23,11 @@ class JobTile extends StatelessWidget {
             Container(
               width: 80.0,
               height: 80.0,
-              child: Icon(
-                Icons.work,
-                size: 36.0,
+              child: Center(
+                child: Icon(
+                  Icons.work,
+                  size: 36.0,
+                ),
               ),
             ),
           SizedBox(
@@ -42,8 +44,11 @@ class JobTile extends StatelessWidget {
                 text: TextSpan(
                   children: <TextSpan>[
                     TextSpan(text: job.role),
-                    TextSpan(text: ' - '),
-                    TextSpan(text: job.contract),
+                    if(job.contract.isNotEmpty)
+                    ...[
+                      TextSpan(text: ' - '),
+                      TextSpan(text: job.contract),
+                    ]
                   ],
                 ),
               ),
