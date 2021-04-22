@@ -113,21 +113,21 @@ class _HomeScreenState extends State<HomeScreen> {
                               Align(
                                 alignment: Alignment.bottomLeft,
                                 child: CustomCard(
-                                  padding: EdgeInsets.all(12.0),
+                                    padding: EdgeInsets.all(12.0),
                                     child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text('Oscar Newman', style: _theme.textTheme.headline4),
-                                    SizedBox(
-                                      height: 6.0,
-                                    ),
-                                    Text(
-                                      'Flutter Developer',
-                                      style: _theme.textTheme.caption,
-                                    )
-                                  ],
-                                )),
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text('Oscar Newman', style: _theme.textTheme.headline4),
+                                        SizedBox(
+                                          height: 6.0,
+                                        ),
+                                        Text(
+                                          'Flutter Developer',
+                                          style: _theme.textTheme.caption,
+                                        )
+                                      ],
+                                    )),
                               ),
                             ],
                           ),
@@ -138,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ConstrainedBox(
                           constraints: BoxConstraints(maxWidth: _width * 0.6),
                           child: Text(
-                            'I am creative, driven, and I try to implement simplicity & user experience into everything I create.',
+                            'I am creative, driven, and I like to make things straightforward & prioritise user experience.', /!?!
                             style: _theme.textTheme.caption,
                           ),
                         ),

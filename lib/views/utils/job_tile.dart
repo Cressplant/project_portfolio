@@ -42,10 +42,10 @@ class JobTile extends StatelessWidget {
               // smallVerticalSpacer,
               RichText(
                 text: TextSpan(
+                  style: _theme.textTheme.bodyText1,
                   children: <TextSpan>[
                     TextSpan(text: job.role),
-                    if(job.contract.isNotEmpty)
-                    ...[
+                    if (job.contract.isNotEmpty) ...[
                       TextSpan(text: ' - '),
                       TextSpan(text: job.contract),
                     ]

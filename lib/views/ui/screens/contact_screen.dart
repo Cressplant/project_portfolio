@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/utils/contact.dart';
 import 'package:project_portfolio/views/business_logic/utils/globals.dart';
+import 'package:project_portfolio/views/business_logic/utils/launch.dart';
 import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/utils/copy_button.dart';
 import 'package:project_portfolio/views/utils/custom_button.dart';
@@ -27,7 +27,7 @@ class ContactScreen extends StatelessWidget {
                     CustomButton(
                       leading: Icon(Icons.phone),
                       title: Globals.phone,
-                      onPressed: () => launchPhone(),
+                      onPressed: () => openLink(Globals.openPhoneURL),
                     ),
                     SizedBox(width: 10.0),
                     CopyButton(copyText: Globals.phone)
@@ -39,7 +39,7 @@ class ContactScreen extends StatelessWidget {
                     CustomButton(
                       leading: Icon(Icons.email),
                       title: Globals.email,
-                      onPressed: () => launchEmail(),
+                      onPressed: () =>  openLink(Globals.openEmailURL),
                     ),
                     SizedBox(width: 10.0),
                     CopyButton(copyText: Globals.email)
@@ -51,7 +51,7 @@ class ContactScreen extends StatelessWidget {
                     CustomButton(
                       leading: Image.asset('images/linkedin_logo.png', height: 26.0),
                       title: 'LinkedIn',
-                      onPressed: () => launchLinkedIn(),
+                      onPressed: () => openLink(Globals.linkedIn),
                     ),
                     SizedBox(width: 10.0),
                     CopyButton(copyText: Globals.linkedIn)

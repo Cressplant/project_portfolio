@@ -61,15 +61,13 @@ Future<HandShakeStatus> showHandShakeOverlay(BuildContext context) async {
                             '$_handshakeAttempts Handshake Attempt${_handshakeAttempts > 1 ? 's' : ''}',
                             style: _theme.textTheme.caption,
                           ),
-                          if (_handshakeAttempts > 2)
-                          ...[
+                          if (_handshakeAttempts > 2) ...[
                             mediumVerticalSpacer,
-                                 Text(
+                            Text(
                               'You\'ve uncovered one of my valuable qualities - persistence.',
-                              style: _theme.textTheme.caption,
+                              // style: _theme.textTheme.caption,
                             ),
                           ]
-                       
                         ],
                       )),
                   Row(

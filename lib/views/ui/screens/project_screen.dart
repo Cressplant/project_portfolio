@@ -1,34 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project_portfolio/views/business_logic/models/project.dart';
 import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
+import 'package:project_portfolio/views/business_logic/utils/launch.dart';
 import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/utils/contact_actions.dart';
 import 'package:project_portfolio/views/utils/contact_options_popup_menu.dart';
+import 'package:project_portfolio/views/utils/custom_button.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/github_card.dart';
-import 'package:project_portfolio/views/utils/pageview_indicator.dart';
+import 'package:project_portfolio/views/utils/screen_shot_carousel.dart';
 import 'package:project_portfolio/views/utils/tag_wrap.dart';
 
-class ProjectScreen extends StatefulWidget {
-    static const String id = '/project';
+class ProjectScreen extends StatelessWidget {
+  static const String id = '/project';
 
   final Project _project;
 
   ProjectScreen(this._project);
-
-  @override
-  _ProjectScreenState createState() => _ProjectScreenState();
-}
-
-class _ProjectScreenState extends State<ProjectScreen> {
-  PageController _screenshotPageController = PageController();
-  int _screenshotIndex = 0;
-
-  @override
-  void dispose() {
-    _screenshotPageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,28 +31,22 @@ class _ProjectScreenState extends State<ProjectScreen> {
         padding: EdgeInsets.only(bottom: 50.0),
         child: Column(
           children: [
-  AppBar(
-        centerTitle: true,
-        backgroundColor: _theme.cardColor,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              widget._project.logo,
-              height: 30.0,
-              width: 30.0,
-            ),
-            SizedBox(width: 10.0),
-            Text(widget._project.title)
-          ],
-        ),
-        actions: [
-
-          if(_mobile)
-         ContactOptionsPopupMenu()
-
-        ]
-      ),
+            AppBar(
+                centerTitle: true,
+                backgroundColor: _theme.cardColor,
+                title: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      _project.logo,
+                      height: 30.0,
+                      width: 30.0,
+                    ),
+                    SizedBox(width: 10.0),
+                    Text(_project.title)
+                  ],
+                ),
+                actions: [if (_mobile) ContactOptionsPopupMenu()]),
             ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 700.0),
               child: Row(
@@ -72,70 +55,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                   Expanded(
                     child: Column(
                       children: [
-                        if (widget._project.screenshots.isNotEmpty)
-                          SizedBox(
-                            height: _screenshotHeight,
-                            child: Stack(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 5.0, bottom: 25.0),
-                                  child: PageView(
-                                      controller: _screenshotPageController,
-                                      onPageChanged: (_index) {
-                                        setState(() {
-                                          _screenshotIndex = _index;
-                                        });
-                                      },
-                                      children: widget._project.screenshots
-                                          .map((_ss) => Image.asset(
-                                                _ss,
-                                                // height: 400,
-                                              ))
-                                          .toList()),
-                                ),
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: IgnorePointer(
-                                    child: Container(
-                                      width: 40.0,
-                                      height: _screenshotHeight,
-                                      decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                              colors: [_theme.cardColor, _theme.cardColor.withOpacity(0.0)],
-                                              begin: Alignment.centerLeft,
-                                              end: Alignment.centerRight)),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: IgnorePointer(
-                                    child: Container(
-                                      width: 40.0,
-                                      height: _screenshotHeight,
-                                      decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                              colors: [_theme.cardColor, _theme.cardColor.withOpacity(0.0)],
-                                              begin: Alignment.centerRight,
-                                              end: Alignment.centerLeft)),
-                                    ),
-                                  ),
-                                ),
-                                if (widget._project.screenshots.length > 1)
-                                  Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Row(mainAxisSize: MainAxisSize.min, children: [
-                                        for (int i = 0; i < widget._project.screenshots.length; i++)
-                                          PageViewIndicator(
-                                            active: i == _screenshotIndex,
-                                            onPressed: () {
-                                              _screenshotPageController.animateToPage(i, duration: Duration(milliseconds: 250), curve: Curves.easeIn);
-                                            },
-                                          )
-                                      ]))
-                              ],
-                            ),
-                          ),
+                        if (_project.screenshots.isNotEmpty) ImageCarousel(height: _screenshotHeight, images: _project.screenshots),
                         Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: Column(
@@ -143,13 +63,55 @@ class _ProjectScreenState extends State<ProjectScreen> {
                             children: [
                               CustomTitle(title: 'About'),
                               mediumVerticalSpacer,
-                              Text(widget._project.description),
+                              Text(_project.description),
                               mediumVerticalSpacer,
-                              TagWrap(widget._project.tags),
+                              TagWrap(_project.tags),
                               largeVerticalSpacer,
-                              CustomTitle(title: 'Repository'),
-                              mediumVerticalSpacer,
-                              Center(child: GitHubCard(project: widget._project))
+                              if (_project.appStoreLink != null || _project.playStoreLink != null || _project.webLink != null) ...[
+                                CustomTitle(title: 'Links'),
+                                mediumVerticalSpacer,
+                                Wrap(
+                                  spacing: 10.0,
+                                  runSpacing: 10.0,
+                                  children: [
+                                    if (_project.appStoreLink != null)
+                                      CustomButton(
+                                        leading: Image.asset(
+                                          'images/app_store_logo.png',
+                                          height: 26,
+                                          width: 26,
+                                        ),
+                                        title: 'App Store',
+                                        onPressed: () => openLink(_project.appStoreLink),
+                                      ),
+                                    if (_project.playStoreLink != null)
+                                      CustomButton(
+                                        leading: Image.asset(
+                                          'images/play_store_logo.png',
+                                          height: 26,
+                                          width: 26,
+                                        ),
+                                        title: 'Play Store',
+                                        onPressed: () => openLink(_project.playStoreLink),
+                                      ),
+                                    if (_project.webLink != null)
+                                      CustomButton(
+                                        leading: Icon(FontAwesomeIcons.globeEurope),
+                                        title: 'Web',
+                                        onPressed: () => openLink(_project.webLink),
+                                      ),
+                                  ],
+                                ),
+                                largeVerticalSpacer,
+                              ],
+                              CustomTitle(
+                                leading: Icon(_project.repositoryLink != null ? Icons.lock_open : Icons.lock),
+                                title: 'Repository'),
+                                if(_project.repositoryLink != null)
+                                ...[
+                                     mediumVerticalSpacer,
+                              Center(child: GitHubCard(project: _project))
+                                ]
                             ],
                           ),
                         )
@@ -162,9 +124,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
-                          children: [
-                            ...contactActions
-                          ],
+                          children: [...contactActions],
                         ),
                       ),
                     )

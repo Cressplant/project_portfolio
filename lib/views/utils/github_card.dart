@@ -54,16 +54,19 @@ class GitHubCard extends StatelessWidget {
                     children: [
                       Text(project.title),
                       smallVerticalSpacer,
-                      Row(
-                        children: [
-                          Icon(_public ? Icons.lock_open : Icons.lock, size: 16),
-                          SizedBox(width: 10.0),
-                          Text(
-                            _public ? 'Public' : 'Private',
-                            style: _theme.textTheme.caption,
-                          )
-                        ],
-                      )
+                      Text('github.com')
+
+                      //* Now hiding the card entirely if private
+                      // Row(
+                      //   children: [
+                      //     Icon(_public ? Icons.lock_open : Icons.lock, size: 16),
+                      //     SizedBox(width: 10.0),
+                      //     Text(
+                      //       _public ? 'Public' : 'Private',
+                      //       style: _theme.textTheme.caption,
+                      //     )
+                      //   ],
+                      // )
                     ],
                   ),
                 )
