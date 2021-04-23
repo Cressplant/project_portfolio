@@ -71,9 +71,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             Positioned(
                                 top: 10.0,
                                 right: 10.0,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [Text('Created with Flutter'), SizedBox(width: 10.0), FlutterLogo()],
+                                child: CustomCard(
+                                  padding: EdgeInsets.all(7.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        'Created with Flutter',
+                                        style: _theme.textTheme.caption,
+                                      ),
+                                      SizedBox(width: 5.0),
+                                      FlutterLogo(
+                                        size: 22.0,
+                                      )
+                                    ],
+                                  ),
                                 )),
 
                             // Align(
@@ -152,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Text(
                             'I am creative, driven, and like to make my work simple & functional.',
                             // 'I am creative, driven, and like to make work that is simple & functional.',
-                            style: _theme.textTheme.caption,
+                            // style: _theme.textTheme.caption,
                           ),
                         ),
                       ),
