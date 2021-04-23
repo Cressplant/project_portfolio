@@ -58,9 +58,10 @@ class JobTile extends StatelessWidget {
                 text: TextSpan(
                   style: _theme.textTheme.caption,
                   children: <TextSpan>[
-                    TextSpan(text: ddMMyy.format(job.start)),
+                    TextSpan(text: yMMMM.format(job.start)),
                     TextSpan(text: ' - '),
-                    TextSpan(text: job.currentlyWorkingHere ? 'Present' : ddMMyy.format(job.end ?? DateTime.now())),
+                    // TextSpan(text: job.currentlyWorkingHere ? 'Present' : ddMMyy.format(job.end ?? DateTime.now())),
+                    TextSpan(text: job.currentlyWorkingHere ? 'Present' : yMMMM.format(job.end ?? DateTime.now())),
                   ],
                 ),
               ),

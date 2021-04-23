@@ -10,12 +10,11 @@ class Database {
       '0': {
         'title': 'Tree Worker',
         'logo': 'images/tree_worker_logo.png',
-        'coverImage': 'images/6 - Home Shortcuts FB AD.jpg',
+        'coverImage': 'images/tree_worker_cover.jpg',
         'coverBackgroundColor': 0xff5b876c,
         'screenshots': ['images/treeworker_home_darkmode.png', 'images/treeworker_home_darkmode_tablet.png', 'images/treeworker_home_darkmode_laptop.png'],
         'summary': 'Tree Worker is invoicing & team management software that has been designed exclusively for arborists and arboricultral companies.',
-        'description':
-            '''Tree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultral companies need, including Tree Protection Orders, Risk Assessments & Method Statements.\n\nAs my first real software project, and quite a big one as it turned out, the project structure, data structure, UI, and overall scope changed drastically during its development. It was a huge learning experience, and I've become a much, much better and more rounded programmer than I was at the project\'s inception.''',
+        'description': '''Tree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultral companies need, including Tree Protection Orders, Risk Assessments & Method Statements.\n\nAs my first real software project, and quite a big one as it turned out, the project structure, data structure, UI, and overall scope changed drastically during its development. It was a huge learning experience, and I've become a much, much better and more rounded programmer than I was at the project\'s inception.''',
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -98,8 +97,8 @@ class Database {
         'role': 'Director',
         'contract': '',
         'description': '', //!
-        'start': DateTime(2019, 11),
-        // 'end': DateTime.now().millisecondsSinceEpoch,
+        'start': DateTime(2019, 11).millisecondsSinceEpoch,
+        'end': DateTime.now().millisecondsSinceEpoch,
         'currentlyWorkingHere': true
       },
       '1': {
@@ -108,8 +107,8 @@ class Database {
         'role': 'Marketing Coordinator',
         'contract': 'Part Time',
         'description': '', //!
-        'start': DateTime(2020, 3),
-        // 'end': DateTime.now().millisecondsSinceEpoch,
+        'start': DateTime(2020, 3).millisecondsSinceEpoch,
+        'end': DateTime.now().millisecondsSinceEpoch,
         'currentlyWorkingHere': true
       },
       '2': {
@@ -118,8 +117,8 @@ class Database {
         'role': 'Director',
         'contract': '',
         'description': '', //!
-        'start': DateTime(2016, 10),
-        'end': DateTime(2019, 12),
+        'start': DateTime(2016, 10).millisecondsSinceEpoch,
+        'end': DateTime(2019, 12).millisecondsSinceEpoch,
         'currentlyWorkingHere': false
       }
     }
