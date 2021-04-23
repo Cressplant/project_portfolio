@@ -68,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [...contactActions],
                               ),
                             ),
-
                             Positioned(
                                 top: 10.0,
                                 right: 10.0,
@@ -88,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ],
                                   ),
                                 )),
-
                             Align(
                               alignment: Alignment(-0.1, 0.15),
                               child: SizedBox(
@@ -132,7 +130,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                        
                           ],
                         )),
                     Center(
@@ -140,10 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(10.0),
                         child: ConstrainedBox(
                           constraints: BoxConstraints(maxWidth: _width * (_mobile ? 0.8 : 0.6)),
-                          child: Text(Globals.summary
-                              // 'I am creative, driven, and like to make work that is simple & functional.',
-                              // style: _theme.textTheme.caption,
-                              ),
+                          child: Text(Globals.summary),
                         ),
                       ),
                     ),
@@ -157,18 +151,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       bottom: PreferredSize(
                           // preferredSize: Size(double.infinity, 44.0),
                           preferredSize: Size(double.infinity, 70.0),
-                          child: Padding(padding: const EdgeInsets.all(10.0), child: CustomTitle(leading: Icon(Icons.folder_outlined), title: 'My Work')
-                              // child: Text(
-                              //   'Projects',
-                              //   style: _theme.textTheme.headline3,
-                              //   // style: TextStyle(color: Colors.white),
-                              // ),
-
-                              )))
+                          child: Padding(padding: const EdgeInsets.all(10.0), child: CustomTitle(leading: Icon(Icons.folder_outlined), title: 'My Work'))))
                 ],
             body: ListView.builder(itemCount: _projects?.length ?? 0, itemBuilder: (context, i) => ProjectTile((_projects ?? [])[i]))),
       ),
     );
   }
-
 }
