@@ -65,7 +65,7 @@ class Database {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/snaggle_cover.png'],
         'summary': 'A social guidebook app, helping users to locate and interact with nearby events.',
-        'description': '''This is my brother's project, and one that I've taken a more of a consulting role on.''',
+        'description': '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on.''',
         'tags': ['001', '002', '003', '007', '008', '013', '014', '015', '018', '019'],
         'primaryColor': 0xff114B5F,
         'accentColor': 0xffffffff,
@@ -81,7 +81,7 @@ class Database {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': [],
         'summary': 'The portfolio of an incredibly talented developer...',
-        'description': '''''',
+        'description': '',
         'tags': ['000', '002', '005', '006', '009', '010', '015'],
         'primaryColor': 0xff2196F3,
         'accentColor': 0xffffffff,
@@ -98,8 +98,8 @@ class Database {
         'role': 'Director',
         'contract': '',
         'description': '', //!
-        'start': DateTime.now().millisecondsSinceEpoch, //!
-        'end': DateTime.now().millisecondsSinceEpoch, //!
+        'start': DateTime(2019, 11),
+        // 'end': DateTime.now().millisecondsSinceEpoch,
         'currentlyWorkingHere': true
       },
       '1': {
@@ -108,8 +108,8 @@ class Database {
         'role': 'Marketing Coordinator',
         'contract': 'Part Time',
         'description': '', //!
-        'start': DateTime.now().millisecondsSinceEpoch, //!
-        'end': DateTime.now().millisecondsSinceEpoch, //!
+        'start': DateTime(2020, 3),
+        // 'end': DateTime.now().millisecondsSinceEpoch,
         'currentlyWorkingHere': true
       },
       '2': {
@@ -118,8 +118,8 @@ class Database {
         'role': 'Director',
         'contract': '',
         'description': '', //!
-        'start': DateTime.now().millisecondsSinceEpoch, //!
-        'end': DateTime.now().millisecondsSinceEpoch, //!
+        'start': DateTime(2016, 10),
+        'end': DateTime(2019, 12),
         'currentlyWorkingHere': false
       }
     }

@@ -5,6 +5,7 @@ import 'package:project_portfolio/views/business_logic/models/user_preferences.d
 import 'package:project_portfolio/views/business_logic/services/database.dart';
 import 'package:project_portfolio/views/business_logic/utils/enums.dart';
 import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
+import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
 import 'package:project_portfolio/views/utils/contact_actions.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
@@ -72,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 top: 10.0,
                                 right: 10.0,
                                 child: CustomCard(
-                                  padding: EdgeInsets.all(7.0),
+                                  padding: EdgeInsets.fromLTRB(10.0, 7.0, 7.0, 7.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -88,19 +89,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 )),
 
-                            // Align(
-                            //   alignment: Alignment(0.5, 0.0),
-                            //   child: Container(
-                            //     margin: EdgeInsets.only(bottom: 15),
-                            //     height: 90,
-                            //     width: 90,
-                            //     decoration: BoxDecoration(
-                            //         shape: BoxShape.circle,
-                            //         boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
-                            //         color: _theme.accentColor,
-                            //         image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
-                            //   ),
-                            // ),
                             Align(
                               alignment: Alignment(-0.1, 0.15),
                               child: SizedBox(
@@ -144,16 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                            // Align(
-                            //   alignment: Alignment(0.15, 0.7),
-                            //   child: ConstrainedBox(
-                            //     constraints: BoxConstraints(maxWidth: _width * 0.6),
-                            //     child: Text(
-                            //       'I am creative, driven, and like to make my work simple & functional.',
-                            //       style: _theme.textTheme.caption,
-                            //     ),
-                            //   ),
-                            // )
+                        
                           ],
                         )),
                     Center(
@@ -161,11 +140,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(10.0),
                         child: ConstrainedBox(
                           constraints: BoxConstraints(maxWidth: _width * (_mobile ? 0.8 : 0.6)),
-                          child: Text(
-                            'I am creative, driven, and like to make my work simple & functional.',
-                            // 'I am creative, driven, and like to make work that is simple & functional.',
-                            // style: _theme.textTheme.caption,
-                          ),
+                          child: Text(Globals.summary
+                              // 'I am creative, driven, and like to make work that is simple & functional.',
+                              // style: _theme.textTheme.caption,
+                              ),
                         ),
                       ),
                     ),
@@ -192,23 +170,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  // Future<void> _showHandshakeFloatingModal(BuildContext context) => showCustomModalBottomSheet(
-  //     context: context,
-  //     builder: (context) => DefaultDialog(
-  //             child: Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [],
-  //         )));
-
-  // Future<void> _animateNameCard() async {
-
-  //   await Future.delayed(Duration(milliseconds: 800));
-
-  //   setState(() {
-  //   _nameCardAlignment =  Alignment(-0.1, 0.15);
-  //       });
-
-  // }
 
 }

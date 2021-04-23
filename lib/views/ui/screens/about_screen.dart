@@ -47,7 +47,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       title: 'Summary',
                     ),
                     mediumVerticalSpacer,
-                    Text(Globals.aboutMe),
+                    Text(Globals.about),
                     largeVerticalSpacer,
                     CustomTitle(
                       leading: Icon(Icons.description),

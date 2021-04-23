@@ -36,7 +36,9 @@ class Globals {
     '019': Tag(id: '019', title: 'Private', color: Colors.blue.shade900, iconData: Icons.lock),
   };
 
-  static const String aboutMe =
+  static const String summary = '''I am creative, driven, and like to make my work simple & functional.''';
+
+  static const String about =
       '''I started programming after needing a website for a business, selling children's blinds, I set up while completing my business degree. Working on the website quickly became the most enjoyable aspect of running the business, and when the business was mature enough to require less supervision I began to regret not taking a computer science/engineering degree. I decided to work with what I had, and combined this love of designing and writing software with the business accumen I had accumelated. My background in business has since proven to be a huge asset, helping me consider the business value I'm adding as a programmer, and it often advises me away from jumping into rabbit holes that wouldn't be profitable to pursue.\n\nI started Tree Worker because I had some experience working with tree surgeons and I could see there was a gap in the market. I also wanted to create something real, having worked with enough theory at university, and I knew that as my first ever real project - and one that I was working on alone - I wasn't realistically going be able to compete within a saturated market. That may suggest I like to aim low, but I partnered this sensible project with an assortment of widly unrealistic deadlines to compensate - while working part time as an online tutor & digital marketer.\n\nTree Worker is now in a stable and very functional state, having all the features that I had originally envisioned for it, and I can now either direct all my efforts into marketing, or move onto other projects and let it grow organically & via small, incremeningly more efficient, long term ads. I intend to do the latter and I'm therefore looking for a developer role. Although I'd love to contine working with Flutter, I'm always open to working with other frameworks - and learning always excites me.''';
 
   static const List<String> skills = [

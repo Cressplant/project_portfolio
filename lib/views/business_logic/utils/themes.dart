@@ -7,21 +7,6 @@ class Themes {
     bool desktop = checkDesktopAlt();
     bool mobile = checkMobileAlt();
 
-// ThemeData(
-//           textTheme: TextTheme(
-//             headline1: TextStyle(fontSize: 26),
-//             headline2: TextStyle(fontSize: 24),
-//             headline3: TextStyle(fontSize: 18, color: Colors.black),
-//             headline4: TextStyle(fontSize: 16, color: Colors.black),
-//             headline5: TextStyle(fontSize: 20, color: Colors.black),
-//             headline6: TextStyle(fontSize: 20, color: Colors.black),
-//             subtitle1: TextStyle(fontSize: 14),
-//             subtitle2: TextStyle(fontSize: 14),
-//           ),
-//           iconTheme: IconThemeData(color: Colors.blue.shade900),
-//           primarySwatch: Colors.blue,
-//           visualDensity: VisualDensity.adaptivePlatformDensity,
-//           appBarTheme: AppBarTheme(elevation: 0, iconTheme: IconThemeData())),
 
     if (darkMode) {
       return ThemeData(
@@ -33,9 +18,6 @@ class Themes {
         ),
         primarySwatch: Colors.blue,
         iconTheme: IconThemeData(color: Colors.white),
-        // floatingActionButtonTheme: FloatingActionButtonThemeData(
-        //   backgroundColor: Colors.grey[850],
-        // ),
         cardColor: Colors.grey[850],
         backgroundColor: Colors.grey[900],
         textTheme: TextTheme(
@@ -52,7 +34,7 @@ class Themes {
           headline6: TextStyle(fontSize: desktop ? 19 : 16, color: Colors.white, fontWeight: FontWeight.w500), // Same as app bar title, why bother diff?
         ),
         appBarTheme: AppBarTheme(
-          brightness: Brightness.dark, //! THIS WILL AFFECT STATUSBARCOLOR
+          brightness: Brightness.dark, //* THIS WILL AFFECT STATUSBARCOLOR
           textTheme: TextTheme(
             headline6: TextStyle(fontSize: desktop ? 19 : 16, color: Colors.white, fontWeight: FontWeight.w500),
           ),
@@ -77,12 +59,6 @@ class Themes {
           focusColor: Colors.grey[900],
           hoverColor: Colors.grey[900],
         ),
-        // toggleButtonsTheme: ToggleButtonsThemeData(
-        //   borderRadius: BorderRadius.circular(8),
-        //   fillColor: Color(0xff5b886d),
-        //   selectedColor: Colors.white,
-        //   highlightColor: Color(0xff5b886d),
-        // )
       );
     } else {
       return ThemeData(
@@ -116,7 +92,7 @@ class Themes {
           headline6: TextStyle(fontSize: desktop ? 19 : 16, color: Colors.black, fontWeight: FontWeight.w500), // Same as app bar title, why bother diff?
         ),
         appBarTheme: AppBarTheme(
-          brightness: Brightness.light, //! THIS WILL AFFECT STATUSBARCOLOR
+          brightness: Brightness.light, //* THIS WILL AFFECT STATUSBARCOLOR
           textTheme: TextTheme(
             headline6: TextStyle(fontSize: desktop ? 19 : 16, color: Colors.black, fontWeight: FontWeight.w500),
           ),
@@ -140,12 +116,6 @@ class Themes {
           focusColor: Colors.grey[50],
           hoverColor: Colors.grey[50],
         ),
-        // toggleButtonsTheme: ToggleButtonsThemeData(
-        //   borderRadius: BorderRadius.circular(8),
-        //   fillColor: Color(0xff5b886d),
-        //   selectedColor: Colors.white,
-        //   highlightColor: Color(0xff5b886d),
-        // )
       );
     }
   }
