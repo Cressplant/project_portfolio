@@ -12,12 +12,7 @@ class Database {
         'logo': 'images/tree_worker_logo.png',
         'coverImage': 'images/tree_worker_cover.jpg',
         'coverBackgroundColor': 0xff5b876c,
-        'screenshots': [
-          'images/treeworker_home.png',
-          'images/treeworker_home_darkmode.png',
-          'images/treeworker_home_tablet.png',
-          'images/treeworker_home_desktop.png'
-        ],
+        'screenshots': ['images/treeworker_home.png', 'images/treeworker_home_darkmode.png', 'images/treeworker_home_tablet.png', 'images/treeworker_home_desktop.png'],
         'summary':
             '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
@@ -52,13 +47,10 @@ class Database {
         'logo': 'images/sun_bear_blinds_logo.png',
         'coverImage': 'images/sun_bear_blinds_cover.jpg',
         'coverBackgroundColor': 0xFFFFFFFF,
-        'screenshots': [
-          'images/sun_bear_blinds_home.JPG',
-          'images/sun_bear_blinds_home_dark.JPG'
-        ], // TODO: images/sun_bear_blinds_darkmode_switch.gif error when committing, try another format
+        'screenshots': ['images/sun_bear_blinds_home.JPG', 'images/sun_bear_blinds_home_dark.JPG'], // TODO: images/sun_bear_blinds_darkmode_switch.gif error when committing, try another format
         'summary': 'An eCommerce web app, designed for the retail of Children\'s Blackout Blinds.',
         'description':
-            '''I created this project as I wanted to gain more experience working with null safety. Although I was concerned it might slow my workflow, null safety has grown on me - but package incompatibility is still a limitation.\n\nAnother purpose for the project was to trial a light/dark mode open-licence flare animation I'd found, which has been integrated with the project's theme, and handled using the Provider package.''',
+            '''I created this project as I wanted to gain more experience working with null safety. Although I was concerned it might slow my workflow, null safety has grown on me - but package incompatibility is still a limitation.\n\nAnother purpose for the project was to trial a light/dark mode open-licence flare animation I'd found, which you can see in the top right corner of the screenshots. It has been integrated with the project's theme, and the theme's state is handled using the Provider package.''',
         'tags': ['000', '002', '003', '004', '006', '009', '010', '015', '018'],
         'primaryColor': 0xffC7D7E5,
         'accentColor': 0xffFFF3A6,
@@ -74,8 +66,7 @@ class Database {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/snaggle_cover.png'],
         'summary': 'A social guidebook app, helping users to locate and interact with nearby events.',
-        'description':
-            '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on, advising aspects of the design, data modelling & structure.''',
+        'description': '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on, advising aspects of the design, data modelling & structure.''',
         'tags': ['001', '002', '003', '007', '008', '013', '014', '015', '018', '019'],
         'primaryColor': 0xff114B5F,
         'accentColor': 0xffffffff,

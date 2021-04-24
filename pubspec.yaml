@@ -37,6 +37,7 @@ dependencies:
   fluttertoast: ^8.0.5
   intl: ^0.17.0
   flutter_native_splash: ^1.1.8+4
+  pdf: ^3.2.0
 
 dev_dependencies:
   flutter_test:
