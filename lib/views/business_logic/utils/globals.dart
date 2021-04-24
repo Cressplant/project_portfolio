@@ -34,6 +34,8 @@ class Globals {
     '017': Tag(id: '017', title: 'Freezed', color: Colors.white),
     '018': Tag(id: '018', title: 'WIP', color: Colors.redAccent),
     '019': Tag(id: '019', title: 'Private', color: Colors.blue.shade900, iconData: Icons.lock),
+    '020': Tag(id: '020', title: 'Cloud Firestore', color: Colors.yellow),
+    '021': Tag(id: '021', title: 'Stripe', color: Colors.red),
   };
 
   static const String summary = '''I am creative, driven, and like to make my work simple & functional.''';

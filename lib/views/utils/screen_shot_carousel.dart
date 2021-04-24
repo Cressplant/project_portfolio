@@ -44,17 +44,20 @@ class _ImageCarouselState extends State<ImageCarousel> {
                                         });
                                       },
                                       children: widget.images
-                                          .map((_ss) => Image.asset(
-                                                _ss,
-                                                // height: 400,
-                                              ))
+                                          .map((_ss) => Padding(
+                                            padding: const EdgeInsets.symmetric(horizontal: 15.0), //* Padding to distance edges of full width screenshots from edge fade 
+                                            child: Image.asset(
+                                                  _ss,
+                                                  // height: 400,
+                                                ),
+                                          ))
                                           .toList()),
                                 ),
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: IgnorePointer(
                                     child: Container(
-                                      width: 40.0,
+                                      width: 35.0,
                                       height: widget.height,
                                       decoration: BoxDecoration(
                                           gradient: LinearGradient(
@@ -68,7 +71,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
                                   alignment: Alignment.centerRight,
                                   child: IgnorePointer(
                                     child: Container(
-                                      width: 40.0,
+                                      width: 35.0,
                                       height: widget.height,
                                       decoration: BoxDecoration(
                                           gradient: LinearGradient(

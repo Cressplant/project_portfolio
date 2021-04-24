@@ -12,11 +12,17 @@ class Database {
         'logo': 'images/tree_worker_logo.png',
         'coverImage': 'images/tree_worker_cover.jpg',
         'coverBackgroundColor': 0xff5b876c,
-        'screenshots': ['images/treeworker_home_darkmode.png', 'images/treeworker_home_darkmode_tablet.png', 'images/treeworker_home_darkmode_laptop.png'],
-        'summary': 'Tree Worker is invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.',
+        'screenshots': [
+          'images/treeworker_home.png',
+          'images/treeworker_home_darkmode.png',
+          'images/treeworker_home_tablet.png',
+          'images/treeworker_home_desktop.png'
+        ],
+        'summary':
+            '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
-            '''Tree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.\n\nAs my first real software project, and quite a big one as it turned out, the project structure, data structure, UI, and overall scope changed drastically during its development. It was a huge learning experience, and I've become a much, much better and more rounded programmer than I was at the project\'s inception''',
-        'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019'],
+            '''As my first real software project, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. It was a huge learning experience, and I've become a much better and more rounded programmer than I was at the project\'s inception.\n\nThe app uses Firebase Authentication and Cloud Firestore, and uses Stripe as an integrated payment gateway. I initially used the Provider package, although as the app grew in complexity it required a more sophisticated state management tool, therefore it now uses the BloC pattern. I used the Freezed package to help generate the data model classes, I also experimented with Equatable combined with VS code plugins for these, but settled on Freezed for this project.''',
+        'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019', '020', '021'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
         'repositoryLink': null,
@@ -29,7 +35,7 @@ class Database {
         'logo': 'images/tree_worker_logo.png',
         'coverImage': 'images/tree_worker_landing_page.JPG',
         'coverBackgroundColor': 0xFFFFFFFF,
-        'screenshots': ['images/tree_worker_landing_page.JPG'],
+        'screenshots': ['images/tree_worker_landing_page.JPG', 'images/tree_worker_landing_page_old_man.JPG'],
         'summary': 'A Flutter web project serving as the landing page for the Tree Worker app.',
         'description':
             '''I'm under no illusion that Flutter web is the best suited framework for a landing page, when displaying a conventionally styled web page with lots of content its performance can be poor, even when using the HTML renderer, and its not optimal for SEO.\n\nThe main reason I chose to use Flutter Web was because I wanted more experience with Flutter on the web as a platform. I have seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
@@ -46,10 +52,13 @@ class Database {
         'logo': 'images/sun_bear_blinds_logo.png',
         'coverImage': 'images/sun_bear_blinds_cover.jpg',
         'coverBackgroundColor': 0xFFFFFFFF,
-        'screenshots': ['images/sun_bear_blinds_home.JPG', 'images/sun_bear_blinds_home_dark.JPG'],
+        'screenshots': [
+          'images/sun_bear_blinds_home.JPG',
+          'images/sun_bear_blinds_home_dark.JPG'
+        ], // TODO: images/sun_bear_blinds_darkmode_switch.gif error when committing, try another format
         'summary': 'An eCommerce web app, designed for the retail of Children\'s Blackout Blinds.',
         'description':
-            '''I created this project as I wanted to gain more experience working with null safety. Although I was concerned it might slow my workflow, null safety has grown on me - but package incompatibility is still a limitation.''',
+            '''I created this project as I wanted to gain more experience working with null safety. Although I was concerned it might slow my workflow, null safety has grown on me - but package incompatibility is still a limitation.\n\nAnother purpose for the project was to trial a light/dark mode open-licence flare animation I'd found, which has been integrated with the project's theme, and handled using the Provider package.''',
         'tags': ['000', '002', '003', '004', '006', '009', '010', '015', '018'],
         'primaryColor': 0xffC7D7E5,
         'accentColor': 0xffFFF3A6,
@@ -65,7 +74,8 @@ class Database {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['images/snaggle_cover.png'],
         'summary': 'A social guidebook app, helping users to locate and interact with nearby events.',
-        'description': '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on, advising aspects of the design, data modelling & structure.''',
+        'description':
+            '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on, advising aspects of the design, data modelling & structure.''',
         'tags': ['001', '002', '003', '007', '008', '013', '014', '015', '018', '019'],
         'primaryColor': 0xff114B5F,
         'accentColor': 0xffffffff,
@@ -77,11 +87,11 @@ class Database {
       '4': {
         'title': 'This Project',
         'logo': 'images/profile_picture.png',
-        'coverImage': 'images/project_portfolio_cover.png',
+        'coverImage': 'images/project_portfolio_cover.JPG',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': [],
-        'summary': 'The portfolio of an incredibly talented developer...',
-        'description': '',
+        'summary': 'Perhaps one of the best Flutter portfolios you\'ve seen... today?',
+        'description': '''As the framework I'm strongest with it made sense to make my portfolio with Flutter.''',
         'tags': ['000', '002', '005', '006', '009', '010', '015'],
         'primaryColor': 0xff2196F3,
         'accentColor': 0xffffffff,

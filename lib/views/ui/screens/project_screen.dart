@@ -69,7 +69,7 @@ class ProjectScreen extends StatelessWidget {
                                 CustomTitle(title: 'About'),
                                 mediumVerticalSpacer,
                                 Text(_project.description),
-                                mediumVerticalSpacer,
+                                largeVerticalSpacer,
                               ],
                               TagWrap(_project.tags),
                               largeVerticalSpacer,

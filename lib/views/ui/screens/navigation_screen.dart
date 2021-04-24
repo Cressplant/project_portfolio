@@ -21,7 +21,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPage,
         backgroundColor: Theme.of(context).cardColor,
-        onTap: (_index) => _pageController.animateToPage(_index, duration: Duration(milliseconds: 300), curve: Curves.easeIn),
+        onTap: (_index) => _pageController.jumpToPage(_index),
         items: [
           const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'About'),
@@ -29,6 +29,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         ],
       ),
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: (_int) {
           setState(() {
