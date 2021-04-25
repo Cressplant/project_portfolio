@@ -47,7 +47,10 @@ class Database {
         'logo': 'assets/images/sun_bear_blinds_logo.png',
         'coverImage': 'assets/images/sun_bear_blinds_cover.jpg',
         'coverBackgroundColor': 0xFFFFFFFF,
-        'screenshots': ['assets/images/sun_bear_blinds_home.JPG', 'assets/images/sun_bear_blinds_home_dark.JPG'], // TODO: assets/images/sun_bear_blinds_darkmode_switch.gif error when committing, try another format
+        'screenshots': [
+          'assets/images/sun_bear_blinds_home.JPG',
+          'assets/images/sun_bear_blinds_home_dark.JPG'
+        ], // TODO: assets/images/sun_bear_blinds_darkmode_switch.gif error when committing, try another format
         'summary': 'An eCommerce web app, designed for the retail of Children\'s Blackout Blinds.',
         'description':
             '''I created this project as I wanted to gain more experience working with null safety. Although I was concerned it might slow my workflow, null safety has grown on me - but package incompatibility is still a limitation.\n\nAnother purpose for the project was to trial a light/dark mode open-licence flare animation I'd found, which you can see in the top right corner of the screenshots. It has been integrated with the project's theme, and the theme's state is handled using the Provider package.''',
@@ -92,37 +95,5 @@ class Database {
         'webLink': null,
       },
     },
-    'jobs': {
-      '0': {
-        'company': 'Tree Worker Software LTD',
-        'logo': 'assets/images/tree_worker_logo.png',
-        'role': 'Director',
-        'contract': '',
-        'description': '', //!
-        'start': DateTime(2019, 11).millisecondsSinceEpoch,
-        'end': DateTime.now().millisecondsSinceEpoch,
-        'currentlyWorkingHere': true
-      },
-      '1': {
-        'company': 'WEA',
-        'logo': 'assets/images/wea_logo.png',
-        'role': 'Marketing Coordinator',
-        'contract': 'Part Time',
-        'description': '', //!
-        'start': DateTime(2020, 3).millisecondsSinceEpoch,
-        'end': DateTime.now().millisecondsSinceEpoch,
-        'currentlyWorkingHere': true
-      },
-      '2': {
-        'company': 'Share with a Bear LTD',
-        'logo': 'assets/images/share_with_a_bear_logo.png',
-        'role': 'Director',
-        'contract': '',
-        'description': '', //!
-        'start': DateTime(2016, 10).millisecondsSinceEpoch,
-        'end': DateTime(2019, 12).millisecondsSinceEpoch,
-        'currentlyWorkingHere': false
-      }
-    }
   };
 }

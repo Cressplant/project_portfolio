@@ -9,7 +9,7 @@ import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 // import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart' show rootBundle;
 
-FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
+FutureOr<Uint8List> generateCV() async {
   SizedBox smallVerticalSpacer = SizedBox(height: 5.0);
   SizedBox mediumVerticalSpacer = SizedBox(height: 15.0);
   SizedBox largeVerticalSpacer = SizedBox(height: 30.0);
@@ -107,7 +107,7 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_experienceTitleImage),
             mediumVerticalSpacer,
-            ...jobList.map((_job) => Padding(
+            ...Globals.jobList.map((_job) => Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -115,16 +115,16 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
                       // if (_job.logo != null)
                       //   Image.asset(_job.logo ?? '', height: 80.0, width: 80.0) //! Reinstate
                       // else
-                      Container(
-                        width: 80.0,
-                        height: 80.0,
-                        child: Center(
-                          child: Icon(
-                            IconData(0xe886), //* work
-                            size: 36.0,
-                          ),
-                        ),
-                      ),
+                      // Container(
+                      //   width: 80.0,
+                      //   height: 80.0,
+                      //   child: Center(
+                      //     child: Icon(
+                      //       IconData(0xe886), //* work
+                      //       size: 36.0,
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         width: 15.0,
                       ),

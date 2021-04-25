@@ -8,22 +8,7 @@ import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/job_tile.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AboutScreen extends StatefulWidget {
-  @override
-  _AboutScreenState createState() => _AboutScreenState();
-}
-
-class _AboutScreenState extends State<AboutScreen> {
-  Database _dataBase = Database();
-  List<Job> _jobList = [];
-
-  @override
-  void initState() {
-    _jobList = _dataBase.getData(collection: 'jobs').values.map((e) => Job.fromMap(e)).toList();
-
-    super.initState();
-  }
-
+class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData _theme = Theme.of(context);
@@ -74,7 +59,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         title: 'Experience',
                       ),
                       mediumVerticalSpacer,
-                      ..._jobList.map((_job) => JobTile(_job)),
+                      ...Globals.jobList.map((_job) => JobTile(_job)),
                       largeVerticalSpacer,
                       CustomTitle(
                         leading: FaIcon(FontAwesomeIcons.university),
