@@ -3,6 +3,7 @@ import 'package:project_portfolio/views/business_logic/models/job.dart';
 import 'package:project_portfolio/views/business_logic/services/database.dart';
 import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
+import 'package:project_portfolio/views/ui/screens/cv_pdf_screen.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/job_tile.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -28,12 +29,15 @@ class _AboutScreenState extends State<AboutScreen> {
     ThemeData _theme = Theme.of(context);
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.download_rounded),
+        onPressed: () => Navigator.pushNamed(context, CVPDFScreen.id),
+      ),
       body: Scrollbar(
         child: ListView(
           children: [
             PreferredSize(
-                preferredSize: Size(double.infinity, 70.0),
-                child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'About')))),
+                preferredSize: Size(double.infinity, 70.0), child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'About')))),
             Center(
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: Globals.maxPageWidth),

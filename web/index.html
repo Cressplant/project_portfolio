@@ -47,8 +47,14 @@
     <img class="center" src="splash/img/light-1x.png" />
   </picture>
 
-    <!-- !BY DEFAULT FLUTTER WILL AUTOMATICALLY CHOOSE CANVASKIT OR HTML RENDERERS, (AND GENERALLY IF USER IS ON MOBILE IT WILL USE HTML) HTML IS A SMALLER DOWNLOAD (2MB LESS) BUT HAS WORSE PERFORMANCE. TRY WITH LATER FLUTTER VERSION -->
+    <!-- *BY DEFAULT FLUTTER WILL AUTOMATICALLY CHOOSE CANVASKIT OR HTML RENDERERS, (AND GENERALLY IF USER IS ON MOBILE IT WILL USE HTML) HTML IS A SMALLER DOWNLOAD (2MB LESS) BUT HAS WORSE PERFORMANCE. TRY WITH LATER FLUTTER VERSION -->
     <script>window.flutterWebRenderer = 'html';</script>
+
+    <!-- *Required for PDF package to work on web -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+    <script type="text/javascript">
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.worker.min.js";
+    </script>
 
   <script src="main.dart.js?version=0.0.5" type="application/javascript"></script>
 </body>

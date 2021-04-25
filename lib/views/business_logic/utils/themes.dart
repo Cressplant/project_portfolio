@@ -7,7 +7,6 @@ class Themes {
     bool desktop = checkDesktopAlt();
     bool mobile = checkMobileAlt();
 
-
     if (darkMode) {
       return ThemeData(
         brightness: Brightness.dark,
@@ -98,7 +97,7 @@ class Themes {
           ),
           elevation: 0,
           color: Color(0xfff7f5f6), // Same as BG
-          iconTheme: IconThemeData(color: Colors.black87),
+          iconTheme: IconThemeData(color: Colors.blue.shade900),
         ),
         tabBarTheme: TabBarTheme(
             indicator: BoxDecoration(color: Colors.white),

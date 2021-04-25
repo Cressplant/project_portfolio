@@ -31,6 +31,7 @@ class MaterialAppWithTheme extends StatelessWidget {
       title: Globals.title,
       theme: Themes.getTheme(darkMode: _darkMode),
       home: NavigationScreen(),
+      onGenerateRoute: appRouter.onGenerateRoute,
     );
   }
 }

@@ -47,6 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: _theme.cardColor,
+        // floatingActionButton: FloatingActionButton(
+        //   child: Icon(Icons.download_rounded),
+        //   onPressed: () {},
+        // ),
         body: Scrollbar(
           child: NestedScrollView(
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
