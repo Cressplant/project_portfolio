@@ -28,14 +28,7 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
   Future<void> _getEducationTitleImage() async => _educationTitleImage = await imageFromAssetBundle('assets/cv_assets/education_title.jpg');
   Future<void> _getAccomplishmentsTitleImage() async => _accomplishmentsTitleImage = await imageFromAssetBundle('assets/cv_assets/accomplishments_title.jpg');
 
-  await Future.wait([
-    _getBodyFont(),
-    _getSummaryTitleImage(),
-    _getSkillsTitleImage(),
-    _getExperienceTitleImage(),
-    _getEducationTitleImage(),
-    _getAccomplishmentsTitleImage()
-  ]);
+  await Future.wait([_getBodyFont(), _getSummaryTitleImage(), _getSkillsTitleImage(), _getExperienceTitleImage(), _getEducationTitleImage(), _getAccomplishmentsTitleImage()]);
 
   ThemeData _themeData = ThemeData.withFont(base: _bodyFont
       // bold: Font.ttf(await rootBundle.load("fonts/OpenSans-Bold.ttf")),
@@ -59,6 +52,18 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
       pageTheme: _pageTheme,
       build: (Context context) {
         return [
+          mediumVerticalSpacer,
+
+          Text('Oscar Newman'),
+
+          Text('Flutter Developer'),
+
+          smallVerticalSpacer,
+
+          Text(Globals.phone),
+
+          Text(Globals.email),
+
           // if (_profilePicture != null)
           //   Container(
           //       margin: EdgeInsets.only(right: 20.0),
@@ -92,9 +97,7 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
             Wrap(spacing: 5.0, runSpacing: 5.0, children: [
               for (String _skill in Globals.skills)
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 9.0),
-                    decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(12.0)),
-                    child: Text(_skill))
+                    padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 9.0), decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(12.0)), child: Text(_skill))
             ]),
           ])),
 
@@ -240,7 +243,6 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
 Widget _buildTitle(ImageProvider? _titleImage) {
   return _titleImage != null ? Image(_titleImage, height: 50.0) : SizedBox();
 }
-
 
 // Widget buildCustomTitle({required Widget leading, required String title}) {
 //   // TextStyle _headline4 = TextStyle();
