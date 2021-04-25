@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:math';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:project_portfolio/views/business_logic/utils/cv.dart';
 import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
+import 'package:project_portfolio/views/business_logic/utils/download.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 
 class CVPDFScreen extends StatelessWidget {
@@ -16,11 +18,18 @@ class CVPDFScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          centerTitle: true,
-          title: CustomTitle(
-            leading: Icon(Icons.description),
-            title: 'CV',
-          )),
+        centerTitle: true,
+        title: CustomTitle(
+          leading: Icon(Icons.description),
+          title: 'CV',
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.download_rounded),
+            onPressed: () async => downloadFile(await _generateCV(PdfPageFormat.a4), fileName: 'Oscar Newman - CV'),
+          )
+        ],
+      ),
       body: PdfPreview(
         scrollViewDecoration: BoxDecoration(
           color: Theme.of(context).cardColor,

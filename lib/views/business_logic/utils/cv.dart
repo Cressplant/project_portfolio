@@ -25,8 +25,8 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
   Future<void> _getSummaryTitleImage() async => _summaryTitleImage = await imageFromAssetBundle('assets/cv_assets/summary_title.jpg');
   Future<void> _getSkillsTitleImage() async => _skillsTitleImage = await imageFromAssetBundle('assets/cv_assets/skills_title.jpg');
   Future<void> _getExperienceTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/experience_title.jpg');
-  Future<void> _getEducationTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/education_title.jpg');
-  Future<void> _getAccomplishmentsTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/accomplishments_title.jpg');
+  Future<void> _getEducationTitleImage() async => _educationTitleImage = await imageFromAssetBundle('assets/cv_assets/education_title.jpg');
+  Future<void> _getAccomplishmentsTitleImage() async => _accomplishmentsTitleImage = await imageFromAssetBundle('assets/cv_assets/accomplishments_title.jpg');
 
   await Future.wait([
     _getBodyFont(),
@@ -75,6 +75,8 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
           //   child: buildCustomTitle(leading: Icon(IconData(0xe873)), title: 'Oscar Newman'), //! TODO: ADD IMAGE ASSET
           // ),
 
+//! TODO ADD CONTACT DEETS
+
           mediumVerticalSpacer,
 
           _buildTitle(_summaryTitleImage),
@@ -83,137 +85,147 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
           Text(Globals.about),
           largeVerticalSpacer,
 
-          _buildTitle(_skillsTitleImage),
+          Container(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            _buildTitle(_skillsTitleImage),
+            mediumVerticalSpacer,
+            Wrap(spacing: 5.0, runSpacing: 5.0, children: [
+              for (String _skill in Globals.skills)
+                Container(
+                    padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 9.0),
+                    decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(12.0)),
+                    child: Text(_skill))
+            ]),
+          ])),
 
-          mediumVerticalSpacer,
-          Wrap(spacing: 5.0, runSpacing: 5.0, children: [
-            for (String _skill in Globals.skills)
-              Container(
-                  padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 9.0),
-                  decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(12.0)),
-                  child: Text(_skill))
-          ]),
           largeVerticalSpacer,
 
-          _buildTitle(_experienceTitleImage),
-
-          mediumVerticalSpacer,
-          ...jobList.map((_job) => Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // if (_job.logo != null)
-                    //   Image.asset(_job.logo ?? '', height: 80.0, width: 80.0) //! Reinstate
-                    // else
-                    Container(
-                      width: 80.0,
-                      height: 80.0,
-                      child: Center(
-                        child: Icon(
-                          IconData(0xe886), //* work
-                          size: 36.0,
+          Container(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            _buildTitle(_experienceTitleImage),
+            mediumVerticalSpacer,
+            ...jobList.map((_job) => Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // if (_job.logo != null)
+                      //   Image.asset(_job.logo ?? '', height: 80.0, width: 80.0) //! Reinstate
+                      // else
+                      Container(
+                        width: 80.0,
+                        height: 80.0,
+                        child: Center(
+                          child: Icon(
+                            IconData(0xe886), //* work
+                            size: 36.0,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-                    Expanded(
-                        child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          _job.company,
-                          // style: _caption
-                        ),
-                        // smallVerticalSpacer,
-                        RichText(
-                          text: TextSpan(
-                            // style: _bodyText1,
-                            children: <TextSpan>[
-                              TextSpan(text: _job.role),
-                              if (_job.contract.isNotEmpty) ...[
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Expanded(
+                          child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            _job.company,
+                            // style: _caption
+                          ),
+                          // smallVerticalSpacer,
+                          RichText(
+                            text: TextSpan(
+                              // style: _bodyText1,
+                              children: <TextSpan>[
+                                TextSpan(text: _job.role),
+                                if (_job.contract.isNotEmpty) ...[
+                                  TextSpan(text: ' - '),
+                                  TextSpan(text: _job.contract),
+                                ]
+                              ],
+                            ),
+                          ),
+
+                          smallVerticalSpacer,
+                          RichText(
+                            text: TextSpan(
+                              // style: _caption,
+                              children: <TextSpan>[
+                                TextSpan(text: yMMMM.format(_job.start)),
                                 TextSpan(text: ' - '),
-                                TextSpan(text: _job.contract),
-                              ]
-                            ],
+                                TextSpan(text: _job.currentlyWorkingHere ? 'Present' : yMMMM.format(_job.end ?? DateTime.now())),
+                              ],
+                            ),
                           ),
-                        ),
 
-                        smallVerticalSpacer,
-                        RichText(
-                          text: TextSpan(
-                            // style: _caption,
-                            children: <TextSpan>[
-                              TextSpan(text: yMMMM.format(_job.start)),
-                              TextSpan(text: ' - '),
-                              TextSpan(text: _job.currentlyWorkingHere ? 'Present' : yMMMM.format(_job.end ?? DateTime.now())),
-                            ],
-                          ),
-                        ),
-
-                        // smallVerticalSpacer,
-                        // Text(job.description, style: _theme.textTheme.caption)
-                      ],
-                    ))
-                  ],
-                ),
-              )),
-          largeVerticalSpacer,
-
-          _buildTitle(_educationTitleImage),
-
-          mediumVerticalSpacer,
-
-          Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'Bournemouth University',
-                  // style: _caption
-                ),
-                Text(
-                  'BA (Hons) Business Studies with Enterprise, 2:1',
-                  // style: _bodyText1
-                ),
-              ])),
+                          // smallVerticalSpacer,
+                          // Text(job.description, style: _theme.textTheme.caption)
+                        ],
+                      ))
+                    ],
+                  ),
+                )),
+          ])),
 
           largeVerticalSpacer,
 
-          _buildTitle(_accomplishmentsTitleImage),
-
-          mediumVerticalSpacer,
-          // ListTile(
-          //   title: Text('Santander Entrepreneurship Initiative 2019', style: _caption),
-          //   subtitle: Text('Winner & Funding Recipient', style: _bodyText1),
-          // ),
-          Padding(
-              padding: EdgeInsets.all(10.0),
+          Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'Santander Entrepreneurship Initiative 2019',
-                  // style: _caption
-                ),
-                Text(
-                  'Winner & Funding Recipient',
-                  // style: _bodyText1
-                ),
-              ])),
+            _buildTitle(_educationTitleImage),
+            // mediumVerticalSpacer,
+            Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(
+                    'Bournemouth University',
+                    // style: _caption
+                  ),
+                  Text(
+                    'BA (Hons) Business Studies with Enterprise, 2:1',
+                    // style: _bodyText1
+                  ),
+                ])),
+          ])),
 
-          Padding(
-              padding: EdgeInsets.all(10.0),
+          largeVerticalSpacer,
+
+          Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  'Bournemouth University Pitch at the Pitch 2017',
-                  // style: _caption
-                ),
-                Text(
-                  'Winner & Funding Recipient',
-                  // style: _bodyText1
-                ),
-              ])),
+            _buildTitle(_accomplishmentsTitleImage),
+
+            // mediumVerticalSpacer,
+            // ListTile(
+            //   title: Text('Santander Entrepreneurship Initiative 2019', style: _caption),
+            //   subtitle: Text('Winner & Funding Recipient', style: _bodyText1),
+            // ),
+            Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(
+                    'Santander Entrepreneurship Initiative 2019',
+                    // style: _caption
+                  ),
+                  Text(
+                    'Winner & Funding Recipient',
+                    // style: _bodyText1
+                  ),
+                ])),
+
+            Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(
+                    'Bournemouth University Pitch at the Pitch 2017',
+                    // style: _caption
+                  ),
+                  Text(
+                    'Winner & Funding Recipient',
+                    // style: _bodyText1
+                  ),
+                ])),
+          ])),
 
           largeVerticalSpacer,
           largeVerticalSpacer
