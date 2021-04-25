@@ -50,7 +50,7 @@ class ContactScreen extends StatelessWidget {
                   Row(
                     children: [
                       CustomButton(
-                        leading: Image.asset('images/linkedin_logo.png', height: 26.0),
+                        leading: Image.asset('assets/images/linkedin_logo.png', height: 26.0),
                         title: 'LinkedIn',
                         onPressed: () => openLink(Globals.linkedIn),
                       ),

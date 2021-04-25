@@ -37,7 +37,7 @@ dependencies:
   fluttertoast: ^8.0.5
   intl: ^0.17.0
   flutter_native_splash: ^1.1.8+4
-  pdf: ^3.2.0
+  # pdf: ^3.2.0 # Imported within the printing package?
   printing: ^5.1.0
 
 dev_dependencies:
@@ -55,8 +55,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - images/
-    - fonts/
+    - assets/
+    - assets/images/
+    - assets/fonts/
+    - assets/cv_assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

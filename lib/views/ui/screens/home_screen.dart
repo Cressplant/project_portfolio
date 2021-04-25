@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 alignment: Alignment.bottomCenter, //* prevents hard edge w/ appbar
-                                image: AssetImage('images/google_bg.JPG'),
+                                image: AssetImage('assets/images/google_bg.JPG'),
                               )),
                           child: Stack(
                             children: [
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               shape: BoxShape.circle,
                                               boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4.0)],
                                               color: _theme.accentColor,
-                                              image: DecorationImage(image: AssetImage('images/profile_picture.png'))),
+                                              image: DecorationImage(image: AssetImage('assets/images/profile_picture.png'))),
                                         ),
                                       ),
                                       Align(

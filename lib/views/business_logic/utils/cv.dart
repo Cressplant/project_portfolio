@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
+import 'package:printing/printing.dart';
 import 'package:project_portfolio/views/business_logic/models/job.dart';
 import 'package:project_portfolio/views/business_logic/utils/date_formats.dart';
 import 'package:project_portfolio/views/business_logic/utils/globals.dart';
@@ -13,27 +14,49 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
   SizedBox mediumVerticalSpacer = SizedBox(height: 15.0);
   SizedBox largeVerticalSpacer = SizedBox(height: 30.0);
 
-  var themeData = ThemeData.withFont(
-    base: Font.ttf(await rootBundle.load("fonts/OpenSans-Regular.ttf")),
-    bold: Font.ttf(await rootBundle.load("fonts/OpenSans-Bold.ttf")),
-  );
+  Font? _bodyFont;
+  ImageProvider? _summaryTitleImage;
+  ImageProvider? _skillsTitleImage;
+  ImageProvider? _experienceTitleImage;
+  ImageProvider? _educationTitleImage;
+  ImageProvider? _accomplishmentsTitleImage;
+
+  Future<void> _getBodyFont() async => _bodyFont = Font.ttf(await rootBundle.load("assets/fonts/Roboto-Light.ttf"));
+  Future<void> _getSummaryTitleImage() async => _summaryTitleImage = await imageFromAssetBundle('assets/cv_assets/summary_title.jpg');
+  Future<void> _getSkillsTitleImage() async => _skillsTitleImage = await imageFromAssetBundle('assets/cv_assets/skills_title.jpg');
+  Future<void> _getExperienceTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/experience_title.jpg');
+  Future<void> _getEducationTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/education_title.jpg');
+  Future<void> _getAccomplishmentsTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/accomplishments_title.jpg');
+
+  await Future.wait([
+    _getBodyFont(),
+    _getSummaryTitleImage(),
+    _getSkillsTitleImage(),
+    _getExperienceTitleImage(),
+    _getEducationTitleImage(),
+    _getAccomplishmentsTitleImage()
+  ]);
+
+  ThemeData _themeData = ThemeData.withFont(base: _bodyFont
+      // bold: Font.ttf(await rootBundle.load("fonts/OpenSans-Bold.ttf")),
+      );
 
   // TextStyle _caption = TextStyle(); //!
   // TextStyle _bodyText1 = TextStyle(); //!
 
-  final Document pdf = Document(theme: themeData);
+  final Document _pdf = Document(theme: _themeData);
 
   // ImageProvider? _profilePicture;
 
   // _profilePicture = await _getNetworkImage(''); // TODO: add img path
 
-  final PageTheme pageTheme = PageTheme(
+  final PageTheme _pageTheme = PageTheme(
     pageFormat: PdfPageFormat.a4,
     margin: EdgeInsets.symmetric(vertical: 14, horizontal: 30),
   );
 
-  pdf.addPage(MultiPage(
-      pageTheme: pageTheme,
+  _pdf.addPage(MultiPage(
+      pageTheme: _pageTheme,
       build: (Context context) {
         return [
           // if (_profilePicture != null)
@@ -46,24 +69,33 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
 // Column(
 //       crossAxisAlignment: CrossAxisAlignment.start,
 //       children: [
+//
+//
+          // Center(
+          //   child: buildCustomTitle(leading: Icon(IconData(0xe873)), title: 'Oscar Newman'), //! TODO: ADD IMAGE ASSET
+          // ),
+
           mediumVerticalSpacer,
 
-          buildCustomTitle(leading: Icon(IconData(0xe873)), title: 'Summary'), //* description
+          _buildTitle(_summaryTitleImage),
 
           mediumVerticalSpacer,
           Text(Globals.about),
           largeVerticalSpacer,
 
-          buildCustomTitle(leading: Icon(IconData(0xe873)), title: 'Skills'), //* description
+          _buildTitle(_skillsTitleImage),
 
           mediumVerticalSpacer,
           Wrap(spacing: 5.0, runSpacing: 5.0, children: [
             for (String _skill in Globals.skills)
-              Container(padding: EdgeInsets.all(3.0), decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(20.0)), child: Text(_skill))
+              Container(
+                  padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 9.0),
+                  decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(12.0)),
+                  child: Text(_skill))
           ]),
           largeVerticalSpacer,
 
-          buildCustomTitle(leading: Icon(IconData(0xe886)), title: 'Experience'), //* work
+          _buildTitle(_experienceTitleImage),
 
           mediumVerticalSpacer,
           ...jobList.map((_job) => Padding(
@@ -131,7 +163,7 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
               )),
           largeVerticalSpacer,
 
-          buildCustomTitle(leading: Icon(IconData(0xe80c)), title: 'Education'),
+          _buildTitle(_educationTitleImage),
 
           mediumVerticalSpacer,
 
@@ -149,7 +181,8 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
               ])),
 
           largeVerticalSpacer,
-          buildCustomTitle(leading: Icon(IconData(0xe895)), title: 'Accomplishments'), //! Trophy
+
+          _buildTitle(_accomplishmentsTitleImage),
 
           mediumVerticalSpacer,
           // ListTile(
@@ -189,36 +222,51 @@ FutureOr<Uint8List> generateCV({required List<Job> jobList}) async {
         ];
       }));
 
-  return pdf.save(); // returns as Uint8List
+  return _pdf.save(); // returns as Uint8List
 }
 
-Widget buildCustomTitle({required Widget leading, required String title}) {
-  // TextStyle _headline4 = TextStyle();
-
-  return Container(
-      decoration: BoxDecoration(
-        color: PdfColors.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(15.0), topLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0)),
-        boxShadow: [
-          BoxShadow(
-              // color: PdfColors.blue.shade900.withOpacity(0.2),
-              color: PdfColors.blue, //! Add Opacity or select whiter?
-              offset: PdfPoint(0.5, 0.5),
-              blurRadius: 4.0)
-        ],
-      ),
-      padding: EdgeInsets.all(12.0),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(padding: EdgeInsets.only(right: 10.0), child: leading),
-          Text(
-            title,
-            // style: _headline4,
-          ),
-        ],
-      ));
+Widget _buildTitle(ImageProvider? _titleImage) {
+  return _titleImage != null ? Image(_titleImage, height: 50.0) : SizedBox();
 }
+
+
+// Widget buildCustomTitle({required Widget leading, required String title}) {
+//   // TextStyle _headline4 = TextStyle();
+
+//   return Container(
+//       // margin: EdgeInsets.all(10.0),
+//       decoration: BoxDecoration(
+//         color: PdfColors.white,
+//         borderRadius: BorderRadius.only(topRight: Radius.circular(13.0), topLeft: Radius.circular(13.0), bottomRight: Radius.circular(13.0)),
+//         border: Border.all(color: PdfColor.fromInt(0xff030058), width: 0.1),
+//         // boxShadow: [
+//         //   BoxShadow(
+//         //     color: PdfColor.fromInt(0xff030058),
+//         //     blurRadius: 10,
+//         //     spreadRadius: 20,
+//         //   ),
+//         // ],
+//         // boxShadow: [
+//         //   BoxShadow(
+//         //       // color: PdfColors.blue.shade900.withOpacity(0.2),
+//         //       // color: PdfColors.blue, //! Add Opacity or select whiter?
+//         //       // offset: PdfPoint(0.5, 0.5),
+//         //       blurRadius: 0.0,
+//         //       spreadRadius: 2.0)
+//         // ],
+//       ),
+//       padding: EdgeInsets.all(12.0),
+//       child: Row(
+//         mainAxisSize: MainAxisSize.min,
+//         children: [
+//           // Padding(padding: EdgeInsets.only(right: 10.0), child: leading), //! Reinstate
+//           Text(
+//             title,
+//             // style: _headline4,
+//           ),
+//         ],
+//       ));
+// }
 
 // Future<ImageProvider?> _getNetworkImage(String _image) async {
 //   var _response;

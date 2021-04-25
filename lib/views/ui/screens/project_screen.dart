@@ -83,7 +83,7 @@ class ProjectScreen extends StatelessWidget {
                                     if (_project.appStoreLink != null)
                                       CustomButton(
                                         leading: Image.asset(
-                                          'images/app_store_logo.png',
+                                          'assets/images/app_store_logo.png',
                                           height: 26,
                                           width: 26,
                                         ),
@@ -93,7 +93,7 @@ class ProjectScreen extends StatelessWidget {
                                     if (_project.playStoreLink != null)
                                       CustomButton(
                                         leading: Image.asset(
-                                          'images/play_store_logo.png',
+                                          'assets/images/play_store_logo.png',
                                           height: 26,
                                           width: 26,
                                         ),

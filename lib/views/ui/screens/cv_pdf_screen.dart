@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 import 'package:project_portfolio/views/business_logic/utils/cv.dart';
+import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 
 class CVPDFScreen extends StatelessWidget {
@@ -15,13 +16,16 @@ class CVPDFScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+          centerTitle: true,
           title: CustomTitle(
-        leading: Icon(Icons.description),
-        title: 'CV',
-      )),
+            leading: Icon(Icons.description),
+            title: 'CV',
+          )),
       body: PdfPreview(
-        scrollViewDecoration: BoxDecoration(color: Theme.of(context).backgroundColor),
-        // pdfPreviewPageDecoration: BoxDecoration(boxShadow: defaultBoxShadow(context), color: Colors.white),
+        scrollViewDecoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+        ),
+        pdfPreviewPageDecoration: customBoxDecoration(context).copyWith(borderRadius: BorderRadius.zero),
         allowSharing: false,
         allowPrinting: false,
         canChangePageFormat: false,
