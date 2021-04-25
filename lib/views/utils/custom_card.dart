@@ -12,7 +12,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         clipBehavior: Clip.hardEdge,
-        decoration: customDecoration(context).copyWith(color: color ?? Theme.of(context).cardColor),
+        decoration: customBoxDecoration(context).copyWith(color: color ?? Theme.of(context).cardColor),
         padding: padding,
         child: child);
   }

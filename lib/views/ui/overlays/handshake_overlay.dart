@@ -35,14 +35,14 @@ Future<HandShakeStatus> showHandShakeOverlay(BuildContext context) async {
                                     child: CircleAvatar(
                                       radius: 60.0,
                                       backgroundColor: Colors.white,
-                                      backgroundImage: AssetImage('images/profile_picture.png'),
+                                      backgroundImage: AssetImage('assets/images/profile_picture.png'),
                                     ),
                                   ),
                                 ),
                                 Align(
                                   alignment: Alignment.bottomCenter,
                                   child: Image.asset(
-                                    'images/handshake_emoji.png',
+                                    'assets/images/handshake_emoji.png',
                                     height: 40.0,
                                   ),
                                 )

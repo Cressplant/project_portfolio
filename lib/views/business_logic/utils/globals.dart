@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_portfolio/views/business_logic/models/job.dart';
 import 'package:project_portfolio/views/business_logic/utils/tags.dart';
 
 class Globals {
@@ -41,7 +42,37 @@ class Globals {
   static const String summary = '''I am creative, driven, and like to make my work simple & functional.''';
 
   static const String about =
-      '''I started programming after needing a website for a business, selling children's blinds, I set up while completing my business degree. Working on the website quickly became the most enjoyable aspect of running the business, and when the business was mature enough to require less supervision I began to regret not taking a computer science/engineering degree. I decided to work with what I had, and combined this love of designing and writing software with the business accumen I had accumelated. My background in business has since proven to be a huge asset, helping me consider the business value I'm adding as a programmer, and it often advises me away from jumping into rabbit holes that wouldn't be profitable to pursue.\n\nI started Tree Worker because I had some experience working with tree surgeons and I could see there was a gap in the market. I also wanted to create something real, having worked with enough theory at university, and I knew that as my first ever real project - and one that I was working on alone - I wasn't realistically going be able to compete within a saturated market. That may suggest I like to aim low, but I partnered this sensible project with an assortment of widly unrealistic deadlines to compensate - while working part time as an online tutor & digital marketer.\n\nTree Worker is now in a stable and very functional state, having all the features that I had originally envisioned for it, and I can now either direct all my efforts into marketing, or move onto other projects and let it grow organically & via small, incremeningly more efficient, long term ads. I intend to do the latter and I'm therefore looking for a developer role. Although I'd love to contine working with Flutter, I'm always open to working with other frameworks - and learning always excites me.''';
+      '''I started programming as I needed a website for a business, retailing children's blinds, I set up while completing my business degree. Working on the website quickly became the most enjoyable aspect of running the business, and when the business was mature enough to require less supervision I began to regret not taking a computer science/engineering degree. I decided to work with what I had, and combined this love of designing and writing software with the business accumen I had accumelated. My background in business has since proven to be a huge asset, helping me consider the business value I'm adding as a programmer, and it often advises me away from jumping into rabbit holes that wouldn't be profitable to pursue.\n\nI started Tree Worker because I had some experience working with tree surgeons and I could see there was a gap in the market. I also wanted to create something real, having worked with enough theory at university, and I knew that as my first ever real project - and one that I was working on alone - I wasn't realistically going be able to compete within a saturated market. That may suggest I like to aim low, but I partnered this sensible project with an assortment of widly unrealistic deadlines to compensate - while working part time as an online tutor & digital marketer.\n\nTree Worker is now in a stable and very functional state, having all the features that I had originally envisioned for it, and I can now either direct all my efforts into marketing, or move onto other projects and let it grow organically & via small, incremeningly more efficient, long term ads. I intend to do the latter and I'm therefore looking for a developer role. Although I'd love to contine working with Flutter, I'm always open to working with other frameworks - and learning always excites me.''';
+
+  static final List<Job> jobList = [
+    Job(
+        company: 'Tree Worker Software LTD',
+        logo: 'assets/images/tree_worker_logo.png',
+        role: 'Director',
+        contract: '',
+        description: '', //!
+        start: DateTime(2019, 11),
+        end: DateTime.now(),
+        currentlyWorkingHere: true),
+    Job(
+        company: 'WEA',
+        logo: 'assets/images/wea_logo.png',
+        role: 'Marketing Coordinator',
+        contract: 'Part Time',
+        description: '', //!
+        start: DateTime(2020, 3),
+        end: DateTime.now(),
+        currentlyWorkingHere: true),
+    Job(
+        company: 'Share with a Bear LTD',
+        logo: 'assets/images/share_with_a_bear_logo.png',
+        role: 'Director',
+        contract: '',
+        description: '', //!
+        start: DateTime(2016, 10),
+        end: DateTime(2019, 12),
+        currentlyWorkingHere: false)
+  ];
 
   static const List<String> skills = [
     'Flutter',

@@ -14,6 +14,6 @@ List<Widget> contactActions = [
   Hero(
     tag: Globals.linkedIn,
     child:
-        Material(color: Colors.transparent, child: IconButton(icon: Image.asset('images/linkedin_logo.png', height: 26.0), onPressed: () => openLink(Globals.linkedIn))),
+        Material(color: Colors.transparent, child: IconButton(icon: Image.asset('assets/images/linkedin_logo.png', height: 26.0), onPressed: () => openLink(Globals.linkedIn))),
   ),
 ];

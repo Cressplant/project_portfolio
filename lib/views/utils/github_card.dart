@@ -23,7 +23,7 @@ class GitHubCard extends StatelessWidget {
       //   color: _public ? _theme.cardColor : _theme.backgroundColor,
       //   boxShadow: defaultBoxShadow(context)
       // ),
-      decoration: customDecoration(context).copyWith(
+      decoration: customBoxDecoration(context).copyWith(
           // color: _public ? _theme.cardColor : _theme.backgroundColor,
           color: _theme.cardColor),
       child: InkWell(
@@ -42,7 +42,7 @@ class GitHubCard extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  'images/github_logo.png',
+                  'assets/images/github_logo.png',
                   height: 60.0,
                 ),
                 SizedBox(

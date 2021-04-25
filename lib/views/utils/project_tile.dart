@@ -32,7 +32,7 @@ class ProjectTile extends StatelessWidget {
                   color: project.coverBackgroundColor,
                   // borderRadius: BorderRadius.circular(15),
 
-                  image: DecorationImage(alignment: Alignment.bottomCenter, fit: BoxFit.contain, image: AssetImage(project.coverImage))),
+                  image: DecorationImage(alignment: Alignment.bottomCenter, fit: BoxFit.fitHeight, image: AssetImage(project.coverImage))),
               child: Stack(
                 children: [
                   // Container(color: _theme.accentColor.withOpacity(0.25)),

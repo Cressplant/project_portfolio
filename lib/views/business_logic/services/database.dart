@@ -9,10 +9,10 @@ class Database {
     'projects': {
       '0': {
         'title': 'Tree Worker',
-        'logo': 'images/tree_worker_logo.png',
-        'coverImage': 'images/tree_worker_cover.jpg',
+        'logo': 'assets/images/tree_worker_logo.png',
+        'coverImage': 'assets/images/tree_worker_cover.jpg',
         'coverBackgroundColor': 0xff5b876c,
-        'screenshots': ['images/treeworker_home.png', 'images/treeworker_home_darkmode.png', 'images/treeworker_home_tablet.png', 'images/treeworker_home_desktop.png'],
+        'screenshots': ['assets/images/treeworker_home.png', 'assets/images/treeworker_home_darkmode.png', 'assets/images/treeworker_home_tablet.png', 'assets/images/treeworker_home_desktop.png'],
         'summary':
             '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
@@ -27,10 +27,10 @@ class Database {
       },
       '1': {
         'title': 'Tree Worker Landing Page',
-        'logo': 'images/tree_worker_logo.png',
-        'coverImage': 'images/tree_worker_landing_page.JPG',
+        'logo': 'assets/images/tree_worker_logo.png',
+        'coverImage': 'assets/images/tree_worker_landing_page.JPG',
         'coverBackgroundColor': 0xFFFFFFFF,
-        'screenshots': ['images/tree_worker_landing_page.JPG', 'images/tree_worker_landing_page_old_man.JPG'],
+        'screenshots': ['assets/images/tree_worker_landing_page.JPG', 'assets/images/tree_worker_landing_page_old_man.JPG'],
         'summary': 'A Flutter web project serving as the landing page for the Tree Worker app.',
         'description':
             '''I'm under no illusion that Flutter web is the best suited framework for a landing page, when displaying a conventionally styled web page with lots of content its performance can be poor, even when using the HTML renderer, and its not optimal for SEO.\n\nThe main reason I chose to use Flutter Web was because I wanted more experience with Flutter on the web as a platform. I have seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
@@ -44,10 +44,13 @@ class Database {
       },
       '2': {
         'title': 'Sun Bear Blinds',
-        'logo': 'images/sun_bear_blinds_logo.png',
-        'coverImage': 'images/sun_bear_blinds_cover.jpg',
+        'logo': 'assets/images/sun_bear_blinds_logo.png',
+        'coverImage': 'assets/images/sun_bear_blinds_cover.jpg',
         'coverBackgroundColor': 0xFFFFFFFF,
-        'screenshots': ['images/sun_bear_blinds_home.JPG', 'images/sun_bear_blinds_home_dark.JPG'], // TODO: images/sun_bear_blinds_darkmode_switch.gif error when committing, try another format
+        'screenshots': [
+          'assets/images/sun_bear_blinds_home.JPG',
+          'assets/images/sun_bear_blinds_home_dark.JPG'
+        ], // TODO: assets/images/sun_bear_blinds_darkmode_switch.gif error when committing, try another format
         'summary': 'An eCommerce web app, designed for the retail of Children\'s Blackout Blinds.',
         'description':
             '''I created this project as I wanted to gain more experience working with null safety. Although I was concerned it might slow my workflow, null safety has grown on me - but package incompatibility is still a limitation.\n\nAnother purpose for the project was to trial a light/dark mode open-licence flare animation I'd found, which you can see in the top right corner of the screenshots. It has been integrated with the project's theme, and the theme's state is handled using the Provider package.''',
@@ -61,10 +64,10 @@ class Database {
       },
       '3': {
         'title': 'Snaggle',
-        'logo': 'images/snaggle_logo.png',
-        'coverImage': 'images/snaggle_cover.png',
+        'logo': 'assets/images/snaggle_logo.png',
+        'coverImage': 'assets/images/snaggle_cover.png',
         'coverBackgroundColor': 0xFFFFFFFF,
-        'screenshots': ['images/snaggle_cover.png'],
+        'screenshots': ['assets/images/snaggle_cover.png'],
         'summary': 'A social guidebook app, helping users to locate and interact with nearby events.',
         'description': '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on, advising aspects of the design, data modelling & structure.''',
         'tags': ['001', '002', '003', '007', '008', '013', '014', '015', '018', '019'],
@@ -77,8 +80,8 @@ class Database {
       },
       '4': {
         'title': 'This Project',
-        'logo': 'images/profile_picture.png',
-        'coverImage': 'images/project_portfolio_cover.JPG',
+        'logo': 'assets/images/profile_picture.png',
+        'coverImage': 'assets/images/project_portfolio_cover.JPG',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': [],
         'summary': 'Perhaps one of the best Flutter portfolios you\'ve seen... today?',
@@ -92,37 +95,5 @@ class Database {
         'webLink': null,
       },
     },
-    'jobs': {
-      '0': {
-        'company': 'Tree Worker Software LTD',
-        'logo': 'images/tree_worker_logo.png',
-        'role': 'Director',
-        'contract': '',
-        'description': '', //!
-        'start': DateTime(2019, 11).millisecondsSinceEpoch,
-        'end': DateTime.now().millisecondsSinceEpoch,
-        'currentlyWorkingHere': true
-      },
-      '1': {
-        'company': 'WEA',
-        'logo': 'images/wea_logo.png',
-        'role': 'Marketing Coordinator',
-        'contract': 'Part Time',
-        'description': '', //!
-        'start': DateTime(2020, 3).millisecondsSinceEpoch,
-        'end': DateTime.now().millisecondsSinceEpoch,
-        'currentlyWorkingHere': true
-      },
-      '2': {
-        'company': 'Share with a Bear LTD',
-        'logo': 'images/share_with_a_bear_logo.png',
-        'role': 'Director',
-        'contract': '',
-        'description': '', //!
-        'start': DateTime(2016, 10).millisecondsSinceEpoch,
-        'end': DateTime(2019, 12).millisecondsSinceEpoch,
-        'currentlyWorkingHere': false
-      }
-    }
   };
 }

@@ -3,7 +3,11 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
+import 'package:project_portfolio/views/business_logic/models/job.dart';
 import 'package:project_portfolio/views/business_logic/utils/cv.dart';
+import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
+import 'package:project_portfolio/views/business_logic/utils/download.dart';
+import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 
 class CVPDFScreen extends StatelessWidget {
@@ -11,17 +15,25 @@ class CVPDFScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    generateCV(jobList: []);
-
     return Scaffold(
       appBar: AppBar(
-          title: CustomTitle(
-        leading: Icon(Icons.description),
-        title: 'CV',
-      )),
+        centerTitle: true,
+        title: CustomTitle(
+          leading: Icon(Icons.description),
+          title: 'CV',
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.download_rounded),
+            onPressed: () async => downloadFile(await _generateCV(PdfPageFormat.a4), fileName: 'Oscar Newman - CV'),
+          )
+        ],
+      ),
       body: PdfPreview(
-        scrollViewDecoration: BoxDecoration(color: Theme.of(context).backgroundColor),
-        // pdfPreviewPageDecoration: BoxDecoration(boxShadow: defaultBoxShadow(context), color: Colors.white),
+        scrollViewDecoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+        ),
+        pdfPreviewPageDecoration: customBoxDecoration(context).copyWith(borderRadius: BorderRadius.zero),
         allowSharing: false,
         allowPrinting: false,
         canChangePageFormat: false,
@@ -33,5 +45,5 @@ class CVPDFScreen extends StatelessWidget {
     );
   }
 
-  FutureOr<Uint8List> _generateCV(PdfPageFormat _pdfPageFormat) => generateCV(jobList: []);
+  FutureOr<Uint8List> _generateCV(PdfPageFormat _pdfPageFormat) => generateCV();
 }
