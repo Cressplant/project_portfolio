@@ -3,10 +3,8 @@ import 'dart:typed_data';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:printing/printing.dart';
-import 'package:project_portfolio/views/business_logic/models/job.dart';
 import 'package:project_portfolio/views/business_logic/utils/date_formats.dart';
 import 'package:project_portfolio/views/business_logic/utils/globals.dart';
-// import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart' show rootBundle;
 
 FutureOr<Uint8List> generateCV() async {
@@ -16,6 +14,7 @@ FutureOr<Uint8List> generateCV() async {
 
   Font? _bodyFont;
   ImageProvider? _summaryTitleImage;
+  ImageProvider? _aboutTitleImage;
   ImageProvider? _skillsTitleImage;
   ImageProvider? _experienceTitleImage;
   ImageProvider? _educationTitleImage;
@@ -23,6 +22,7 @@ FutureOr<Uint8List> generateCV() async {
 
   Future<void> _getBodyFont() async => _bodyFont = Font.ttf(await rootBundle.load("assets/fonts/Roboto-Light.ttf"));
   Future<void> _getSummaryTitleImage() async => _summaryTitleImage = await imageFromAssetBundle('assets/cv_assets/summary_title.jpg');
+  Future<void> _getAboutTitleImage() async => _aboutTitleImage = await imageFromAssetBundle('assets/cv_assets/about_title.jpg');
   Future<void> _getSkillsTitleImage() async => _skillsTitleImage = await imageFromAssetBundle('assets/cv_assets/skills_title.jpg');
   Future<void> _getExperienceTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/experience_title.jpg');
   Future<void> _getEducationTitleImage() async => _educationTitleImage = await imageFromAssetBundle('assets/cv_assets/education_title.jpg');
@@ -31,6 +31,7 @@ FutureOr<Uint8List> generateCV() async {
   await Future.wait([
     _getBodyFont(),
     _getSummaryTitleImage(),
+    _getAboutTitleImage(),
     _getSkillsTitleImage(),
     _getExperienceTitleImage(),
     _getEducationTitleImage(),
@@ -71,6 +72,15 @@ FutureOr<Uint8List> generateCV() async {
 
           Text(Globals.email),
 
+          mediumVerticalSpacer,
+
+          Container(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            _buildTitle(_summaryTitleImage),
+            mediumVerticalSpacer,
+            Text(Globals.summary),
+          ])),
+
           // if (_profilePicture != null)
           //   Container(
           //       margin: EdgeInsets.only(right: 20.0),
@@ -82,19 +92,16 @@ FutureOr<Uint8List> generateCV() async {
 //       crossAxisAlignment: CrossAxisAlignment.start,
 //       children: [
 //
-//
-          // Center(
-          //   child: buildCustomTitle(leading: Icon(IconData(0xe873)), title: 'Oscar Newman'), //! TODO: ADD IMAGE ASSET
-          // ),
-
-//! TODO ADD CONTACT DEETS
 
           mediumVerticalSpacer,
 
-          _buildTitle(_summaryTitleImage),
+          Container(
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            _buildTitle(_aboutTitleImage),
+            mediumVerticalSpacer,
+            Text(Globals.about),
+          ])),
 
-          mediumVerticalSpacer,
-          Text(Globals.about),
           largeVerticalSpacer,
 
           Container(

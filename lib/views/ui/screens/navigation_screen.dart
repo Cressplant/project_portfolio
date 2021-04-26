@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/ui/screens/about_screen.dart';
+import 'package:project_portfolio/views/ui/screens/cv_screen.dart';
 import 'package:project_portfolio/views/ui/screens/contact_screen.dart';
 import 'package:project_portfolio/views/ui/screens/home_screen.dart';
 
@@ -24,7 +24,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         onTap: (_index) => _pageController.jumpToPage(_index),
         items: [
           const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'About'),
+          const BottomNavigationBarItem(icon: Icon(Icons.description), label: 'CV'),
           const BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Contact'),
         ],
       ),

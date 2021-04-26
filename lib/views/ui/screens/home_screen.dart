@@ -26,9 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     _projects = _dataBase.getData(collection: 'projects').values.map((e) => Project.fromMap(e)).toList();
-    // _projects = [];
-
-    //  _animateNameCard();
 
     WidgetsBinding.instance?.addPostFrameCallback((_) async {
       if (Provider.of<UserPreferences>(context, listen: false).handShakeStatus == HandShakeStatus.pending)
@@ -47,10 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: _theme.cardColor,
-        // floatingActionButton: FloatingActionButton(
-        //   child: Icon(Icons.download_rounded),
-        //   onPressed: () {},
-        // ),
         body: Scrollbar(
           child: NestedScrollView(
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [

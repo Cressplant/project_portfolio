@@ -14,10 +14,6 @@ class AboutScreen extends StatelessWidget {
     ThemeData _theme = Theme.of(context);
 
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.download_rounded),
-      //   onPressed: () => Navigator.pushNamed(context, CVPDFScreen.id),
-      // ),
       body: Scrollbar(
         child: ListView(
           children: [
@@ -31,7 +27,7 @@ class AboutScreen extends StatelessWidget {
                         SizedBox(
                           width: 50.0,
                         ),
-                        CustomTitle(leading: Icon(Icons.person), title: 'About'),
+                        CustomTitle(leading: Icon(Icons.description), title: 'CV'),
                         SizedBox(
                           width: 20.0,
                         ),
@@ -43,7 +39,7 @@ class AboutScreen extends StatelessWidget {
                               SizedBox(
                                 width: 10.0,
                               ),
-                              Text('View PDF')
+                              Text('Generate PDF')
                             ],
                           ),
                           onPressed: () => Navigator.pushNamed(context, CVPDFScreen.id),
@@ -58,10 +54,16 @@ class AboutScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mediumVerticalSpacer,
                       CustomTitle(
-                        leading: Icon(Icons.description),
+                        leading: Icon(Icons.info),
                         title: 'Summary',
+                      ),
+                      mediumVerticalSpacer,
+                      Text(Globals.summary),
+                      largeVerticalSpacer,
+                      CustomTitle(
+                        leading: Icon(Icons.person),
+                        title: 'About',
                       ),
                       mediumVerticalSpacer,
                       Text(Globals.about),
