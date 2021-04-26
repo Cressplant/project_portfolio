@@ -12,16 +12,11 @@ class Database {
         'logo': 'assets/images/tree_worker_logo.png',
         'coverImage': 'assets/images/tree_worker_cover.jpg',
         'coverBackgroundColor': 0xff5b876c,
-        'screenshots': [
-          'assets/images/treeworker_home.png',
-          'assets/images/treeworker_home_darkmode.png',
-          'assets/images/treeworker_home_tablet.png',
-          'assets/images/treeworker_home_desktop.png'
-        ],
+        'screenshots': ['assets/images/treeworker_home.png', 'assets/images/treeworker_home_darkmode.png', 'assets/images/treeworker_home_tablet.png', 'assets/images/treeworker_home_desktop.png'],
         'summary':
             '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
-            '''As my first real software project, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. Working on it alone demanded that I gain experience within all aspects of planning, developing & launching an app with Flutter.\n\nThe project uses Firebase (Auth, Cloud Firestore & ML Kits), Stripe and the Bloc Pattern.''',
+            '''As my first real software project, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. It was a huge learning experience, and I've become a much better and more rounded programmer than I was at the project\'s inception.\n\nThe app uses Firebase Authentication and Cloud Firestore, and uses Stripe as an integrated payment gateway. I initially used the Provider package, although as the app grew in complexity it required a more sophisticated state management tool, therefore it now uses the BloC pattern. I used the Freezed package to help generate the data model classes, I also experimented with Equatable combined with VS code plugins for these, but settled on Freezed for this project.''',
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019', '020', '021'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -38,7 +33,7 @@ class Database {
         'screenshots': ['assets/images/tree_worker_landing_page.JPG', 'assets/images/tree_worker_landing_page_old_man.JPG'],
         'summary': 'A Flutter web project serving as the landing page for the Tree Worker app.',
         'description':
-            '''Flutter web isn't the best suited framework for a landing page, when displaying a conventionally styled web page with lots of content its performance can be poor, even when using the HTML renderer, and its not optimal for SEO. The reason I chose to use Flutter Web was because I wanted more experience with Flutter on the web as a platform. That said, I have seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
+            '''I'm under no illusion that Flutter web is the best suited framework for a landing page, when displaying a conventionally styled web page with lots of content its performance can be poor, even when using the HTML renderer, and its not optimal for SEO.\n\nThe main reason I chose to use Flutter Web was because I wanted more experience with Flutter on the web as a platform. I have seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
         'tags': ['000', '002', '003', '005', '009', '015', '019'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -74,8 +69,7 @@ class Database {
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': ['assets/images/snaggle_cover.png'],
         'summary': 'A social guidebook app, helping users to locate and interact with nearby events.',
-        'description':
-            '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on, advising aspects of the design, data modelling & structure.''',
+        'description': '''This is a project that I've been involved with from afar, and I've taken a more of a consulting role on, advising aspects of the design, data modelling & structure.''',
         'tags': ['001', '002', '003', '007', '008', '013', '014', '015', '018', '019'],
         'primaryColor': 0xff114B5F,
         'accentColor': 0xffffffff,
