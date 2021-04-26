@@ -150,12 +150,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     SliverAppBar(
                         backgroundColor: _theme.cardColor,
                         floating: true,
-                        pinned: true,
+                        pinned: false,
                         automaticallyImplyLeading: false,
                         expandedHeight: 0,
                         bottom: PreferredSize(
                             // preferredSize: Size(double.infinity, 44.0),
-                            preferredSize: Size(double.infinity, 70.0),
+                            preferredSize: Size(double.infinity, 44.0),
                             child: Padding(padding: const EdgeInsets.all(10.0), child: CustomTitle(leading: Icon(Icons.folder_outlined), title: 'My Work'))))
                   ],
               body: ListView.builder(itemCount: _projects?.length ?? 0, itemBuilder: (context, i) => ProjectTile((_projects ?? [])[i]))),

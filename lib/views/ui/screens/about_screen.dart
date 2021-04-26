@@ -14,15 +14,42 @@ class AboutScreen extends StatelessWidget {
     ThemeData _theme = Theme.of(context);
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.download_rounded),
-        onPressed: () => Navigator.pushNamed(context, CVPDFScreen.id),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.download_rounded),
+      //   onPressed: () => Navigator.pushNamed(context, CVPDFScreen.id),
+      // ),
       body: Scrollbar(
         child: ListView(
           children: [
             PreferredSize(
-                preferredSize: Size(double.infinity, 70.0), child: Padding(padding: const EdgeInsets.all(10.0), child: Center(child: CustomTitle(leading: Icon(Icons.person), title: 'About')))),
+                preferredSize: Size(double.infinity, 70.0),
+                child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 50.0,
+                        ),
+                        CustomTitle(leading: Icon(Icons.person), title: 'About'),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        TextButton(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.description),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              Text('View PDF')
+                            ],
+                          ),
+                          onPressed: () => Navigator.pushNamed(context, CVPDFScreen.id),
+                        )
+                      ],
+                    ))),
             Center(
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: Globals.maxPageWidth),

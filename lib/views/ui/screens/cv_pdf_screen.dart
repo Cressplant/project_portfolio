@@ -16,18 +16,48 @@ class CVPDFScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.download_rounded),
+      //   onPressed: () async => downloadFile(await _generateCV(PdfPageFormat.a4), fileName: 'Oscar Newman - CV.pdf'),
+      // ),
       appBar: AppBar(
+        elevation: 0.5,
+        backgroundColor: Theme.of(context).cardColor,
         centerTitle: true,
-        title: CustomTitle(
-          leading: Icon(Icons.description),
-          title: 'CV',
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: 50.0,
+            ),
+            CustomTitle(
+              leading: Icon(Icons.description),
+              title: 'CV',
+            ),
+            SizedBox(
+              width: 20.0,
+            ),
+            TextButton(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.download_rounded),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text('Download')
+                ],
+              ),
+              onPressed: () async => downloadFile(await _generateCV(PdfPageFormat.a4), fileName: 'Oscar Newman - CV.pdf'),
+            ),
+          ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.download_rounded),
-            onPressed: () async => downloadFile(await _generateCV(PdfPageFormat.a4), fileName: 'Oscar Newman - CV'),
-          )
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(Icons.download_rounded),
+        //     onPressed: () async => downloadFile(await _generateCV(PdfPageFormat.a4), fileName: 'Oscar Newman - CV.pdf'),
+        //   )
+        // ],
       ),
       body: PdfPreview(
         scrollViewDecoration: BoxDecoration(

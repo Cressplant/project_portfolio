@@ -28,7 +28,14 @@ FutureOr<Uint8List> generateCV() async {
   Future<void> _getEducationTitleImage() async => _educationTitleImage = await imageFromAssetBundle('assets/cv_assets/education_title.jpg');
   Future<void> _getAccomplishmentsTitleImage() async => _accomplishmentsTitleImage = await imageFromAssetBundle('assets/cv_assets/accomplishments_title.jpg');
 
-  await Future.wait([_getBodyFont(), _getSummaryTitleImage(), _getSkillsTitleImage(), _getExperienceTitleImage(), _getEducationTitleImage(), _getAccomplishmentsTitleImage()]);
+  await Future.wait([
+    _getBodyFont(),
+    _getSummaryTitleImage(),
+    _getSkillsTitleImage(),
+    _getExperienceTitleImage(),
+    _getEducationTitleImage(),
+    _getAccomplishmentsTitleImage()
+  ]);
 
   ThemeData _themeData = ThemeData.withFont(base: _bodyFont
       // bold: Font.ttf(await rootBundle.load("fonts/OpenSans-Bold.ttf")),
@@ -97,7 +104,9 @@ FutureOr<Uint8List> generateCV() async {
             Wrap(spacing: 5.0, runSpacing: 5.0, children: [
               for (String _skill in Globals.skills)
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 9.0), decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(12.0)), child: Text(_skill))
+                    padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 9.0),
+                    decoration: BoxDecoration(color: PdfColors.grey200, borderRadius: BorderRadius.circular(12.0)),
+                    child: Text(_skill))
             ]),
           ])),
 
@@ -113,7 +122,7 @@ FutureOr<Uint8List> generateCV() async {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // if (_job.logo != null)
-                      //   Image.asset(_job.logo ?? '', height: 80.0, width: 80.0) //! Reinstate
+                      //   Image.asset(_job.logo ?? '', height: 80.0, width: 80.0) // TODO: Reinstate
                       // else
                       // Container(
                       //   width: 80.0,
