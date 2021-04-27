@@ -49,7 +49,7 @@ class Globals {
     Job(
         company: 'Tree Worker Software LTD',
         logo: 'assets/images/tree_worker_logo.png',
-        role: 'Director',
+        role: 'Flutter Developer & Director',
         contract: '',
         description: '', //!
         start: DateTime(2019, 11),
