@@ -29,7 +29,7 @@ class Globals {
     '011': Tag(id: '011', title: 'SQL', color: Colors.blue.shade400),
     '012': Tag(id: '012', title: 'NOSQL', color: Colors.blue.shade400),
     '013': Tag(id: '013', title: 'Firebase', color: Colors.yellow),
-    '014': Tag(id: '014', title: 'Bloc', color: Colors.blue.shade400),
+    '014': Tag(id: '014', title: 'BLoC', color: Colors.blue.shade400),
     '015': Tag(id: '015', title: 'Provider', color: Colors.lightBlue),
     '016': Tag(id: '016', title: 'ML', color: Colors.grey),
     '017': Tag(id: '017', title: 'Freezed', color: Colors.white),
@@ -39,8 +39,20 @@ class Globals {
     '021': Tag(id: '021', title: 'Stripe', color: Colors.red),
   };
 
-  static const String summary =
-      '''I am creative, driven and deliberate in my approach to work. I'm skilled with Dart, Flutter, Cross Platform Development, JavaScript & TypeScript, and iOS & Material Design. My background in business helps me consider the business value I'm adding as a programmer, ensuring I'm both valuable and efficient.''';
+  // static const String summary =
+  //     '''I am creative, driven and deliberate in my approach to work. I'm skilled with Dart, Flutter, Cross Platform Development, JavaScript & TypeScript, and iOS & Material Design. Focus on clean project architecture and consistency. My background in business helps me consider the business value I'm adding as a programmer, ensuring I'm both valuable and efficient.''';
+
+  static const String summary = '''
+  Creative and passionate Flutter Developer.
+  
+  • Nearing two years commerical experience developing cross-platform apps with Flutter.
+  • Integrating REST APIs, Payment Gateways & Firebase.
+  • Focus on clean project architecture and consistency.
+  • Background in business ensuring: 
+      - I understand the value of time
+      - I'm providing real business value
+      - I avoid unprofitable development decisions
+  ''';
 
   static const String about =
       '''I started programming as I needed a website for a business, retailing children's blinds, I set up while completing my business degree. Working on the website quickly became the most enjoyable aspect of running the business, and when the business was mature enough to require less supervision I began to regret not taking a computer science/engineering degree. I decided to work with what I had, and combined this love of designing and writing software with the business accumen I had accumelated. My background in business has since proven to be a huge asset, helping me consider the business value I'm adding as a programmer, and it often advises me away from jumping into rabbit holes that wouldn't be profitable to pursue.\n\nI started Tree Worker because I had some experience working with tree surgeons and I could see there was a gap in the market. I also wanted to create something real, having worked with enough theory at university, and I knew that as my first ever real project - and one that I was working on alone - I wasn't realistically going be able to compete within a saturated market. That may suggest I like to aim low, but I partnered this sensible project with an assortment of widly unrealistic deadlines to compensate - while working part time as an online tutor & digital marketer.\n\nTree Worker is now in a stable and very functional state, having all the features that I had originally envisioned for it, and I can now either direct all my efforts into marketing, or move onto other projects and let it grow organically & via small, incremening-ly more efficient, long term ads. I intend to do the latter and I'm therefore looking for a developer role. Although I'd love to continue working with Flutter, I'm always open to working with other frameworks - and learning always excites me.''';
@@ -84,18 +96,20 @@ class Globals {
     'Flutter Web',
     'iOS Development',
     'Android Development',
-    'BloC Library',
-    'BloC Pattern',
+    'BLoC Pattern',
+    'Provider',
+    'Freezed',
     'Firebase',
-    'Cloud Firestore',
     'Google Material Design',
     'iOS Design',
     'Google Cloud Platform',
-    'Firebase ML Kit',
+    'Google Maps',
+    'MapBox',
     'Adobe XD',
     'Adobe Photoshop',
     'Stripe',
-    'GitHub',
-    'WordPress'
+    'Git',
+    'VSCode',
+    'Android Studio'
   ];
 }

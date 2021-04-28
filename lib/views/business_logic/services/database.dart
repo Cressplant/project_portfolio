@@ -21,7 +21,7 @@ class Database {
         'summary':
             '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
-            '''As my first real software project, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. Working on it alone demanded that I gain experience within all aspects of planning, developing & launching an app with Flutter.\n\nThe project uses Firebase (Auth, Cloud Firestore & ML Kits), Stripe and the Bloc Pattern.''',
+            '''As my first real software project, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. Working on it alone demanded that I gain experience within all aspects of planning, developing & launching an app with Flutter.\n\nThe project uses Firebase (Auth, Cloud Firestore & ML Kits), Stripe and the BLoC Pattern.''',
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019', '020', '021'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
