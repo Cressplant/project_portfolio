@@ -60,7 +60,7 @@ class AboutScreen extends StatelessWidget {
                         title: 'Summary',
                       ),
                       mediumVerticalSpacer,
-                      Text(Globals.summary),
+                      Text(Globals.summary, style: TextStyle(height: 1.5),),
                       largeVerticalSpacer,
                       CustomTitle(
                         leading: Icon(Icons.person),

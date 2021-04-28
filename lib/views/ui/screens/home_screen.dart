@@ -135,7 +135,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.all(10.0),
                           child: ConstrainedBox(
                             constraints: BoxConstraints(maxWidth: _width * (_mobile ? 0.8 : 0.6)),
-                            child: Text(Globals.summary),
+                            child: Text(
+                              Globals.summary,
+                              style: TextStyle(height: 1.5),
+                            ),
                           ),
                         ),
                       ),

@@ -78,7 +78,7 @@ FutureOr<Uint8List> generateCV() async {
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_summaryTitleImage),
             mediumVerticalSpacer,
-            Text(Globals.summary),
+            Text(Globals.summary, style: TextStyle(height: 1.5)),
           ])),
 
           // if (_profilePicture != null)
