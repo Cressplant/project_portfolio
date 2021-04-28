@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:project_portfolio/views/business_logic/models/user_preferences.dart';
-import 'package:project_portfolio/views/business_logic/utils/enums.dart';
-import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
+import 'package:project_portfolio/business_logic/models/user_preferences.dart';
+import 'package:project_portfolio/business_logic/utils/enums.dart';
+import 'package:project_portfolio/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/utils/floating_modal.dart';
 import 'package:provider/provider.dart';
 

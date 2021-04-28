@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/utils/colors.dart';
-import 'package:project_portfolio/views/business_logic/utils/tags.dart';
+import 'package:project_portfolio/business_logic/utils/colors.dart';
+import 'package:project_portfolio/business_logic/utils/tags.dart';
 
 class TagChip extends StatelessWidget {
   final Tag? tag;

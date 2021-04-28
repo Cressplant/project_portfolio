@@ -1,6 +1,6 @@
 
 
-import 'package:project_portfolio/views/business_logic/utils/toast.dart';
+import 'package:project_portfolio/business_logic/utils/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> openLink (String? _url) async {

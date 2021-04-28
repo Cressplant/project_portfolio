@@ -3,11 +3,9 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
-import 'package:project_portfolio/views/business_logic/models/job.dart';
-import 'package:project_portfolio/views/business_logic/utils/cv.dart';
-import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
-import 'package:project_portfolio/views/business_logic/utils/download.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/utils/cv.dart';
+import 'package:project_portfolio/business_logic/utils/decoration.dart';
+import 'package:project_portfolio/business_logic/utils/download.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 
 class CVPDFScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
+import 'package:project_portfolio/business_logic/utils/formatting.dart';
 
 class Themes {
   static ThemeData getTheme({required bool darkMode}) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/models/job.dart';
-import 'package:project_portfolio/views/business_logic/utils/date_formats.dart';
-import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
+import 'package:project_portfolio/business_logic/models/job.dart';
+import 'package:project_portfolio/business_logic/utils/date_formats.dart';
+import 'package:project_portfolio/business_logic/utils/spacers.dart';
 
 class JobTile extends StatelessWidget {
   final Job job;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:project_portfolio/views/business_logic/models/project.dart';
-import 'package:project_portfolio/views/business_logic/utils/decoration.dart';
-import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
+import 'package:project_portfolio/business_logic/models/project.dart';
+import 'package:project_portfolio/business_logic/utils/decoration.dart';
+import 'package:project_portfolio/business_logic/utils/spacers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class GitHubCard extends StatelessWidget {

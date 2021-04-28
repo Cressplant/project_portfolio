@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/utils/tags.dart';
+import 'package:project_portfolio/business_logic/utils/tags.dart';
 import 'package:project_portfolio/views/utils/tag_chip.dart';
 
 class TagWrap extends StatelessWidget {

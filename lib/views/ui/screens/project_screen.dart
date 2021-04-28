@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:project_portfolio/views/business_logic/models/project.dart';
-import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
-import 'package:project_portfolio/views/business_logic/utils/launch.dart';
-import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
+import 'package:project_portfolio/business_logic/models/project.dart';
+import 'package:project_portfolio/business_logic/utils/formatting.dart';
+import 'package:project_portfolio/business_logic/utils/launch.dart';
+import 'package:project_portfolio/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/utils/contact_actions.dart';
 import 'package:project_portfolio/views/utils/contact_options_popup_menu.dart';
 import 'package:project_portfolio/views/utils/custom_button.dart';

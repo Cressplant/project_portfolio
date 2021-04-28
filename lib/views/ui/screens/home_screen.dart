@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:project_portfolio/views/business_logic/models/project.dart';
-import 'package:project_portfolio/views/business_logic/models/user_preferences.dart';
-import 'package:project_portfolio/views/business_logic/services/database.dart';
-import 'package:project_portfolio/views/business_logic/utils/enums.dart';
-import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/models/project.dart';
+import 'package:project_portfolio/business_logic/models/user_preferences.dart';
+import 'package:project_portfolio/business_logic/services/database.dart';
+import 'package:project_portfolio/business_logic/utils/enums.dart';
+import 'package:project_portfolio/business_logic/utils/formatting.dart';
+import 'package:project_portfolio/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/ui/overlays/handshake_overlay.dart';
 import 'package:project_portfolio/views/utils/contact_actions.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
@@ -132,10 +132,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           )),
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
                           child: ConstrainedBox(
                             constraints: BoxConstraints(maxWidth: _width * (_mobile ? 0.8 : 0.6)),
-                            child: Text(Globals.summary),
+                            child: Text(
+                              Globals.summary,
+                              style: TextStyle(height: 1.5),
+                            ),
                           ),
                         ),
                       ),

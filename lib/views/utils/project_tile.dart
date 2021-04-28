@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/models/project.dart';
-import 'package:project_portfolio/views/business_logic/utils/formatting.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/models/project.dart';
+import 'package:project_portfolio/business_logic/utils/formatting.dart';
+import 'package:project_portfolio/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/ui/screens/project_screen.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/tag_wrap.dart';

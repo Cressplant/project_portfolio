@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
-import 'package:project_portfolio/views/business_logic/utils/launch.dart';
+import 'package:project_portfolio/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/utils/launch.dart';
 
 List<Widget> contactActions = [
   Hero(

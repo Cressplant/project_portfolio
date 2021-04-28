@@ -3,8 +3,8 @@ import 'dart:typed_data';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:printing/printing.dart';
-import 'package:project_portfolio/views/business_logic/utils/date_formats.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/utils/date_formats.dart';
+import 'package:project_portfolio/business_logic/utils/globals.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 FutureOr<Uint8List> generateCV() async {
@@ -38,12 +38,7 @@ FutureOr<Uint8List> generateCV() async {
     _getAccomplishmentsTitleImage()
   ]);
 
-  ThemeData _themeData = ThemeData.withFont(base: _bodyFont
-      // bold: Font.ttf(await rootBundle.load("fonts/OpenSans-Bold.ttf")),
-      );
-
-  // TextStyle _caption = TextStyle(); //!
-  // TextStyle _bodyText1 = TextStyle(); //!
+  ThemeData _themeData = ThemeData.withFont(base: _bodyFont);
 
   final Document _pdf = Document(theme: _themeData);
 
@@ -61,49 +56,26 @@ FutureOr<Uint8List> generateCV() async {
       build: (Context context) {
         return [
           mediumVerticalSpacer,
-
-          Text('Oscar Newman'),
-
-          Text('Flutter Developer'),
-
-          smallVerticalSpacer,
-
-          Text(Globals.phone),
-
-          Text(Globals.email),
-
+          Text('Oscar Newman', style: _themeData.header3),
+          Text('Flutter Developer', style: _themeData.header5),
           mediumVerticalSpacer,
-
+          Text(Globals.phone),
+          Text(Globals.email),
+          mediumVerticalSpacer,
           Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_summaryTitleImage),
             mediumVerticalSpacer,
-            Text(Globals.summary),
+            Text(Globals.summary, style: TextStyle(height: 1.5)),
           ])),
-
-          // if (_profilePicture != null)
-          //   Container(
-          //       margin: EdgeInsets.only(right: 20.0),
-          //       height: 70,
-          //       width: 70,
-          //       decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage.provider(image: _profilePicture, fit: BoxFit.cover))),
-
-// Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//
-
           mediumVerticalSpacer,
-
           Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_aboutTitleImage),
             mediumVerticalSpacer,
             Text(Globals.about),
           ])),
-
           largeVerticalSpacer,
-
           Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_skillsTitleImage),
@@ -116,9 +88,7 @@ FutureOr<Uint8List> generateCV() async {
                     child: Text(_skill))
             ]),
           ])),
-
           largeVerticalSpacer,
-
           Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_experienceTitleImage),
@@ -151,7 +121,6 @@ FutureOr<Uint8List> generateCV() async {
                         children: [
                           Text(
                             _job.company,
-                            // style: _caption
                           ),
                           // smallVerticalSpacer,
                           RichText(
@@ -187,9 +156,7 @@ FutureOr<Uint8List> generateCV() async {
                   ),
                 )),
           ])),
-
           largeVerticalSpacer,
-
           Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_educationTitleImage),
@@ -199,17 +166,13 @@ FutureOr<Uint8List> generateCV() async {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
                     'Bournemouth University',
-                    // style: _caption
                   ),
                   Text(
                     'BA (Hons) Business Studies with Enterprise, 2:1',
-                    // style: _bodyText1
                   ),
                 ])),
           ])),
-
           largeVerticalSpacer,
-
           Container(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _buildTitle(_accomplishmentsTitleImage),
@@ -245,74 +208,12 @@ FutureOr<Uint8List> generateCV() async {
                   ),
                 ])),
           ])),
-
           largeVerticalSpacer,
           largeVerticalSpacer
-          // ],
-          // ),
         ];
       }));
 
-  return _pdf.save(); // returns as Uint8List
+  return _pdf.save();
 }
 
-Widget _buildTitle(ImageProvider? _titleImage) {
-  return _titleImage != null ? Image(_titleImage, height: 50.0) : SizedBox();
-}
-
-// Widget buildCustomTitle({required Widget leading, required String title}) {
-//   // TextStyle _headline4 = TextStyle();
-
-//   return Container(
-//       // margin: EdgeInsets.all(10.0),
-//       decoration: BoxDecoration(
-//         color: PdfColors.white,
-//         borderRadius: BorderRadius.only(topRight: Radius.circular(13.0), topLeft: Radius.circular(13.0), bottomRight: Radius.circular(13.0)),
-//         border: Border.all(color: PdfColor.fromInt(0xff030058), width: 0.1),
-//         // boxShadow: [
-//         //   BoxShadow(
-//         //     color: PdfColor.fromInt(0xff030058),
-//         //     blurRadius: 10,
-//         //     spreadRadius: 20,
-//         //   ),
-//         // ],
-//         // boxShadow: [
-//         //   BoxShadow(
-//         //       // color: PdfColors.blue.shade900.withOpacity(0.2),
-//         //       // color: PdfColors.blue, //! Add Opacity or select whiter?
-//         //       // offset: PdfPoint(0.5, 0.5),
-//         //       blurRadius: 0.0,
-//         //       spreadRadius: 2.0)
-//         // ],
-//       ),
-//       padding: EdgeInsets.all(12.0),
-//       child: Row(
-//         mainAxisSize: MainAxisSize.min,
-//         children: [
-//           // Padding(padding: EdgeInsets.only(right: 10.0), child: leading), //! Reinstate
-//           Text(
-//             title,
-//             // style: _headline4,
-//           ),
-//         ],
-//       ));
-// }
-
-// Future<ImageProvider?> _getNetworkImage(String _image) async {
-//   var _response;
-//   ImageProvider? _imageProvider;
-
-//   try {
-//     _response = await http.get(Uri.file(_image));
-//   } on Exception catch (e) {
-//     print('Getting CV Profile Picture failed, returning: $e');
-//   }
-
-//   // print('Response to requesting companyLogo from HTTP: ' + _response.toString());
-
-//   if (_response != null) {
-//     _imageProvider = MemoryImage(_response.bodyBytes);
-//   }
-
-//   return _imageProvider;
-// }
+Widget _buildTitle(ImageProvider? _titleImage) => _titleImage != null ? Image(_titleImage, height: 50.0) : SizedBox();
