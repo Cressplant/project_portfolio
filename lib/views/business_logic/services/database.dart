@@ -16,6 +16,7 @@ class Database {
         'summary':
             '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
+
             '''As my first real software project, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. It was a huge learning experience, and I've become a much better and more rounded programmer than I was at the project\'s inception.\n\nThe app uses Firebase Authentication and Cloud Firestore, and uses Stripe as an integrated payment gateway. I initially used the Provider package, although as the app grew in complexity it required a more sophisticated state management tool, therefore it now uses the BloC pattern. I used the Freezed package to help generate the data model classes, I also experimented with Equatable combined with VS code plugins for these, but settled on Freezed for this project.''',
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019', '020', '021'],
         'primaryColor': 0xffff8c6a,
