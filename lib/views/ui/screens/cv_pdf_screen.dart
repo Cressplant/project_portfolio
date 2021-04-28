@@ -11,7 +11,7 @@ import 'package:project_portfolio/views/business_logic/utils/globals.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 
 class CVPDFScreen extends StatelessWidget {
-  static const String id = '/cv_pdf';
+  static const String id = '/cv';
 
   @override
   Widget build(BuildContext context) {
