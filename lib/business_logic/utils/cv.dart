@@ -3,8 +3,8 @@ import 'dart:typed_data';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:printing/printing.dart';
-import 'package:project_portfolio/views/business_logic/utils/date_formats.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/utils/date_formats.dart';
+import 'package:project_portfolio/business_logic/utils/globals.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 FutureOr<Uint8List> generateCV() async {

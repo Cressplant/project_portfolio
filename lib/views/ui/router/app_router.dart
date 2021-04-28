@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/models/project.dart';
+import 'package:project_portfolio/business_logic/models/project.dart';
 import 'package:project_portfolio/views/ui/screens/cv_pdf_screen.dart';
 import 'package:project_portfolio/views/ui/screens/error_screen.dart';
 import 'package:project_portfolio/views/ui/screens/navigation_screen.dart';

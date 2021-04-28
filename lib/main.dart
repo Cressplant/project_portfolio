@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/models/user_preferences.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
-import 'package:project_portfolio/views/business_logic/utils/themes.dart';
+import 'package:project_portfolio/business_logic/models/user_preferences.dart';
+import 'package:project_portfolio/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/utils/themes.dart';
 import 'package:project_portfolio/views/ui/router/app_router.dart';
 import 'package:project_portfolio/views/ui/screens/navigation_screen.dart';
 import 'package:provider/provider.dart';

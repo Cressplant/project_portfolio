@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/models/job.dart';
-import 'package:project_portfolio/views/business_logic/services/database.dart';
-import 'package:project_portfolio/views/business_logic/utils/globals.dart';
-import 'package:project_portfolio/views/business_logic/utils/spacers.dart';
+import 'package:project_portfolio/business_logic/models/job.dart';
+import 'package:project_portfolio/business_logic/services/database.dart';
+import 'package:project_portfolio/business_logic/utils/globals.dart';
+import 'package:project_portfolio/business_logic/utils/spacers.dart';
 import 'package:project_portfolio/views/ui/screens/cv_pdf_screen.dart';
 import 'package:project_portfolio/views/utils/custom_title.dart';
 import 'package:project_portfolio/views/utils/job_tile.dart';

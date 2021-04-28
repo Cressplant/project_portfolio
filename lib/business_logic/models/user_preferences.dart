@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/utils/enums.dart';
+import 'package:project_portfolio/business_logic/utils/enums.dart';
+
 
 class UserPreferences extends ChangeNotifier {
   bool _darkMode = false;

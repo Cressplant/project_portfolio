@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_portfolio/views/business_logic/models/job.dart';
-import 'package:project_portfolio/views/business_logic/utils/tags.dart';
+import 'package:project_portfolio/business_logic/models/job.dart';
+import 'package:project_portfolio/business_logic/utils/tags.dart';
 
 class Globals {
   static const String title = 'Project Portfolio';
