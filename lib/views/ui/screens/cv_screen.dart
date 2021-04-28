@@ -54,7 +54,6 @@ class AboutScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mediumVerticalSpacer,
                       CustomTitle(
                         leading: Icon(Icons.info),
                         title: 'Summary',

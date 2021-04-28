@@ -21,7 +21,7 @@ class Database {
         'summary':
             '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
-            '''As the real software project of my own, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. Working on it alone demanded that I gain experience within all aspects of planning, developing & launching an app with Flutter.\n\nThe project uses Firebase (Auth, Cloud Firestore & ML Kits), Stripe and the BLoC Pattern.''',
+            'As the first real software project of my own, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. Working on it alone demanded that I gain experience within all aspects of planning, developing & launching an app with Flutter.\n\nThe project uses Firebase (Auth, Cloud Firestore & ML Kits), Stripe and the BLoC Pattern.    ',
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019', '020', '021'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -38,7 +38,7 @@ class Database {
         'screenshots': ['assets/images/tree_worker_landing_page.JPG', 'assets/images/tree_worker_landing_page_old_man.JPG'],
         'summary': 'A Flutter web project serving as the landing page for the Tree Worker app.',
         'description':
-            '''Flutter web isn't the best suited framework for a landing page, when displaying a conventionally styled web page with lots of content its performance can be poor, even when using the HTML renderer, and its not optimal for SEO. The reason I chose to use Flutter Web was because I wanted more experience with Flutter on the web as a platform. That said, I have seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
+            '''I'm under no illusion that Flutter web is the best suited framework for a landing page, when displaying a conventionally styled web page with lots of content its performance can be poor, even when using the HTML renderer, and its not optimal for SEO.\n\nThe main reason I chose to use Flutter Web was because I wanted more experience with Flutter on the web as a platform. I have seen Flutter web improve considerably since I picked up the framework, so I hope performance will continue to improve quickly.''',
         'tags': ['000', '002', '003', '005', '009', '015', '019'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,

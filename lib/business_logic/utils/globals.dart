@@ -44,22 +44,19 @@ class Globals {
 
   static const String summary = '''
   Creative and passionate Flutter Developer.
-  
-  • Nearing two years commerical experience developing cross-platform apps with Flutter.
-  • Integrating REST APIs, Payment Gateways & Firebase.
-  • Focus on clean project architecture and consistency.
-  • Background in business ensuring: 
-      - I understand the value of time
-      - I'm providing real business value
-      - I avoid unprofitable development decisions
+  
+  • Nearing two years commercial experience developing cross-platform apps with Flutter.
+  • Integrating REST APIs, Payment Gateways & Firebase.
+  • Focus on clean project architecture & comprehensive testing.
+  • Background in business ensuring: 
+      - I understand the value of time
+      - I'm providing real business value
+      - I avoid unprofitable development decisions
   ''';
 
   static const String about =
-      '''I completed The App Brewery's Flutter Development Bootcamp in 2019, previously having worked primarily with JavaScript. I enjoyed the course, but the main source of my personal development with Flutter came from practical, project based learning, which is the way I learn best. I grew passionate working with Dart & Flutter and have closely followed its rapid development as a framework. I combined this passion & knowledge with the business accumen I had accumelated during my degree and started my first solo commerical Flutter project - Tree Worker. My background in business has since proven to be a huge asset, helping me consider the business value I'm adding as a programmer, and it often advises me away from jumping into rabbit holes that wouldn't be profitable to pursue.
-      
-      I started Tree Worker because I had some experience working with tree surgeons and I could see there was a gap in the market. I also knew that as the first commerical project that I was working on alone, I wasn't realistically going be able to compete within a saturated market. Although that suggests I like to aim low with my expectations, I partnered this sensible project with an assortment of widly unrealistic deadlines to compensate - while working part time as an online tutor & digital marketer. Working on it alone demanded that I gain experience within all aspects of designing, developing and launching a Flutter application, on iOS, Android & web.
-
-    Tree Worker is now in a stable and very functional state, having all the features that I had originally envisioned for it, and I can now either direct all my efforts into marketing, or move onto other projects and let it grow organically & via small, incremening-ly more efficient, long term ads. I intend to do the latter and I'm therefore looking for a developer role. Although I'd love to continue working with Flutter, I'm always open to working with other frameworks - and learning always excites me.''';
+      '''I completed The App Brewery's Flutter Development Bootcamp in 2019, previously having worked primarily with JavaScript. I enjoyed the course, but the main source of my personal development with Flutter came from practical, project based learning, which is the way I learn best. I grew passionate about working with Dart & Flutter, and have closely followed its rapid development as a framework. I combined this passion with the business acumen I had accumulated during my business degree and started my first solo commercial Flutter project - Tree Worker (an adaptation of the Arboriculture Industry's alias, 'Tree Work').\n\nI have a degree in Business Studies, graduating with a 2:1 in 2019. My background in business has since proven to be a huge asset, helping me consider the business value I'm adding as a programmer, and it often advises me away from development decisions that wouldn't be profitable to pursue.\n\nI started Tree Worker because I had some experience working with tree surgeons and I could see there was a gap in the market. I also knew that as the first commercial project that I was working on alone, I wasn't realistically going to be able to compete within a saturated market. The scope of the project was still considerable, and working on it alone demanded that I gain experience within all aspects of planning, developing and launching a Flutter application, on iOS, Android & web.\n\nI launched Tree Worker early this year and it's been growing steadily through incremening-ly more efficient, long term ads, I've released a series of updates to combat launch bugs & feedback, and it no longer requires my attention. The pressure of the project's timescale, combined with its scope, has refined me into a very capable Flutter Developer. I've gained experience with a catalogue of REST APIs, the BLoC Library and Firebase, and it has taught me the importance of clean project architecture and comprehensive testing.\n\nI'm now looking for a developer role. Although I'd love to continue working with Flutter and following its evolution as a framework, I'm always open to working with other frameworks - and learning always excites me.
+    ''';
 
   static final List<Job> jobList = [
     Job(
