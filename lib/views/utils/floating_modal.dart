@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:project_portfolio/views/utils/custom_card.dart';
 
 class FloatingModal extends StatelessWidget {
   final Widget? child;
@@ -16,7 +17,7 @@ class FloatingModal extends StatelessWidget {
           child: Material(
             color: backgroundColor,
             clipBehavior: Clip.antiAlias,
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.only(topRight: Radius.circular(15.0), topLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0)),
             child: child,
           ),
         ),
@@ -35,5 +36,6 @@ Future<T?> showFloatingModalBottomSheet<T>({
         builder: builder,
         containerWidget: (_, animation, child) => FloatingModal(
               child: child,
+              backgroundColor: Theme.of(context).cardColor
             ),
         expand: false);

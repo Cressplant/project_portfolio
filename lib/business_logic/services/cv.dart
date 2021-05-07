@@ -66,6 +66,7 @@ class CV {
             _mediumVerticalSpacer,
             Text(Globals.phone),
             Text(Globals.email),
+            Text(Globals.portfolio),
             _mediumVerticalSpacer,
             Container(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -99,7 +100,7 @@ class CV {
                   _buildTitle(_experienceTitleImage),
                   _mediumVerticalSpacer,
                   ...Globals.jobList.map((_job) => Padding(
-                    padding: const EdgeInsets.all(4.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -127,10 +128,8 @@ class CV {
                                 Text(
                                   _job.company,
                                 ),
-                                // smallVerticalSpacer,
                                 RichText(
                                   text: TextSpan(
-                                    // style: _bodyText1,
                                     children: <TextSpan>[
                                       TextSpan(text: _job.role),
                                       if (_job.contract.isNotEmpty) ...[
@@ -144,7 +143,6 @@ class CV {
                                 _smallVerticalSpacer,
                                 RichText(
                                   text: TextSpan(
-                                    // style: _caption,
                                     children: <TextSpan>[
                                       TextSpan(text: yMMMM.format(_job.start)),
                                       TextSpan(text: ' - '),
@@ -153,8 +151,7 @@ class CV {
                                   ),
                                 ),
 
-                                // smallVerticalSpacer,
-                                // Text(job.description, style: _theme.textTheme.caption)
+
                               ],
                             ))
                       ],
@@ -182,11 +179,6 @@ class CV {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   _buildTitle(_accomplishmentsTitleImage),
 
-                  // mediumVerticalSpacer,
-                  // ListTile(
-                  //   title: Text('Santander Entrepreneurship Initiative 2019', style: _caption),
-                  //   subtitle: Text('Winner & Funding Recipient', style: _bodyText1),
-                  // ),
                   Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

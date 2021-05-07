@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project_portfolio/business_logic/models/user_preferences.dart';
 import 'package:project_portfolio/business_logic/utils/enums.dart';
 import 'package:project_portfolio/business_logic/utils/spacers.dart';
+import 'package:project_portfolio/views/utils/custom_card.dart';
 import 'package:project_portfolio/views/utils/floating_modal.dart';
 import 'package:provider/provider.dart';
 
@@ -55,39 +56,32 @@ Future<HandShakeStatus> showHandShakeOverlay(BuildContext context) async {
                             child: Text(
                               '*Oscar has initiated a handshake*',
                               textAlign: TextAlign.center,
+                              style: _theme.textTheme.bodyText1
                             ),
                           ),
-                          Text(
-                            '$_handshakeAttempts Handshake Attempt${_handshakeAttempts > 1 ? 's' : ''}',
-                            style: _theme.textTheme.caption,
-                          ),
+                          // Text(
+                          //   '$_handshakeAttempts Handshake Attempt${_handshakeAttempts > 1 ? 's' : ''}',
+                          //   style: _theme.textTheme.caption,
+                          // ),
                           if (_handshakeAttempts > 1) ...[
                             mediumVerticalSpacer,
-                            Container(
+                            CustomCard(
                               color: _theme.primaryColorDark,
-                              padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+                              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
                               child: Row(
-                                children: [
-                                  Icon(FontAwesomeIcons.userInjured, color: Colors.white),
-                                  SizedBox(width: 20.0),
-                                  Expanded(
-                                    // child: Column(
-                                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                                    //   children: [
-                                    //     Text('Congrats!', style: _theme.textTheme.caption?.copyWith(color: Colors.white)),
-                                    //     // smallVerticalSpacer,
-                                    child: Text(
-                                      'You\'ve uncovered one of my valuable qualities - persistence.',
-                                      style: TextStyle(color: Colors.white),
-                                      // textAlign: TextAlign.center,
-                                      // style: _theme.textTheme.caption,
-                                    ),
-                                    //   ],
-                                    // ),
+                              children: [
+                                Icon(FontAwesomeIcons.userInjured, color: Colors.white),
+                                SizedBox(width: 20.0),
+                                Expanded(
+                                  child: Text(
+                                    'You\'ve uncovered one of my valuable qualities - persistence.',
+                                    style: TextStyle(color: Colors.white),
                                   ),
-                                ],
-                              ),
-                            ),
+                                  //   ],
+                                  // ),
+                                ),
+                              ],
+                            ),)
                           ]
                         ],
                       )),
