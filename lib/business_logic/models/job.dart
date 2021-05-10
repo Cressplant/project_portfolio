@@ -1,7 +1,8 @@
 
 class Job {
+  final String id;
   final String company;
-  final String? logo;
+  final String logo;
   final String role;
   final String contract;
   final String description;
@@ -11,6 +12,7 @@ class Job {
 
 
   Job({
+    required this.id,
     required this.company,
     required this.logo,
     required this.role,
@@ -26,6 +28,7 @@ class Job {
     // print('running Job.fromMap(Map<String, dynamic> $_map)');
 
     return Job(
+        id: _map['id'],
         company: _map['company'] ?? '',
         logo: _map['logo'],
         role: _map['role'] ?? '',

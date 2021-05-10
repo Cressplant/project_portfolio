@@ -13,23 +13,11 @@ class JobTile extends StatelessWidget {
     ThemeData _theme = Theme.of(context);
 
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 4.0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (job.logo != null)
-            Image.asset(job.logo ?? '', height: 80.0, width: 80.0)
-          else
-            Container(
-              width: 80.0,
-              height: 80.0,
-              child: Center(
-                child: Icon(
-                  Icons.work,
-                  size: 36.0,
-                ),
-              ),
-            ),
+          Image.asset(job.logo, height: 80.0, width: 80.0),
           SizedBox(
             width: 15.0,
           ),
@@ -66,8 +54,9 @@ class JobTile extends StatelessWidget {
                 ),
               ),
 
-              // smallVerticalSpacer,
-              // Text(job.description, style: _theme.textTheme.caption)
+              smallVerticalSpacer,
+              Text(job.description)
+
             ],
           ))
         ],

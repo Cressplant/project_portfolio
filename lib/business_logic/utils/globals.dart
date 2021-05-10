@@ -53,33 +53,36 @@ class Globals {
   ''';
 
   static const String about =
-      '''I completed the The App Brewery's Flutter Development Bootcamp 2019 and have been working with Flutter effectively full-time since, closely following its rapid development as a framework. I'm passionate about working Dart & Flutter, and am proactive in improving as a developer and adapting to the fast pace of change in the industry.\n\nI have a degree in business, which I chose as it's a broad subject, and at the time I hadn't yet found my 'calling'. Business introduced me to many potential career paths, all of which I didn't feel suited to until I started working with software.\n\nMy background in business and the acumen that I've accumulated enables me to understand the real value I'm adding as a developer, ensuring I'm valuable and efficient, and it often advises me away from development decisions that wouldn't be profitable to pursue.\n\nI have experience within all aspects of planning, developing and launching large scale projects with Flutter. I launched Tree Worker in January 2021, it provides quotation, invoicing and team management services to Arborists and Arboriculture Companies. The scope of the project was considerable and I developed it entirely alone, creating an incredibly valuable learning experience through necessity. Tree Worker is available on iOS, Android and web, it uses the BLoC library, Firebase (Auth, Cloud Firestore, ML Kit), Stripe, Google Maps and a catalogue of other REST APIs. I tend to be methodical and organised anyway, but working on a project of its scale has reinforced for me the importance of clean project architecture and comprehensive testing.\n\nI'd love to continue working with Flutter and following its evolution as a framework, but I'm also always open to working with other frameworks - and learning excites me.''';
+      '''I completed the The App Brewery's Flutter Development Bootcamp 2019 and have been working with Flutter effectively full-time since, closely following its rapid development as a framework. I'm passionate about working with Dart & Flutter, and am proactive in improving as a developer and adapting to the fast pace of change in the industry.\n\nI have a degree in business, which I chose as it's a broad subject, and at the time I hadn't yet found my 'calling'. Business introduced me to many potential career paths, all of which I didn't feel suited to until I started working with software.\n\nMy background in business and the acumen that I've accumulated enables me to understand the real value I'm adding as a developer, ensuring I'm valuable and efficient, and it often advises me away from development decisions that wouldn't be profitable to pursue.\n\nI have experience within all aspects of planning, developing and launching large scale projects with Flutter. I launched Tree Worker in January 2021, it provides quotation, invoicing and team management services to Arborists and Arboriculture Companies. The scope of the project was considerable and I developed it entirely alone, creating an incredibly valuable learning experience through necessity. Tree Worker is available on iOS, Android and web, it uses the BLoC library, Firebase (Auth, Cloud Firestore, ML Kit), Stripe, Google Maps and a catalogue of other REST APIs. I tend to be methodical and organised anyway, but working on a project of its scale has reinforced for me the importance of clean project architecture and comprehensive testing.\n\nI'd love to continue working with Flutter and following its evolution as a framework, but I'm also always open to working with other frameworks - and learning excites me.''';
 
   static final List<Job> jobList = [
     Job(
+      id: '1',
         company: 'Tree Worker Software LTD',
         logo: 'assets/images/tree_worker_logo.png',
         role: 'Flutter Developer & Director',
         contract: '',
-        description: '', //!
+        description: '''I launched Tree Worker in January 2021, it provides quotation, invoicing and team management services to Arborists and Arboriculture Companies. The scope of the project was considerable and I developed it entirely alone, creating an incredibly valuable learning experience through necessity. Tree Worker is available on iOS, Android and web, it uses the BLoC library, Firebase (Auth, Cloud Firestore, ML Kit), Stripe, Google Maps and a catalogue of other REST APIs. I tend to be methodical and organised anyway, but working on a project of its scale has reinforced for me the importance of clean project architecture and comprehensive testing.''',
         start: DateTime(2019, 10),
         end: DateTime.now(),
         currentlyWorkingHere: true),
     Job(
+        id: '2',
         company: 'WEA',
         logo: 'assets/images/wea_logo.png',
         role: 'Marketing Coordinator',
         contract: 'Part Time',
-        description: '', //!
+        description: '''As Tree Worker was a big project I worked part-time to sustain myself during its development. Working in Digital Marketing was ideal as it utilised skills I had already gained during my degree & first business. My responsibilities include managing the WEA South West social media pages, but I also volunteered my web development experience to redesign the WEA South West's landing page.''',
         start: DateTime(2020, 3),
         end: DateTime.now(),
         currentlyWorkingHere: true),
     Job(
+        id: '3',
         company: 'Share with a Bear LTD',
         logo: 'assets/images/share_with_a_bear_logo.png',
         role: 'Director',
         contract: '',
-        description: '', //!
+        description: '''In 2016 I started a children’s blackout blind business which I ran alongside my university studies. As I was responsible for all four functional areas of the business I was forced to develop a diverse range of skills. This has been both a blessing and a curse, it has made me very adaptable but has restricted me from focusing on the areas that I am passionate about - namely web & app design. Designing, maintaining and polishing the business' digital presence was the most enjoyable aspect of running the business. The business now generates a small passive income and operates without me.''',
         start: DateTime(2016, 10),
         end: DateTime(2019, 12),
         currentlyWorkingHere: false)
@@ -102,6 +105,7 @@ class Globals {
     'iOS Design',
     'Google Cloud Platform',
     'Google Maps',
+    'Leaflet',
     'MapBox',
     'Adobe XD',
     'Adobe Photoshop',

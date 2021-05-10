@@ -21,7 +21,7 @@ class Database {
         'summary':
             '''Invoicing & team management software that has been designed exclusively for arborists and arboricultural companies.\n\nTree Worker stands apart from other invoicing & management software as it also generates all the necessary documentation that arboricultural companies need, including Tree Protection Orders, Risk Assessments & Method Statements.''',
         'description':
-            'As the first real software project of my own, and quite a big one as it turned out, the project structure, data structure and UI design changed drastically during its development. Working on it alone demanded that I gain experience within all aspects of planning, developing & launching an app with Flutter.\n\nThe project uses Firebase (Auth, Cloud Firestore & ML Kits), Stripe and the BLoC Pattern.    ',
+            'The scope of the project was considerable and I developed it entirely alone, creating an incredibly valuable learning experience through necessity. Tree Worker is available on iOS, Android and web, it uses the BLoC library, Firebase (Auth, Cloud Firestore, ML Kit), Stripe, Google Maps and a catalogue of other REST APIs. I tend to be methodical and organised anyway, but working on a project of its scale has reinforced for me the importance of clean project architecture and comprehensive testing.',
         'tags': ['000', '002', '003', '005', '007', '008', '009', '013', '014', '015', '017', '019', '020', '021'],
         'primaryColor': 0xffff8c6a,
         'accentColor': 0xff5b876c,
@@ -90,8 +90,8 @@ class Database {
         'coverImage': 'assets/images/project_portfolio_cover.JPG',
         'coverBackgroundColor': 0xFFFFFFFF,
         'screenshots': [],
-        'summary': 'Perhaps one of the best Flutter portfolios you\'ve seen... today?',
-        'description': '''As the framework I'm strongest with it made sense to make my portfolio with Flutter. It uses Provider, and a PDF creation library to generate my CV as a downloadable PDF. The database is just a hard coded map/json object as I didn't think it necessary to setup a dedicated server/cloud project.''',
+        // 'summary': '',
+        'description': '''The project uses Provider, and a PDF creation library to generate my CV as a downloadable PDF. The database is a hard coded map/json object as it seemed somewhat overkill to set up a dedicated server/cloud project.''',
         'tags': ['000', '002', '005', '006', '009', '010', '015'],
         'primaryColor': 0xff2196F3,
         'accentColor': 0xffffffff,
