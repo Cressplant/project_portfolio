@@ -17,19 +17,7 @@ class JobTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (job.logo != null)
-            Image.asset(job.logo ?? '', height: 80.0, width: 80.0)
-          else
-            Container(
-              width: 80.0,
-              height: 80.0,
-              child: Center(
-                child: Icon(
-                  Icons.work,
-                  size: 36.0,
-                ),
-              ),
-            ),
+          Image.asset(job.logo, height: 80.0, width: 80.0),
           SizedBox(
             width: 15.0,
           ),

@@ -57,6 +57,7 @@ class Globals {
 
   static final List<Job> jobList = [
     Job(
+      id: '1',
         company: 'Tree Worker Software LTD',
         logo: 'assets/images/tree_worker_logo.png',
         role: 'Flutter Developer & Director',
@@ -66,6 +67,7 @@ class Globals {
         end: DateTime.now(),
         currentlyWorkingHere: true),
     Job(
+        id: '2',
         company: 'WEA',
         logo: 'assets/images/wea_logo.png',
         role: 'Marketing Coordinator',
@@ -75,6 +77,7 @@ class Globals {
         end: DateTime.now(),
         currentlyWorkingHere: true),
     Job(
+        id: '3',
         company: 'Share with a Bear LTD',
         logo: 'assets/images/share_with_a_bear_logo.png',
         role: 'Director',

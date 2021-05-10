@@ -1,9 +1,12 @@
 
 import 'dart:async';
 import 'dart:typed_data';
+// ignore: unused_import
+import 'package:flutter/material.dart' as material; // to prevent accidental import
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:printing/printing.dart';
+import 'package:project_portfolio/business_logic/models/job.dart';
 import 'package:project_portfolio/business_logic/utils/date_formats.dart';
 import 'package:project_portfolio/business_logic/utils/globals.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -24,6 +27,7 @@ class CV {
     ImageProvider? _experienceTitleImage;
     ImageProvider? _educationTitleImage;
     ImageProvider? _accomplishmentsTitleImage;
+    Map<String, ImageProvider> _jobLogos = {}; //* FORMAT: { JOBID : IMAGEPROVIDER }
 
     Future<void> _getBodyFont() async => _bodyFont = Font.ttf(await rootBundle.load("assets/fonts/Roboto-Light.ttf"));
     Future<void> _getSummaryTitleImage() async => _summaryTitleImage = await imageFromAssetBundle('assets/cv_assets/summary_title.jpg');
@@ -32,6 +36,7 @@ class CV {
     Future<void> _getExperienceTitleImage() async => _experienceTitleImage = await imageFromAssetBundle('assets/cv_assets/experience_title.jpg');
     Future<void> _getEducationTitleImage() async => _educationTitleImage = await imageFromAssetBundle('assets/cv_assets/education_title.jpg');
     Future<void> _getAccomplishmentsTitleImage() async => _accomplishmentsTitleImage = await imageFromAssetBundle('assets/cv_assets/accomplishments_title.jpg');
+    Future<void> _getJobLogo(Job _job) async => _jobLogos[_job.id] = await imageFromAssetBundle(_job.logo);
 
     await Future.wait([
       _getBodyFont(),
@@ -40,7 +45,8 @@ class CV {
       _getSkillsTitleImage(),
       _getExperienceTitleImage(),
       _getEducationTitleImage(),
-      _getAccomplishmentsTitleImage()
+      _getAccomplishmentsTitleImage(),
+      ...Globals.jobList.map((_job) =>_getJobLogo(_job)).toList()
     ]);
 
     ThemeData _themeData = ThemeData.withFont(base: _bodyFont);
@@ -99,129 +105,69 @@ class CV {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   _buildTitle(_experienceTitleImage),
                   _mediumVerticalSpacer,
-                  ...Globals.jobList.map((_job) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        // if (_job.logo != null)
-                        //   Image.asset(_job.logo ?? '', height: 80.0, width: 80.0) // TODO: Reinstate
-                        // else
-                        // Container(
-                        //   width: 80.0,
-                        //   height: 80.0,
-                        //   child: Center(
-                        //     child: Icon(
-                        //       IconData(0xe886), //* work
-                        //       size: 36.0,
-                        //     ),
-                        //   ),
-                        // ),
+                  ...Globals.jobList.map((_job){
 
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 4.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              if (job.logo != null)
-                                Image.asset(job.logo ?? '', height: 80.0, width: 80.0)
-                              else
-                                Container(
-                                  width: 80.0,
-                                  height: 80.0,
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.work,
-                                      size: 36.0,
-                                    ),
-                                  ),
-                                ),
+                    ImageProvider? _logo = _jobLogos[_job.id];
+
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 4.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+
+                          if (_logo != null)
+                            ...[
+                              Image(_logo, height: 55.0),
                               SizedBox(
                                 width: 15.0,
                               ),
-                              Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(job.company, style: _theme.textTheme.caption),
-                                      // smallVerticalSpacer,
-                                      RichText(
-                                        text: TextSpan(
-                                          style: _theme.textTheme.bodyText1,
-                                          children: <TextSpan>[
-                                            TextSpan(text: job.role),
-                                            if (job.contract.isNotEmpty) ...[
-                                              TextSpan(text: ' - '),
-                                              TextSpan(text: job.contract),
-                                            ]
-                                          ],
-                                        ),
-                                      ),
-
-                                      smallVerticalSpacer,
-                                      RichText(
-                                        text: TextSpan(
-                                          style: _theme.textTheme.caption,
-                                          children: <TextSpan>[
-                                            TextSpan(text: yMMMM.format(job.start)),
-                                            TextSpan(text: ' - '),
-                                            // TextSpan(text: job.currentlyWorkingHere ? 'Present' : ddMMyy.format(job.end ?? DateTime.now())),
-                                            TextSpan(text: job.currentlyWorkingHere ? 'Present' : yMMMM.format(job.end ?? DateTime.now())),
-                                          ],
-                                        ),
-                                      ),
-
-                                      smallVerticalSpacer,
-                                      Text(job.description)
-
-                                    ],
-                                  ))
                             ],
-                          ),
-                        ),
+                          Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(_job.company,
+                                    // style: _theme.textTheme.caption
+                                  ),
+                                  // smallVerticalSpacer,
+                                  RichText(
+                                    text: TextSpan(
+                                      // style: _theme.textTheme.bodyText1,
+                                      children: <TextSpan>[
+                                        TextSpan(text: _job.role),
+                                        if (_job.contract.isNotEmpty) ...[
+                                          TextSpan(text: ' - '),
+                                          TextSpan(text: _job.contract),
+                                        ]
+                                      ],
+                                    ),
+                                  ),
 
-
-                        SizedBox(
-                          width: 15.0,
-                        ),
-                        Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  _job.company,
-                                ),
-                                RichText(
-                                  text: TextSpan(
-                                    children: <TextSpan>[
-                                      TextSpan(text: _job.role),
-                                      if (_job.contract.isNotEmpty) ...[
+                                  _smallVerticalSpacer,
+                                  RichText(
+                                    text: TextSpan(
+                                      // style: _theme.textTheme.caption,
+                                      children: <TextSpan>[
+                                        TextSpan(text: yMMMM.format(_job.start)),
                                         TextSpan(text: ' - '),
-                                        TextSpan(text: _job.contract),
-                                      ]
-                                    ],
+                                        // TextSpan(text: job.currentlyWorkingHere ? 'Present' : ddMMyy.format(job.end ?? DateTime.now())),
+                                        TextSpan(text: _job.currentlyWorkingHere ? 'Present' : yMMMM.format(_job.end ?? DateTime.now())),
+                                      ],
+                                    ),
                                   ),
-                                ),
 
-                                _smallVerticalSpacer,
-                                RichText(
-                                  text: TextSpan(
-                                    children: <TextSpan>[
-                                      TextSpan(text: yMMMM.format(_job.start)),
-                                      TextSpan(text: ' - '),
-                                      TextSpan(text: _job.currentlyWorkingHere ? 'Present' : yMMMM.format(_job.end ?? DateTime.now())),
-                                    ],
-                                  ),
-                                ),
+                                  _smallVerticalSpacer,
+                                  Text(_job.description)
 
+                                ],
+                              ))
 
-                              ],
-                            ))
-                      ],
-                    ),
-                  )),
+                        ],
+                      ),
+                    );
+
+                  }),
                 ])),
             _largeVerticalSpacer,
             Container(

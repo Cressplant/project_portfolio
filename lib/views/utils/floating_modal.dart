@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:project_portfolio/views/utils/custom_card.dart';
 
 class FloatingModal extends StatelessWidget {
   final Widget? child;
