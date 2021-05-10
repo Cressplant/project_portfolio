@@ -61,10 +61,14 @@ class ProjectScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              CustomTitle(title: 'Summary'),
-                              mediumVerticalSpacer,
-                              Text(_project.summary),
-                              mediumVerticalSpacer,
+
+                              if (_project.summary.isNotEmpty) ...[
+                                CustomTitle(title: 'Summary'),
+                                mediumVerticalSpacer,
+                                Text(_project.summary),
+                                mediumVerticalSpacer,
+                              ],
+
                               if (_project.description.isNotEmpty) ...[
                                 CustomTitle(title: 'About'),
                                 mediumVerticalSpacer,

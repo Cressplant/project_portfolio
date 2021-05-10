@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       children: [
                                         Text(
                                           'Created with Flutter',
-                                          style: _theme.textTheme.caption,
+                                          style: _theme.textTheme.caption?.copyWith(color: _theme.primaryColorDark)
                                         ),
                                         SizedBox(width: 5.0),
                                         FlutterLogo(
